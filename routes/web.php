@@ -87,7 +87,7 @@ Route::middleware(['kepala-cabang'])->group(function(){
 
 Route::middleware(['administrator'])->group(function(){
   Route::prefix('administrator')->group(function(){
-    Route::get('/dashboard','AdministratorController@karyawan');
+    Route::get('/dashboard','DashboardController@administrator');
     Route::get('/karyawan','AdministratorController@karyawan');
     Route::get('/karyawan/get_all','KaryawanController@get_all');
     Route::get('/karyawan/create','KaryawanController@create');
@@ -96,6 +96,45 @@ Route::middleware(['administrator'])->group(function(){
     Route::put('/karyawan/update/{id}','KaryawanController@update');
     Route::delete('/karyawan/delete/{id}','KaryawanController@delete');
 
-  
+    Route::get('/bidang','AdministratorController@bidang');
+    Route::get('/bidang/get_all','BidangController@get_all');
+    Route::get('/bidang/create','BidangController@create');
+    Route::post('/bidang/create','BidangController@save');
+    Route::get('/bidang/edit/{id}','BidangController@edit');
+    Route::put('/bidang/update/{id}','BidangController@update');
+    Route::delete('/bidang/delete/{id}','BidangController@delete');
+
+    Route::get('/cabang','AdministratorController@cabang');
+    Route::get('/cabang/get_all','CabangController@get_all');
+    Route::get('/cabang/create','CabangController@create');
+    Route::post('/cabang/create','CabangController@save');
+    Route::get('/cabang/edit/{id}','CabangController@edit');
+    Route::put('/cabang/update/{id}','CabangController@update');
+    Route::delete('/cabang/delete/{id}','CabangController@delete');
+
+    Route::get('/kcu','AdministratorController@kcu');
+    Route::get('/kcu/get_all','KcuController@get_all');
+    Route::get('/kcu/create','KcuController@create');
+    Route::post('/kcu/create','KcuController@save');
+    Route::get('/kcu/edit/{id}','KcuController@edit');
+    Route::put('/kcu/update/{id}','KcuController@update');
+    Route::delete('/kcu/delete/{id}','KcuController@delete');
+
+    Route::get('/seksi','AdministratorController@seksi');
+    Route::get('/seksi/get_all','SeksiController@get_all');
+    Route::get('/seksi/create','SeksiController@create');
+    Route::post('/seksi/create','SeksiController@save');
+    Route::get('/seksi/edit/{id}','SeksiController@edit');
+    Route::put('/seksi/update/{id}','SeksiController@update');
+    Route::delete('/seksi/delete/{id}','SeksiController@delete');
+    Route::get('/seksi/get-by-bidang/{id}','SeksiController@get_by_bidang');
+
+    Route::get('global','AdministratorController@global');
+    Route::get('global/get_all','GlobalController@get_all');
+    Route::get('global/create','GlobalController@create');
+    Route::post('global/create','GlobalController@save');
+    Route::get('global/edit/{id}','GlobalController@edit');
+    Route::put('global/update/{id}','GlobalController@update');
+    Route::delete('global/delete/{id}','GlobalController@delete');
   });
 });

@@ -44,6 +44,7 @@ class KepalaSeksiController extends Controller
     $sirkulasi = Sirkulasi::where('task_header_id',$id)->orderBy('id','desc')->first();
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
     $slot_aktif = $sirkulasi->slot_id;
+    $data['last_sirkulasi'] = $sirkulasi;
     // check apakah kepala seksi berhak untuk edit atau tidak
     if($slot_aktif != $user->employee->position_id){
       return redirect('kepala-seksi/dashboard');

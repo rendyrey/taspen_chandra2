@@ -40,6 +40,7 @@ class KepalaBidangController extends Controller
     $bidang_id = Employee::where('id',$user->employee->id)->first()->bidang_id;
     $data['task_header'] = TaskHeader::findOrFail($id);
     $sirkulasi = Sirkulasi::where('task_header_id',$id)->orderBy('id','desc')->first();
+    $data['last_sirkulasi'] = $sirkulasi;
     $slot_aktif = $sirkulasi->slot_id;
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
     // check apakah kepala seksi berhak untuk edit atau tidak

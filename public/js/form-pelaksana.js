@@ -1,4 +1,8 @@
 $(document).ready(function(){
+      $.validator.addMethod('filesize', function (value, element, param) {
+        return this.optional(element) || (element.files[0].size <= param)
+    }, 'File size must be less than {0} bytes');
+
     $('.form-validate-jquery').validate({
         ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
         errorClass: 'validation-invalid-label',
@@ -57,7 +61,10 @@ $(document).ready(function(){
             status_id:{
               required:true
             },
-            
+            'file[]':{
+              filesize:2000000
+            }
+
 
 
             // employee_name:{

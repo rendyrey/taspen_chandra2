@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
+	<title>SIMKERJA - TASPEN</title>
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -62,11 +62,11 @@
 			<!-- Content area -->
 			<div class="content d-flex justify-content-center align-items-center">
 				<div class="row">
-				
+
 				</div>
 				<!-- Login form -->
 				<form class="login-form" action="{{route('login')}}" method="POST">
-						
+
 						@if(Session::has('message'))
 						<div class="alert alert-{{Session::get('panel')}} border-0 alert-dismissible">
 						  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -100,7 +100,7 @@
 
 							<div class="form-group form-group-feedback form-group-feedback-left">
 								<input type="password" class="form-control" placeholder="Password" name="password">
-								<div class="form-control-feedback"> 
+								<div class="form-control-feedback">
 									<i class="icon-lock2 text-muted"></i>
 								</div>
 							</div>
@@ -116,7 +116,7 @@
 					</div>
 				</form>
 				<!-- /login form -->
-                
+
 			</div>
 			<!-- /content area -->
 		</div>

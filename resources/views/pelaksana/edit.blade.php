@@ -3,12 +3,14 @@
   <script src="{{url('limitless/global_assets/js/plugins/forms/selects/select2.min.js')}}"></script>
   <script src="{{url('limitless/global_assets/js/plugins/forms/styling/uniform.min.js')}}"></script>
 
-
+  <script src="{{url('limitless/global_assets/js/plugins/ui/moment/moment.min.js')}}"></script>
   <script src="{{url('limitless/global_assets/js/plugins/pickers/anytime.min.js')}}"></script>
 
   <script src="{{url('limitless/global_assets/js/plugins/pickers/pickadate/picker.js')}}"></script>
   <script src="{{url('limitless/global_assets/js/plugins/pickers/pickadate/picker.time.js')}}"></script>
   <script src="{{url('limitless/global_assets/js/plugins/pickers/pickadate/picker.date.js')}}"></script>
+
+  <script src="{{url('limitless/global_assets/js/plugins/pickers/daterangepicker.js')}}"></script>
 @endsection
 @section('content')
   <!-- Page header -->
@@ -93,13 +95,19 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Tanggal Pekerjaan</label>
             <div class="col-lg-9">
-              <div class="input-group">
+              {{-- <div class="input-group">
                 <span class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-calendar5"></i></span>
                 </span>
-                {{-- {{Form::text('date_task','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="date_task"'])}} --}}
+                {{Form::text('date_task','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="date_task"'])}}
                 <input type="text" name="date_task" class="form-control pickadate" placeholder="Click to pick a date">
-              </div>
+              </div> --}}
+              <div class="input-group">
+										<span class="input-group-prepend">
+											<span class="input-group-text"><i class="icon-calendar22"></i></span>
+										</span>
+										<input type="text" name="date_task" class="form-control daterange-single" v-bind:value="date_task">
+									</div>
             </div>
           </div>
           <div class="form-group row">
@@ -185,27 +193,7 @@
               </div>
             </div>
 
-             <!-- Sirkulasi -->
-            <div class="form-group row">
-              <table class="table datatable-ajax">
-              <thead>
-                <th>Slot</th>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Keterangan</th>
-              </thead>
-              <tbody>
-                @foreach($sirkulasi as $key=>$value)
-                  <tr>
-                    <td>{{$value->slot->slot}}</td>
-                    <td>{{$value->user->email}}</td>
-                    <td>{{$value->status}}</td>
-                    <td>{{$value->remark}}</td>
-                  </tr>
-                @endforeach
-              </tbody>
-              </table>
-            </div>
+
 
             <div class="form-group row">
               <label class="col-lg-3 col-form-label">Keterangan</label>
@@ -232,7 +220,27 @@
               <button id="tambah" v-bind:value="idx_detail" type="button" class="btn btn-sm bg-success-400 btn-float rounded-round" title="Tambah detail pekerjaan" v-on:click="tambah_detail()"><i class="fa fa-plus"></i></button>
             </div>
           </div>
-          {{-- <hr> --}}
+          <!-- Sirkulasi -->
+         <div class="form-group row">
+           <table class="table datatable-ajax">
+           <thead>
+             <th>Slot</th>
+             <th>Email</th>
+             <th>Status</th>
+             <th>Keterangan</th>
+           </thead>
+           <tbody>
+             @foreach($sirkulasi as $key=>$value)
+               <tr>
+                 <td>{{$value->slot->slot}}</td>
+                 <td>{{$value->user->email}}</td>
+                 <td>{{$value->status}}</td>
+                 <td>{{$value->remark}}</td>
+               </tr>
+             @endforeach
+           </tbody>
+           </table>
+         </div>
           <div class="form-group row">
             <div class="col-lg-3 offset-lg-9 text-right">
               <button type="submit" class="btn btn-primary">Submit form <i class="icon-paperplane ml-2"></i></button>
@@ -279,13 +287,20 @@
       });
     });
 
-    $('.pickadate').pickadate({
-      monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-      weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-      weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
-      clear: 'effacer',
-      formatSubmit: 'yyyy-mm-dd',
-      format: 'dddd, dd mmmm, yyyy'
+    // $('.pickadate').pickadate({
+    //   monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+    //   weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+    //   weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
+    //   clear: 'effacer',
+    //   formatSubmit: 'yyyy-mm-dd',
+    //   format: 'dddd, dd mmmm, yyyy'
+    // });
+
+    $('.daterange-single').daterangepicker({
+        singleDatePicker: true,
+        locale: { format: "YYYY-MM-DD" },
+        // cancelLabel:"Clear",
+        // minDate:new Date()
     });
 
     $(".select-search").select2();

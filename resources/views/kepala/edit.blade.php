@@ -217,7 +217,7 @@
       <div class="form-group row">
         <label class="col-lg-3 col-form-label">Keterangan</label>
         <div class="col-lg-9">
-          {{Form::textarea('keterangan','',['class'=>'form-control'])}}
+          {{Form::textarea('keterangan',$last_sirkulasi->remark,['class'=>'form-control'])}}
         </div>
       </div>
       @if(isset($final))

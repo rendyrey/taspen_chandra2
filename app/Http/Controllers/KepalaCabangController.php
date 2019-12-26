@@ -40,6 +40,7 @@ class KepalaCabangController extends Controller
     $data['task_header'] = TaskHeader::findOrFail($id);
     $sirkulasi = Sirkulasi::where('task_header_id',$id)->orderBy('id','desc')->first();
     $slot_aktif = $sirkulasi->slot_id;
+    $data['last_sirkulasi'] = $sirkulasi;
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
     // check apakah kepala cabang berhak untuk edit atau tidak
     if($slot_aktif != $user->employee->position_id){

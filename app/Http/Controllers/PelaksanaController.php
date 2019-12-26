@@ -53,6 +53,12 @@ class PelaksanaController extends Controller
     $data['employee'] = $user->employee;
     $seksi_id = Employee::where('id',$user->employee->id)->first()->seksi_id;
     $employee_id = Employee::select('id')->where('position_id',2)->where('seksi_id',$seksi_id)->get();
+    $sirkulasi = Sirkulasi::where('task_header_id',$id)->orderBy('id','desc')->first();
+    $slot_aktif = $sirkulasi->slot_id;
+    // check apakah kepala cabang berhak untuk edit atau tidak
+    if($slot_aktif != $user->employee->position_id){
+      return redirect('pelaksana/dashboard');
+    }
     $data['user_approval'] = User::whereIn('employee_id',$employee_id)->pluck('name','id');
     $data['jenis_pekerjaan'] = Globals::where('condition','JenisPekerjaan')->pluck('description','code');
     $data['jenis_pekerjaan']->prepend('','');
@@ -108,7 +114,7 @@ class PelaksanaController extends Controller
         $task_detail->end_time = $request->end_time[$i];
         $task_detail->progress = $request->progress[$i];
         $task_detail->remark = $request->remark[$i];
-        if($request->hasFile('file')[$i]){
+        if($request->hasFile('file.'.$i)){
           $file = $request->file('file')[$i];
           $originalName = $file->getClientOriginalName();
           $path = $file->storeAs('public/files/'.$task_header->id,$originalName);
@@ -151,7 +157,7 @@ class PelaksanaController extends Controller
       $task_header->user_approval_id = $request->user_approval_id;
       $task_header->task_title = $request->task_title;
       $task_header->description = $request->description_header;
-      $task_header->date_task = $request->date_task_submit;
+      $task_header->date_task = $request->date_task;
       $task_header->status_id = $request->status_id;
       $task_header->save();
       $jml_task_detail = count($request->description);
@@ -170,7 +176,8 @@ class PelaksanaController extends Controller
         $task_detail->end_time = $request->end_time[$i];
         $task_detail->progress = $request->progress[$i];
         $task_detail->remark = $request->remark[$i];
-        if($request->hasFile('file')[$i]){
+        if($request->hasFile('file.'.$i)){
+          // throw new \Exception($request->file('file')[$i]->getSize());
           $file = $request->file('file')[$i];
           $originalName = $file->getClientOriginalName();
           $path = $file->storeAs('public/files/'.$task_header->id,$originalName);
@@ -187,7 +194,7 @@ class PelaksanaController extends Controller
       // $sirkulasi->remark = '';
       // $sirkulasi->save();
       $slot_id = 2;
-      $status = '';
+      $status = 'New';
       $user_last_update_id = $user->id;
       $remark = '';
       SirkulasiHelper::teruskan($task_header->id,$slot_id,$status,$user_last_update_id,$remark);
