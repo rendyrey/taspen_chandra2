@@ -112,8 +112,9 @@ class KaryawanController extends Controller
 
   public function edit($id){
     $data['page_menu'] = "Edit Data Karyawan";
+    $data['karyawan'] = Employee::findOrFail($id);
     $data['user'] = Auth::user();
-    $data['seksi'] = Seksi::pluck('seksi','id');
+    $data['seksi'] = Seksi::where('bidang_id',$data['karyawan']->bidang_id)->pluck('seksi','id');
     $data['bidang'] = Bidang::pluck('bidang','id');
     $data['cabang'] = Cabang::pluck('cabang','id');
     $data['kcu'] = Kcu::pluck('kcu','id');
@@ -123,7 +124,6 @@ class KaryawanController extends Controller
     $data['cabang']->prepend('','');
     $data['kcu']->prepend('','');
     $data['position']->prepend('','');
-    $data['karyawan'] = Employee::findOrFail($id);
     $data['user_account'] = User::where('employee_id',$id)->first();
     $data['id'] = $id;
     return view("admin.karyawan.edit",$data);

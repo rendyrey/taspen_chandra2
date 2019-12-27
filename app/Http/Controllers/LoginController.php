@@ -15,6 +15,9 @@ class LoginController extends Controller
   public function index(){
     if(Auth::check()){
       $role = Auth::user()->role;
+      if($role == 'administrator'){
+        return redirect($role.'/karyawan');
+      }
       return redirect($role.'/dashboard');
     }
     return view('auth.login');
@@ -62,7 +65,10 @@ class LoginController extends Controller
       $LogLogin->save();
 
       Auth::login($LogLogin);
-      return redirect($role.'/karyawan');
+      if($role == 'administrator'){
+        return redirect($role.'/karyawan');
+      }
+      return redirect($role.'/dashboard');
     }else{
       return redirect("login")->with('message','Password yang dimasukkan salah!')->with('panel','danger');
     }

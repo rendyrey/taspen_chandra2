@@ -64,15 +64,15 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Seksi</label>
+            <label class="col-lg-3 col-form-label">Bidang</label>
             <div class="col-lg-9">
-              {{Form::select('seksi_id',$seksi,$karyawan->seksi_id,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Seksi'])}}
+              {{Form::select('bidang_id',$bidang,$karyawan->bidang_id,['id'=>'bidang','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Bidang'])}}
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Bidang</label>
+            <label class="col-lg-3 col-form-label">Seksi</label>
             <div class="col-lg-9">
-              {{Form::select('bidang_id',$bidang,$karyawan->bidang_id,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Bidang'])}}
+              {{Form::select('seksi_id',$seksi,$karyawan->seksi_id,['id'=>'seksi','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Seksi'])}}
             </div>
           </div>
           <div class="form-group row">
@@ -207,6 +207,25 @@
 
       // Select with search
       $('.select-search').select2();
+
+      $("#seksi").select2({
+        language:{
+          noResults:function(){
+            return "Bidang belum dipilih / tidak ada seksi di bidang tersebut";
+          }
+        }
+      });
+
+      $("#bidang").change(function(){
+        var bidang_id = $(this).val();
+        $.ajax({
+          url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
+          type:"GET",
+          success:function(result){
+            $("#seksi").html(result);
+          }
+        });
+      });
 
     });
     </script>
