@@ -62,7 +62,7 @@ class LoginController extends Controller
       $LogLogin->save();
 
       Auth::login($LogLogin);
-      return redirect($role.'/dashboard');
+      return redirect($role.'/karyawan');
     }else{
       return redirect("login")->with('message','Password yang dimasukkan salah!')->with('panel','danger');
     }
