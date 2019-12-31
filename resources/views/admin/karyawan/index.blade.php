@@ -20,7 +20,6 @@
             <a href="{{url($user->role.'/dashboard')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
             <a href="{{url($user->role.'/karyawan')}}" class="breadcrumb-item"> Karyawan</a>
           </div>
-
           <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
       </div>

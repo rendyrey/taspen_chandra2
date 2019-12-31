@@ -75,7 +75,7 @@ class KepalaCabangController extends Controller
       $remark = $request->keterangan;
       if($request->submit == 'teruskan'){
         $status = 'Approved';
-        $slot_id = 5; // next slot
+        $slot_id = 6; // next slot
         $posisi = Position::findOrFail($slot_id);
         $pesan = 'Approved!';
       }else if($request->submit == 'kembalikan'){
@@ -84,7 +84,7 @@ class KepalaCabangController extends Controller
         $posisi = Position::findOrFail($slot_id);
         $pesan = 'Berhasil dikembalikan ke '.$posisi->slot.'!';
       }else{
-        $slot_id = 5;
+        $slot_id = 6;
         $status = 'Declined';
         $pesan = "Declined";
       }
