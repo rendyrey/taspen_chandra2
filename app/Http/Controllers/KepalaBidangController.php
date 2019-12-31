@@ -25,7 +25,7 @@ class KepalaBidangController extends Controller
   public function view($id){
     $data['page_menu'] = "View data";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->username)->first();
+    $user = User::where('email',$data['user']->email)->first();
     $data['employee'] = $user->employee;
     $data['task_header'] = TaskHeader::findOrFail($id);
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
@@ -35,7 +35,7 @@ class KepalaBidangController extends Controller
   public function edit($id){
     $data['page_menu'] = "Update data";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->username)->first();
+    $user = User::where('email',$data['user']->email)->first();
     $data['employee'] = $user->employee;
     $bidang_id = Employee::where('id',$user->employee->id)->first()->bidang_id;
     $data['task_header'] = TaskHeader::findOrFail($id);
@@ -52,7 +52,7 @@ class KepalaBidangController extends Controller
 
   public function update(Request $request,$id){
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->username)->first();
+    $user = User::where('email',$data['user']->email)->first();
 
     DB::beginTransaction();
     try{

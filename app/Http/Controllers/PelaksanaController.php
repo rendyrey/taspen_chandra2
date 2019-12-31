@@ -19,7 +19,7 @@ class PelaksanaController extends Controller
   public function create(){
     $data['page_menu'] = "Tambah data pelaksana";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->username)->first();
+    $user = User::where('email',$data['user']->email)->first();
     $data['employee'] = $user->employee;
     $seksi_id = Employee::where('id',$user->employee->id)->first()->seksi_id;
     $data['user_approval'] = Employee::where('position_id',2)->where('seksi_id',$seksi_id)->pluck('employee_name','id');
@@ -39,7 +39,7 @@ class PelaksanaController extends Controller
   public function view($id){
     $data['page_menu'] = "View data";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->username)->first();
+    $user = User::where('email',$data['user']->email)->first();
     $data['employee'] = $user->employee;
     $data['task_header'] = TaskHeader::findOrFail($id);
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
@@ -49,7 +49,7 @@ class PelaksanaController extends Controller
   public function edit($id){
     $data['page_menu'] = "Tambah data pelaksana";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->username)->first();
+    $user = User::where('email',$data['user']->email)->first();
     $data['employee'] = $user->employee;
     $seksi_id = Employee::where('id',$user->employee->id)->first()->seksi_id;
     $employee_id = Employee::select('id')->where('position_id',2)->where('seksi_id',$seksi_id)->get();

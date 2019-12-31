@@ -64,7 +64,8 @@ class LoginController extends Controller
       $LogLogin->created_at = Carbon::now();
       $LogLogin->save();
 
-      Auth::login($LogLogin);
+      // Auth::login($LogLogin);
+      Auth::login($user);
       if($role == 'administrator'){
         return redirect($role.'/karyawan');
       }
