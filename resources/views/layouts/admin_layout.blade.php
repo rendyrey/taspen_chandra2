@@ -7,6 +7,9 @@
 	<meta name='csrf-token' content="{{csrf_token()}}">
 	<title>Taspen - {{$page_menu}}</title>
 
+	<!-- favicon -->
+	<link rel="icon" href="{{asset('assets/images/taspen4.png')}}" type="image/x-icon"/>
+
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
 	<link href="{{asset('limitless/global_assets/css/icons/icomoon/styles.min.css')}}" rel="stylesheet" type="text/css">
