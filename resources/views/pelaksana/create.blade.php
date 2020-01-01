@@ -142,7 +142,7 @@
                   <span class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-watch2"></i></span>
                   </span>
-                  <input type="text" name="start_time[]" class="form-control" v-bind:id="'anytime-time-start'+indexDetail" required>
+                  <input type="text" name="start_time[]" class="form-control" v-bind:id="'anytime-time-start'+indexDetail">
                 </div>
               </div>
               <div class="col-lg-1 text-center">
@@ -153,7 +153,7 @@
                   <span class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-watch2"></i></span>
                   </span>
-                  <input type="text" name="end_time[]" class="form-control" v-bind:id="'anytime-time-end'+indexDetail" required>
+                  <input type="text" name="end_time[]" class="form-control" v-bind:id="'anytime-time-end'+indexDetail">
                 </div>
               </div>
             </div>

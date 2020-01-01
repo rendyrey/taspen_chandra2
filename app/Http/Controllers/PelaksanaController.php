@@ -22,7 +22,7 @@ class PelaksanaController extends Controller
     $user = User::where('email',$data['user']->email)->first();
     $data['employee'] = $user->employee;
     $seksi_id = Employee::where('id',$user->employee->id)->first()->seksi_id;
-    $data['user_approval'] = Employee::where('position_id',2)->where('seksi_id',$seksi_id)->pluck('employee_name','id');
+    $data['user_approval'] = User::leftJoin('mst_employee','users.employee_id','=','mst_employee.id')->where('mst_employee.position_id',2)->where('mst_employee.seksi_id',$seksi_id)->pluck('users.name','users.id');
 
     $data['jenis_pekerjaan'] = Globals::where('condition','JenisPekerjaan')->pluck('description','code');
     $data['jenis_pekerjaan']->prepend('','');

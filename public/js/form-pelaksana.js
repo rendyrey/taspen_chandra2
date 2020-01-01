@@ -63,6 +63,15 @@ $(document).ready(function(){
             },
             'file[]':{
               filesize:2000000
+            },
+            'description[]':{
+                required:true
+            },
+            'start_time[]':{
+                required:true
+            },
+            'end_time[]':{
+                required:true
             }
 
 
