@@ -28,7 +28,8 @@ class LoginController extends Controller
 
     $email    = $request->input('email', "");
     $password = $request->input('password', "");
-    $user = User::where('email',$email)->first();
+    $user = User::where('email',$email)->orWhere('username',$email)->orWhere('nik',$email)->first();
+    // dd($request);
     if(!$user){
       return redirect("login")->with('message','Email tidak terdaftar')->with('panel','danger');
     }

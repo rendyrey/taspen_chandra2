@@ -1,4 +1,13 @@
 $(document).ready(function(){
+  $.validator.addMethod(
+          "regex",
+          function(value, element, param) {
+              var re = new RegExp(param);
+              return this.optional(element) || re.test(value);
+          },
+          "Username minimal terdiri dari 3-25 karakter dan tidak boleh terdapat spasi."
+  );
+
     $('.form-validate-jquery').validate({
         ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
         errorClass: 'validation-invalid-label',
@@ -38,6 +47,9 @@ $(document).ready(function(){
             }
         },
         rules: {
+            nik:{
+              required:true
+            },
             employee_name:{
                 required:true
             },
@@ -56,10 +68,10 @@ $(document).ready(function(){
             cabang_id:{
               required:true
             },
-            password: {
-                required:true,
-                minlength: 5
-            },
+            // password: {
+            //     required:true,
+            //     minlength: 5
+            // },
             // password_confirm: {
             //     equalTo: '#password'
             // },
@@ -67,6 +79,10 @@ $(document).ready(function(){
                 required:true,
                 email: true
             },
+            username:{
+              required:true,
+              regex :'^[a-z0-9_-]{3,25}$'
+            }
         },
         messages: {
             custom: {

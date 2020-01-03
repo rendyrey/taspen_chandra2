@@ -46,7 +46,7 @@ function delete_data(id){
           }else{
             swalInit(
               'Deleted!',
-              'Your file has been deleted.',
+              res.pesan,
               'success'
             ).then(function(){
               window.location = res.url;

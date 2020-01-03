@@ -95,6 +95,7 @@ Route::middleware(['administrator'])->group(function(){
     Route::get('/karyawan/edit/{id}','KaryawanController@edit');
     Route::put('/karyawan/update/{id}','KaryawanController@update');
     Route::delete('/karyawan/delete/{id}','KaryawanController@delete');
+    Route::put('/karyawan/reset_password/{id}','KaryawanController@reset_password');
 
     Route::get('/bidang','AdministratorController@bidang');
     Route::get('/bidang/get_all','BidangController@get_all');

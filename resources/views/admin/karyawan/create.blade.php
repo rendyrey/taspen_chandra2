@@ -26,7 +26,7 @@
       <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
         <div class="d-flex">
           <div class="breadcrumb">
-            <a href="{{url($user->role.'/dashboard')}}" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
+            <a href="" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
             <a href="{{url($user->role.'/karyawan')}}" class="breadcrumb-item">Karyawan</a>
             <a href="" class="breadcrumb-item">Create</a>
           </div>
@@ -51,6 +51,12 @@
 
         <div class="card-body">
           {{Form::open(['files'=>true,'class'=>'form-validate-jquery','id'=>'form','v-on:submit.prevent="simpan"'])}}
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label">NIK</label>
+            <div class="col-lg-9">
+              {{Form::text('nik',old('nik'),['class'=>'form-control','placeholder'=>'NIK'])}}
+            </div>
+          </div>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Karyawan</label>
             <div class="col-lg-9">
@@ -89,21 +95,15 @@
           </div>
           <hr>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">E-mail (for login)</label>
+            <label class="col-lg-3 col-form-label">Username</label>
             <div class="col-lg-9">
-              {{Form::email('email',old('email'),['class'=>'form-control','placeholder'=>'E-mail'])}}
+              {{Form::text('username','',['class'=>'form-control','placeholder'=>'Username'])}}
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Password</label>
+            <label class="col-lg-3 col-form-label">E-mail</label>
             <div class="col-lg-9">
-              {{Form::password('password',['class'=>'form-control','placeholder'=>'Password'])}}
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Re-type Password</label>
-            <div class="col-lg-9">
-              {{Form::password('password_confirm',['class'=>'form-control','placeholder'=>'Re-Type Password'])}}
+              {{Form::email('email','',['class'=>'form-control','placeholder'=>'E-mail'])}}
             </div>
           </div>
           <div class="form-group row">

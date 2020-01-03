@@ -19,7 +19,7 @@ class KaryawanController extends Controller
 {
 
   public function get_all(){
-    return DataTables::of(Employee::query()->orderBy('employee_name'))
+    return DataTables::of(Employee::select('mst_employee.*')->leftJoin('users','users.employee_id','mst_employee.id')->where('users.role','<>','administrator')->orderBy('employee_name'))
     ->addIndexColumn()
     ->escapeColumns([])
     ->addColumn('posisi',function($value){
@@ -60,7 +60,7 @@ class KaryawanController extends Controller
     $data['bidang'] = Bidang::pluck('bidang','id');
     $data['cabang'] = Cabang::pluck('cabang','id');
     $data['kcu'] = Kcu::pluck('kcu','id');
-    $data['position'] = Position::pluck('slot','id');
+    $data['position'] = Position::where('slot','<>','Done')->pluck('slot','id');
     $data['seksi']->prepend('','');
     $data['bidang']->prepend('','');
     $data['cabang']->prepend('','');
@@ -73,16 +73,22 @@ class KaryawanController extends Controller
   public function save(Request $request){
     if(User::where('email',$request->email)->exists()){
       return response()->json(['error'=>'Email sudah terdaftar']);
+    }else if(User::where('username',$request->username)->exists()){
+      return response()->json(['error'=>'Username sudah terdaftar']);
+    }else if(User::where('nik',$request->nik)->exists()){
+      return response()->json(['error'=>'NIK sudah terdaftar']);
     }
 
-    if($request->password != $request->password_confirm){
-      return response()->json(['error'=>'Password tidak sama!']);
-    }
+
+    // if($request->password != $request->password_confirm){
+    //   return response()->json(['error'=>'Password tidak sama!']);
+    // }
     DB::beginTransaction();
 
     try{
       $employee = new Employee();
       $employee->employee_name = $request->employee_name;
+      $employee->nik = $request->nik;
       $employee->position_id = $request->position_id;
       $employee->seksi_id = $request->seksi_id;
       $employee->bidang_id = $request->bidang_id;
@@ -94,7 +100,9 @@ class KaryawanController extends Controller
       $user = new User();
       $user->name = $request->employee_name;
       $user->email = $request->email;
-      $user->password = bcrypt($request->password);
+      $user->username = $request->username;
+      $user->nik = $request->nik;
+      $user->password = bcrypt('taspen1234');
       $user->role = str_replace(" ","-",strtolower($employee->position->slot));
       $user->active = $request->active ? 1:0;
       $user->employee_id = $employee->id;
@@ -131,12 +139,19 @@ class KaryawanController extends Controller
   }
 
   public function update(Request $request,$id){
-
+    if(User::where('email',$request->email)->where('employee_id','<>',$id)->exists()){
+      return response()->json(['error'=>'Email sudah terdaftar']);
+    }else if(User::where('username',$request->username)->where('employee_id','<>',$id)->exists()){
+      return response()->json(['error'=>'Username sudah terdaftar']);
+    }else if(User::where('nik',$request->nik)->where('employee_id','<>',$id)->exists()){
+      return response()->json(['error'=>'NIK sudah terdaftar']);
+    }
     DB::beginTransaction();
 
     try{
       $employee = Employee::findOrFail($id);
       $employee->employee_name = $request->employee_name;
+      $employee->nik = $request->nik;
       $employee->position_id = $request->position_id;
       $employee->seksi_id = $request->seksi_id;
       $employee->bidang_id = $request->bidang_id;
@@ -148,9 +163,8 @@ class KaryawanController extends Controller
       $user = User::where('employee_id',$id)->first();
       $user->name = $request->employee_name;
       $user->email = $request->email;
-      if($request->password != ''){
-        $user->password = bcrypt($request->password);
-      }
+      $user->username = $request->username;
+      $user->nik = $request->nik;
       $user->role = str_replace(" ","-",strtolower($employee->position->slot));
       $user->active = $request->active ? 1:0;
       $user->employee_id = $employee->id;
@@ -175,9 +189,18 @@ class KaryawanController extends Controller
       return ['pesan'=>'Berhasil hapus karyawan!','url'=>url('administrator/karyawan')];
     }catch(\Exception $e){
       DB::rollback();
-      return response()->json(['error'=>'Karyawan tidak dapat dihapus!']);
+      return response()->json(['error'=>'Karyawan tidak dapat dihapus karena memiliki data task tersimpan']);
     }
+  }
 
-
+  public function reset_password($id){
+    try{
+      $user = User::where('employee_id',$id)->first();
+      $user->password = bcrypt('taspen1234');
+      $user->save();
+      return ['pesan'=>'Berhasil reset password!','url'=>url('administrator/karyawan')];
+    }catch(\Exception $e){
+      return ['error'=>$e->getMessage()];
+    }
   }
 }
