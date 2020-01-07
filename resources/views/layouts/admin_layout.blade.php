@@ -42,7 +42,7 @@
 	<!-- Main navbar -->
 	<div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand">
-			<a href="../full/index.html" class="d-inline-block">
+			<a href="{{url('')}}" class="d-inline-block">
 				<img src="{{asset('assets/images/taspen3.png')}}" alt="">
 			</a>
 		</div>

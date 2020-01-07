@@ -41,7 +41,7 @@
 	<!-- Main navbar -->
 	<div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand">
-			<a href="../full/index.html" class="d-inline-block">
+			<a href="{{url('')}}" class="d-inline-block">
 				<img src="{{asset('assets/images/taspen3.png')}}" alt="">
 			</a>
 		</div>
@@ -134,6 +134,12 @@
 							<a href="{{url($user->role.'/dashboard')}}" class="nav-link">
 								<i class="icon-home4"></i>
 								<span>Dashboard</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="{{url($user->role.'/report')}}" class="nav-link">
+								<i class="icon-book"></i>
+								<span>Report</span>
 							</a>
 						</li>
 						<li class="nav-item">

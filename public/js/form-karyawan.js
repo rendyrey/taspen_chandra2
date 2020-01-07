@@ -76,7 +76,6 @@ $(document).ready(function(){
             //     equalTo: '#password'
             // },
             email: {
-                required:true,
                 email: true
             },
             username:{
