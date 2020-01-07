@@ -26,9 +26,9 @@ class LoginController extends Controller
   public function login(Request $request){
     $data = array();
 
-    $email    = $request->input('email', "");
+    $username    = $request->input('username', "");
     $password = $request->input('password', "");
-    $user = User::where('email',$email)->orWhere('username',$email)->orWhere('nik',$email)->first();
+    $user = User::where('username',$username)->orWhere('nik',$username)->first();
     // dd($request);
     if(!$user){
       return redirect("login")->with('message','Email tidak terdaftar')->with('panel','danger');
@@ -39,7 +39,7 @@ class LoginController extends Controller
       // =========================================================================
       // cek login terakhir, klo blom di log-out, log out otomatis
       // =========================================================================
-      $login_terakhir = LogLogin::where('username', $email)
+      $login_terakhir = LogLogin::where('username', $username)
       ->select('id','username', 'created_at', 'deleted_at')
       ->orderBy('created_at', 'desc')
       ->first();
@@ -57,7 +57,7 @@ class LoginController extends Controller
       // =========================================================================
 
       $LogLogin             = new LogLogin();
-      $LogLogin->username   = $email;
+      $LogLogin->username   = $username;
       $LogLogin->role       = $role;
       $LogLogin->last_login = $last_login;
       $LogLogin->alamat_ip  = $request->ip();

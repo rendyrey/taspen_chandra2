@@ -13,14 +13,14 @@ class DashboardController extends Controller
   public function administrator(){
     $data['page_menu'] = "Dashboard Administrator";
     $data['user'] = Auth::user();
-    $data['login'] = User::where('email',$data['user']->email)->first();
+    $data['login'] = User::where('username',$data['user']->username)->first();
     return view("admin.index",$data);
   }
 
   public function pelaksana(){
     $data['page_menu'] = "Dashboard Pelaksana";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->email)->first();
+    $user = User::where('username',$data['user']->username)->first();
     $data['login'] = $user;
     $data['task_header'] = TaskHeader::where('employee_id',$user->employee->id)->get();
     $data['slot_aktif'] = $user->employee->position_id;
@@ -30,7 +30,7 @@ class DashboardController extends Controller
   public function kepala_seksi(){
     $data['page_menu'] = "Dashboard Kepala Seksi";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->email)->first();
+    $user = User::where('username',$data['user']->username)->first();
     $data['login'] = $user;
     $employee_id = Employee::select('id')->where('seksi_id',$user->employee->seksi_id)->get();
     $data['task_header'] = TaskHeader::whereIn('employee_id',$employee_id)->get();
@@ -41,7 +41,7 @@ class DashboardController extends Controller
   public function kepala_bidang(){
     $data['page_menu'] = "Dashboard Kepala Bidang";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->email)->first();
+    $user = User::where('username',$data['user']->username)->first();
     $data['login'] = $user;
     $employee_id = Employee::select('id')->where('bidang_id',$user->employee->bidang_id)->get();
     $data['task_header'] = TaskHeader::whereIn('employee_id',$employee_id)->get();
@@ -52,7 +52,7 @@ class DashboardController extends Controller
   public function wakil_kepala_cabang(){
     $data['page_menu'] = "Dashboard Wakil Kepala Cabang";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->email)->first();
+    $user = User::where('username',$data['user']->username)->first();
     $data['login'] = $user;
     $employee_id = Employee::select('id')->where('cabang_id',$user->employee->cabang_id)->get();
     $data['task_header'] = TaskHeader::whereIn('employee_id',$employee_id)->get();
@@ -63,7 +63,7 @@ class DashboardController extends Controller
   public function kepala_cabang(){
     $data['page_menu'] = "Dashboard Kepala Cabang";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->email)->first();
+    $user = User::where('username',$data['user']->username)->first();
     $data['login'] = $user;
     $employee_id = Employee::select('id')->where('cabang_id',$user->employee->cabang_id)->get();
     $data['task_header'] = TaskHeader::whereIn('employee_id',$employee_id)->get();

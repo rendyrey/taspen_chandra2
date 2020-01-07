@@ -24,7 +24,7 @@ class KepalaCabangController extends Controller
   public function view($id){
     $data['page_menu'] = "View data";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->email)->first();
+    $user = User::where('username',$data['user']->username)->first();
     $data['employee'] = $user->employee;
     $data['task_header'] = TaskHeader::findOrFail($id);
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
@@ -34,7 +34,7 @@ class KepalaCabangController extends Controller
   public function edit($id){
     $data['page_menu'] = "Update data";
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->email)->first();
+    $user = User::where('username',$data['user']->username)->first();
     $data['employee'] = $user->employee;
     $cabang_id = Employee::where('id',$user->employee->id)->first()->cabang_id;
     $data['task_header'] = TaskHeader::findOrFail($id);
@@ -52,7 +52,7 @@ class KepalaCabangController extends Controller
 
   public function update(Request $request,$id){
     $data['user'] = Auth::user();
-    $user = User::where('email',$data['user']->email)->first();
+    $user = User::where('username',$data['user']->username)->first();
 
     DB::beginTransaction();
     try{

@@ -95,7 +95,7 @@
 							</div>
 
 							<div class="form-group form-group-feedback form-group-feedback-left">
-								<input type="text" class="form-control" placeholder="E-mail/Username/NIK" type="email" name="email" value="{{old('email')}}">
+								<input type="text" class="form-control" placeholder="E-mail/Username/NIK" name="username" value="{{old('username')}}">
 								<div class="form-control-feedback">
 									<i class="icon-user text-muted"></i>
 								</div>

@@ -71,7 +71,7 @@ class KaryawanController extends Controller
 
 
   public function save(Request $request){
-    if(User::where('email',$request->email)->exists()){
+    if(User::where('email',$request->email)->exists() && $request->email != ''){
       return response()->json(['error'=>'Email sudah terdaftar']);
     }else if(User::where('username',$request->username)->exists()){
       return response()->json(['error'=>'Username sudah terdaftar']);
@@ -139,7 +139,7 @@ class KaryawanController extends Controller
   }
 
   public function update(Request $request,$id){
-    if(User::where('email',$request->email)->where('employee_id','<>',$id)->exists()){
+    if(User::where('email',$request->email)->where('employee_id','<>',$id)->exists() && $request->email != ''){
       return response()->json(['error'=>'Email sudah terdaftar']);
     }else if(User::where('username',$request->username)->where('employee_id','<>',$id)->exists()){
       return response()->json(['error'=>'Username sudah terdaftar']);
