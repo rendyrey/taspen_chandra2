@@ -33,6 +33,8 @@ Route::middleware(['pelaksana'])->group(function(){
         Route::put('/update/{id}','PelaksanaController@update');
         Route::delete('/delete/{id}','PelaksanaController@delete');
 
+        Route::get('/report','PelaksanaController@report');
+
         Route::get('get-header/{id}','PelaksanaController@getHeader');
         Route::get('get-detail/{id}','PelaksanaController@getDetail');
     });
@@ -47,6 +49,8 @@ Route::middleware(['kepala-seksi'])->group(function(){
         Route::get('/view/{id}','KepalaSeksiController@view');
         Route::put('/update/{id}','KepalaSeksiController@update');
         Route::delete('/delete/{id}','KepalaSeksiController@delete');
+
+        Route::get('/report','KepalaSeksiController@report');
     });
 });
 
@@ -59,6 +63,8 @@ Route::middleware(['kepala-bidang'])->group(function(){
         Route::get('/view/{id}','KepalaBidangController@view');
         Route::put('/update/{id}','KepalaBidangController@update');
         Route::delete('/delete/{id}','KepalaBidangController@delete');
+
+        Route::get('/report','KepalaBidangController@report');
     });
 });
 
@@ -71,6 +77,8 @@ Route::middleware(['wakil-kepala-cabang'])->group(function(){
         Route::get('/view/{id}','WakilKepalaCabangController@view');
         Route::put('/update/{id}','WakilKepalaCabangController@update');
         Route::delete('/delete/{id}','WakilKepalaCabangController@delete');
+
+        Route::get('/report','WakilKepalaCabangController@report');
     });
 });
 
@@ -80,8 +88,11 @@ Route::middleware(['kepala-cabang'])->group(function(){
         Route::get('/create','KepalaCabangController@create');
         Route::post('/create','KepalaCabangController@save');
         Route::get('/edit/{id}','KepalaCabangController@edit');
+        Route::get('/view/{id}','KepalaCabangController@view');
         Route::put('/update/{id}','KepalaCabangController@update');
         Route::delete('/delete/{id}','KepalaCabangController@delete');
+
+        Route::get('/report','KepalaCabangController@report');
     });
 });
 
