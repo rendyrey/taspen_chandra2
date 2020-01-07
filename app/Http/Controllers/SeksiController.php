@@ -113,4 +113,8 @@ class SeksiController extends Controller
     }
   }
 
+  public function report(){
+    return 'hi';
+  }
+
 }

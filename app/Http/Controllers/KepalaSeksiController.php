@@ -93,4 +93,8 @@ class KepalaSeksiController extends Controller
     }
 
   }
+
+  public function report(){
+    return 'hi';
+  }
 }

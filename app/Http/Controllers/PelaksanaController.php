@@ -206,4 +206,8 @@ class PelaksanaController extends Controller
       return ['error'=>$e->getMessage()];
     }
   }
+
+  public function report(){
+    return 'hi';
+  }
 }

@@ -92,4 +92,8 @@ class KepalaBidangController extends Controller
     public function delete($id){
 
     }
+
+    public function report(){
+      return 'hi';
+    }
 }

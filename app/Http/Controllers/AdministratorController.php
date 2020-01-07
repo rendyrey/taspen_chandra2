@@ -16,8 +16,6 @@ use DB;
 
 class AdministratorController extends Controller
 {
-
-
     public function karyawan(){
       $data['page_menu'] = "Data Karyawan";
       $data['user'] = Auth::user();
