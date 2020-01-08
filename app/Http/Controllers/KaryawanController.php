@@ -56,11 +56,11 @@ class KaryawanController extends Controller
   public function create(){
     $data['page_menu'] = "Form Data Karyawan";
     $data['user'] = Auth::user();
-    $data['seksi'] = Seksi::pluck('seksi','id');
-    $data['bidang'] = Bidang::pluck('bidang','id');
-    $data['cabang'] = Cabang::pluck('cabang','id');
-    $data['kcu'] = Kcu::pluck('kcu','id');
-    $data['position'] = Position::where('slot','<>','Done')->pluck('slot','id');
+    $data['seksi'] = Seksi::where('active','1')->pluck('seksi','id');
+    $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
+    $data['cabang'] = Cabang::where('active','1')->pluck('cabang','id');
+    $data['kcu'] = Kcu::where('active','1')->pluck('kcu','id');
+    $data['position'] = Position::where('active','1')->where('slot','<>','Done')->pluck('slot','id');
     $data['seksi']->prepend('','');
     $data['bidang']->prepend('','');
     $data['cabang']->prepend('','');

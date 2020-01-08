@@ -25,10 +25,16 @@ class LoginController extends Controller
 
   public function login(Request $request){
     $data = array();
-
     $username    = $request->input('username', "");
     $password = $request->input('password', "");
     $user = User::where('username',$username)->orWhere('nik',$username)->first();
+    $user_inactive = User::where('active','<>','1')->where(function($q) use($username){
+      $q->where('username',$username)->orWhere('nik',$username);
+    })->first();
+    
+    if($user_inactive){
+      return redirect("login")->with('message','User tidak aktif')->with('panel','danger');
+    }
     // dd($request);
     if(!$user){
       return redirect("login")->with('message','Email tidak terdaftar')->with('panel','danger');

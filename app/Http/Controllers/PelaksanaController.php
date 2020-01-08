@@ -24,13 +24,13 @@ class PelaksanaController extends Controller
     $seksi_id = Employee::where('id',$user->employee->id)->first()->seksi_id;
     $data['user_approval'] = User::leftJoin('mst_employee','users.employee_id','=','mst_employee.id')->where('mst_employee.position_id',2)->where('mst_employee.seksi_id',$seksi_id)->pluck('users.name','users.id');
 
-    $data['jenis_pekerjaan'] = Globals::where('condition','JenisPekerjaan')->pluck('description','code');
+    $data['jenis_pekerjaan'] = Globals::where('active','1')->where('condition','JenisPekerjaan')->pluck('description','code');
     $data['jenis_pekerjaan']->prepend('','');
-    $data['status_pekerjaan'] = Globals::where('condition','StatusHeader')->pluck('description','code');
+    $data['status_pekerjaan'] = Globals::where('active','1')->where('condition','StatusHeader')->pluck('description','code');
     $data['status_pekerjaan']->prepend('','');
-    $data['status_detail'] = Globals::where('condition','StatusDetail')->pluck('description','code');
+    $data['status_detail'] = Globals::where('active','1')->where('condition','StatusDetail')->pluck('description','code');
     $data['status_detail']->prepend('','');
-    $data['progress_detail'] = Globals::where('condition','ProgressDetail')->pluck('description','code');
+    $data['progress_detail'] = Globals::where('active','1')->where('condition','ProgressDetail')->pluck('description','code');
     $data['progress_detail']->prepend('','');
 
     return view('pelaksana.create',$data);
@@ -60,13 +60,13 @@ class PelaksanaController extends Controller
       return redirect('pelaksana/dashboard');
     }
     $data['user_approval'] = User::whereIn('employee_id',$employee_id)->pluck('name','id');
-    $data['jenis_pekerjaan'] = Globals::where('condition','JenisPekerjaan')->pluck('description','code');
+    $data['jenis_pekerjaan'] = Globals::where('active','1')->where('condition','JenisPekerjaan')->pluck('description','code');
     $data['jenis_pekerjaan']->prepend('','');
-    $data['status_pekerjaan'] = Globals::where('condition','StatusHeader')->pluck('description','code');
+    $data['status_pekerjaan'] = Globals::where('active','1')->where('condition','StatusHeader')->pluck('description','code');
     $data['status_pekerjaan']->prepend('','');
-    $data['status_detail'] = Globals::where('condition','StatusDetail')->pluck('description','code');
+    $data['status_detail'] = Globals::where('active','1')->where('condition','StatusDetail')->pluck('description','code');
     $data['status_detail']->prepend('','');
-    $data['progress_detail'] = Globals::where('condition','ProgressDetail')->pluck('description','code');
+    $data['progress_detail'] = Globals::where('active','1')->where('condition','ProgressDetail')->pluck('description','code');
     $data['progress_detail']->prepend('','');
     $data['id'] = $id;
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
