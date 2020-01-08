@@ -60,7 +60,7 @@ class KaryawanController extends Controller
     $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
     $data['cabang'] = Cabang::where('active','1')->pluck('cabang','id');
     $data['kcu'] = Kcu::where('active','1')->pluck('kcu','id');
-    $data['position'] = Position::where('active','1')->where('slot','<>','Done')->pluck('slot','id');
+    $data['position'] = Position::where('slot','<>','Done')->pluck('slot','id');
     $data['seksi']->prepend('','');
     $data['bidang']->prepend('','');
     $data['cabang']->prepend('','');
@@ -122,11 +122,11 @@ class KaryawanController extends Controller
     $data['page_menu'] = "Edit Data Karyawan";
     $data['karyawan'] = Employee::findOrFail($id);
     $data['user'] = Auth::user();
-    $data['seksi'] = Seksi::where('bidang_id',$data['karyawan']->bidang_id)->pluck('seksi','id');
-    $data['bidang'] = Bidang::pluck('bidang','id');
-    $data['cabang'] = Cabang::pluck('cabang','id');
-    $data['kcu'] = Kcu::pluck('kcu','id');
-    $data['position'] = Position::pluck('slot','id');
+    $data['seksi'] = Seksi::where('active','1')->where('bidang_id',$data['karyawan']->bidang_id)->pluck('seksi','id');
+    $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
+    $data['cabang'] = Cabang::where('active','1')->pluck('cabang','id');
+    $data['kcu'] = Kcu::where('active','1')->pluck('kcu','id');
+    $data['position'] = Position::where('slot','<>','Done')->pluck('slot','id');
     $data['seksi']->prepend('','');
     $data['bidang']->prepend('','');
     $data['cabang']->prepend('','');

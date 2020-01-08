@@ -38,7 +38,7 @@ class SeksiController extends Controller
   public function create(){
     $data['page_menu'] = "Form data Seksi";
     $data['user'] = Auth::user();
-    $data['bidang'] = Bidang::pluck('bidang','id');
+    $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
     $data['bidang']->prepend('','');
     return view('admin.seksi.create',$data);
   }
@@ -66,7 +66,7 @@ class SeksiController extends Controller
     $data['page_menu'] = "Edit data Seksi";
     $data['user'] = Auth::user();
     $data['seksi'] = Seksi::findOrFail($id);
-    $data['bidang'] = Bidang::pluck('bidang','id');
+    $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
     $data['id'] = $id;
     return view("admin.seksi.edit",$data);
   }
