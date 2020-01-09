@@ -19,7 +19,11 @@ class KaryawanController extends Controller
 {
 
   public function get_all(){
-    return DataTables::of(Employee::select('mst_employee.*')->leftJoin('users','users.employee_id','mst_employee.id')->where('users.role','<>','administrator')->orderBy('employee_name'))
+    return DataTables::of(
+      Employee::select('mst_employee.*')->leftJoin('users','users.employee_id','mst_employee.id')
+      ->where('users.role','<>','administrator')
+      ->orderBy('employee_name')
+      )
     ->addIndexColumn()
     ->escapeColumns([])
     ->addColumn('posisi',function($value){
