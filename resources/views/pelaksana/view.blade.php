@@ -250,7 +250,8 @@
     });
 
     $('.select').select2({
-      minimumResultsForSearch: Infinity
+      minimumResultsForSearch: Infinity,
+      allowClear:true
     });
 
     $('.form-check-input-styled-success').uniform({

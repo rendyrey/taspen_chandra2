@@ -192,9 +192,9 @@
 
       <hr>
 
-       <!-- Sirkulasi -->
-       <div class="form-group row">
-          <table class="table datatable-ajax">
+      <!-- Sirkulasi -->
+      <div class="form-group row">
+        <table class="table datatable-ajax">
           <thead>
             <th>Slot</th>
             <th>Email</th>
@@ -211,8 +211,8 @@
               </tr>
             @endforeach
           </tbody>
-          </table>
-        </div>
+        </table>
+      </div>
 
       <div class="form-group row">
         <label class="col-lg-3 col-form-label">Keterangan</label>
@@ -298,7 +298,7 @@
                 confirmButtonClass: 'btn btn-primary',
                 cancelButtonClass: 'btn btn-light',
               }).then(function() {
-                  window.location = res.url;
+                window.location = res.url;
               });
             }
           });
@@ -324,7 +324,8 @@
     });
 
     $('.select').select2({
-      minimumResultsForSearch: Infinity
+      minimumResultsForSearch: Infinity,
+      allowClear:true
     });
 
     $('.form-check-input-styled-success').uniform({

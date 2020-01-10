@@ -224,15 +224,18 @@
       var index = $(this).val();
 
       $('#select_pekerjaan'+index).select2({
-        minimumResultsForSearch: Infinity
+        minimumResultsForSearch: Infinity,
+        allowClear:true
       });
 
       $('#select_progress'+index).select2({
-        minimumResultsForSearch: Infinity
+        minimumResultsForSearch: Infinity,
+        allowClear:true
       });
 
       $('#select_status'+index).select2({
-        minimumResultsForSearch: Infinity
+        minimumResultsForSearch: Infinity,
+        allowClear:true
       });
 
       // Time picker
@@ -259,20 +262,25 @@
       format: 'dddd, dd mmmm, yyyy'
     });
 
-    $(".select-search").select2();
+    $(".select-search").select2({
+      allowClear:true
+    });
 
     $('#select_pekerjaan0').select2({
-      minimumResultsForSearch: Infinity
+      minimumResultsForSearch: Infinity,
+      allowClear:true
 
     });
 
     $('#select_progress0').select2({
-      minimumResultsForSearch: Infinity
+      minimumResultsForSearch: Infinity,
+      allowClear:true
 
     });
 
     $('#select_status0').select2({
-      minimumResultsForSearch: Infinity
+      minimumResultsForSearch: Infinity,
+      allowClear:true
     });
 
     // Time picker

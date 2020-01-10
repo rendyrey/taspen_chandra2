@@ -46,7 +46,7 @@
         </div>
 
         <div class="card-body">
-          {{Form::open(['url'=>'pelaksana/report','method'=>'post','class'=>'form-validate-jquery','id'=>'form','v-on:submit.prevent="generate"'])}}
+          {{Form::open(['url'=>'generate_report','method'=>'post','class'=>'form-validate-jquery','id'=>'form'])}}
 
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Start Date</label>
@@ -106,7 +106,9 @@
       format: 'dddd, dd mmmm, yyyy'
     });
 
-    $(".select-search").select2();
+    $(".select-search").select2({
+      allowClear:true
+    });
 
   });
   </script>
@@ -122,23 +124,6 @@
     data:{
 
     },
-    methods:{
-      generate:function(){
-        var form = document.getElementById('form');
-        var formData = new FormData(form)
-        var formV = $("#form");
-        formV.validate();
-        if(formV.valid()){
-          $('#spinner').show();
-          axios.post('{{url('pelaksana/generate_report/')}}',formData).then(function(response){
-            $("#spinner").hide();
-            var res = response.data;
-
-          });
-        }
-
-      }
-    }
   });
   </script>
 @endsection

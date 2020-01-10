@@ -190,7 +190,8 @@
       });
 
       $('.select').select2({
-        minimumResultsForSearch: Infinity
+        minimumResultsForSearch: Infinity,
+        allowClear:true
       });
 
       $('.form-check-input-styled-success').uniform({
@@ -206,14 +207,17 @@
       });
 
       // Select with search
-      $('.select-search').select2();
+      $('.select-search').select2({
+        allowClear:true
+      });
 
       $("#seksi").select2({
         language:{
           noResults:function(){
             return "Bidang belum dipilih / tidak ada seksi di bidang tersebut";
           }
-        }
+        },
+        allowClear:true
       });
 
       $("#bidang").change(function(){

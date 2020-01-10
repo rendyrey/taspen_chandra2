@@ -23,6 +23,8 @@ Route::get('login','LoginController@index')->name('login');
 Route::post('login','LoginController@login')->name('login');
 Route::get('logout','LoginController@logout')->name('logout');
 Route::get('/','LoginController@index');
+Route::post('generate_report','ReportController@generate');
+
 Route::middleware(['pelaksana'])->group(function(){
     Route::prefix('pelaksana')->group(function(){
         Route::get('/dashboard','DashboardController@pelaksana');
