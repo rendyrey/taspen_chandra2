@@ -66,7 +66,7 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Position</label>
             <div class="col-lg-9">
-              {{Form::select('position_id',$position,$karyawan->position_id,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Position'])}}
+              {{Form::select('position_id',$position,$karyawan->position_id,['id'=>'position','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Position'])}}
             </div>
           </div>
           <div class="form-group row">
@@ -84,13 +84,13 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">KCU</label>
             <div class="col-lg-9">
-              {{Form::select('kcu_id',$kcu,$karyawan->kcu_id,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih KCU'])}}
+              {{Form::select('kcu_id',$kcu,$karyawan->kcu_id,['id'=>'kcu','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih KCU'])}}
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Cabang</label>
             <div class="col-lg-9">
-              {{Form::select('cabang_id',$cabang,$karyawan->cabang_id,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Cabang'])}}
+              {{Form::select('cabang_id',$cabang,$karyawan->cabang_id,['id'=>'cabang','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Cabang'])}}
             </div>
           </div>
           <hr>
@@ -254,15 +254,62 @@
         allowClear:true
       });
 
-      $("#bidang").change(function(){
-        var bidang_id = $(this).val();
-        $.ajax({
-          url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
-          type:"GET",
-          success:function(result){
-            $("#seksi").html(result);
-          }
-        });
+      // $("#bidang").change(function(){
+      //   var bidang_id = $(this).val();
+      //   $.ajax({
+      //     url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
+      //     type:"GET",
+      //     success:function(result){
+      //       $("#seksi").html(result);
+      //     }
+      //   });
+      // });
+
+      $("#position").change(function(){
+        var position = $(this).find('option:selected').text().toLowerCase();
+        $("#bidang").prop('disabled',false);
+        $("#seksi").prop('disabled',false);
+        $("#kcu").prop('disabled',false);
+        $("#cabang").prop('disabled',false);
+
+        if(position == 'pelaksana'){
+          $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").prop('disabled',false);
+          $("#seksi").prop('disabled',false);
+          $("#kcu").prop('disabled',false);
+          $("#cabang").prop('disabled',false);
+          $("#bidang option[value='0']").hide();
+        }else if(position == 'kepala seksi'){
+          $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").prop('disabled',false);
+          $("#seksi").prop('disabled',false);
+          $("#kcu").prop('disabled',false);
+          $("#cabang").prop('disabled',false);
+        }else if(position == 'kepala bidang'){
+          $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").prop('disabled',false);
+          $("#seksi").prop('disabled',true);
+          $("#kcu").prop('disabled',false);
+          $("#cabang").prop('disabled',false);
+          $("#seksi").val(0).change();
+        }else if(position == 'wakil kepala cabang'){
+          $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").prop('disabled',true);
+          $("#seksi").prop('disabled',true);
+          $("#cabang").prop('disabled',false);
+          $("#kcu").prop('disabled',false);
+        }else if(position == 'kepala cabang'){
+          $("select").not($(this)).val([]).change();
+          $("#bidang").val(0).change();
+          $("#seksi").val(0).change();
+          $("#kcu").val(0).change();
+          $("#bidang").prop('disabled',true);
+          $("#seksi").prop('disabled',true);
+          $("#kcu").prop('disabled',true);
+          $("#cabang").prop('disabled',false);
+        }
+
+
       });
 
     });

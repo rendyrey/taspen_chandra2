@@ -126,7 +126,7 @@ class KaryawanController extends Controller
     $data['page_menu'] = "Edit Data Karyawan";
     $data['karyawan'] = Employee::findOrFail($id);
     $data['user'] = Auth::user();
-    $data['seksi'] = Seksi::where('active','1')->where('bidang_id',$data['karyawan']->bidang_id)->pluck('seksi','id');
+    $data['seksi'] = Seksi::where('active','1')->pluck('seksi','id');
     $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
     $data['cabang'] = Cabang::where('active','1')->pluck('cabang','id');
     $data['kcu'] = Kcu::where('active','1')->pluck('kcu','id');

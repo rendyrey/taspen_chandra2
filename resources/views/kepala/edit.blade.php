@@ -196,6 +196,7 @@
       <div class="form-group row">
         <table class="table datatable-ajax">
           <thead>
+            <th>No</th>
             <th>Slot</th>
             <th>Email</th>
             <th>Status</th>
@@ -204,6 +205,7 @@
           <tbody>
             @foreach($sirkulasi as $key=>$value)
               <tr>
+                <td>{{$key+1}}</td>
                 <td>{{$value->slot->slot}}</td>
                 <td>{{$value->user->email}}</td>
                 <td>{{$value->status}}</td>

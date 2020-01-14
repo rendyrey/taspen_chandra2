@@ -66,31 +66,31 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Position</label>
             <div class="col-lg-9">
-              {{Form::select('position_id',$position,old('position_id'),['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Position'])}}
+              {{Form::select('position_id',$position,old('position_id'),['id'=>'position','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Position'])}}
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Bidang</label>
             <div class="col-lg-9">
-              {{Form::select('bidang_id',$bidang,old('bidang_id'),['id'=>'bidang','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Bidang'])}}
+              {{Form::select('bidang_id',$bidang,old('bidang_id'),['id'=>'bidang','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Bidang','disabled'])}}
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Seksi</label>
             <div class="col-lg-9">
-              {{Form::select('seksi_id',[],old('seksi_id'),['id'=>'seksi','class'=>'form-control data-fouc','data-placeholder'=>'Pilih Seksi'])}}
+              {{Form::select('seksi_id',$seksi,old('seksi_id'),['id'=>'seksi','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Seksi','disabled'])}}
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">KCU</label>
             <div class="col-lg-9">
-              {{Form::select('kcu_id',$kcu,old('kcu_id'),['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih KCU'])}}
+              {{Form::select('kcu_id',$kcu,old('kcu_id'),['id'=>'kcu','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih KCU','disabled'])}}
             </div>
           </div>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Cabang</label>
             <div class="col-lg-9">
-              {{Form::select('cabang_id',$cabang,old('cabang_id'),['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Cabang'])}}
+              {{Form::select('cabang_id',$cabang,old('cabang_id'),['id'=>'cabang','class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Cabang','disabled'])}}
             </div>
           </div>
           <hr>
@@ -168,7 +168,7 @@
                   confirmButtonClass: 'btn btn-primary',
                   cancelButtonClass: 'btn btn-light',
                 }).then(function() {
-                    window.location = res.url;
+                  window.location = res.url;
                 });
               }
             });
@@ -180,6 +180,7 @@
     </script>
     <script>
     $(document).ready(function(){
+      $("select option[value='0']").disabled();
       $('.pickadate').pickadate({
         monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
         weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
@@ -220,15 +221,62 @@
         allowClear:true
       });
 
-      $("#bidang").change(function(){
-        var bidang_id = $(this).val();
-        $.ajax({
-          url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
-          type:"GET",
-          success:function(result){
-            $("#seksi").html(result);
-          }
-        });
+      // $("#bidang").change(function(){
+      //   var bidang_id = $(this).val();
+      //   $.ajax({
+      //     url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
+      //     type:"GET",
+      //     success:function(result){
+      //       $("#seksi").html(result);
+      //     }
+      //   });
+      // });
+
+      $("#position").change(function(){
+        var position = $(this).find('option:selected').text().toLowerCase();
+        $("#bidang").prop('disabled',false);
+        $("#seksi").prop('disabled',false);
+        $("#kcu").prop('disabled',false);
+        $("#cabang").prop('disabled',false);
+
+        if(position == 'pelaksana'){
+          $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").prop('disabled',false);
+          $("#seksi").prop('disabled',false);
+          $("#kcu").prop('disabled',false);
+          $("#cabang").prop('disabled',false);
+          $("#bidang option[value='0']").hide();
+        }else if(position == 'kepala seksi'){
+          $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").prop('disabled',false);
+          $("#seksi").prop('disabled',false);
+          $("#kcu").prop('disabled',false);
+          $("#cabang").prop('disabled',false);
+        }else if(position == 'kepala bidang'){
+          $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").prop('disabled',false);
+          $("#seksi").prop('disabled',true);
+          $("#kcu").prop('disabled',false);
+          $("#cabang").prop('disabled',false);
+          $("#seksi").val(0).change();
+        }else if(position == 'wakil kepala cabang'){
+          $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").prop('disabled',true);
+          $("#seksi").prop('disabled',true);
+          $("#cabang").prop('disabled',false);
+          $("#kcu").prop('disabled',false);
+        }else if(position == 'kepala cabang'){
+          $("select").not($(this)).val([]).change();
+          $("#bidang").val(0).change();
+          $("#seksi").val(0).change();
+          $("#kcu").val(0).change();
+          $("#bidang").prop('disabled',true);
+          $("#seksi").prop('disabled',true);
+          $("#kcu").prop('disabled',true);
+          $("#cabang").prop('disabled',false);
+        }
+
+
       });
     });
     </script>
