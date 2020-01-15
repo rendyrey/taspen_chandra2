@@ -64,15 +64,13 @@
 			</ul>
 
 			<ul class="navbar-nav ml-auto">
-
-
 				<li class="nav-item dropdown dropdown-user">
 					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
 						<img src="{{url('limitless/global_assets/images/image.png')}}" class="rounded-circle mr-2" height="34" alt="">
 						<span>{{$user->name}}</span>
 					</a>
-
 					<div class="dropdown-menu dropdown-menu-right">
+						<a href="{{url('profile')}}" class="dropdown-item"><i class="icon-user"></i> Profile</a>
 						<a href="{{url('logout')}}" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
 					</div>
 				</li>

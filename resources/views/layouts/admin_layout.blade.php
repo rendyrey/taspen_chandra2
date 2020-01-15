@@ -72,6 +72,7 @@
 					</a>
 
 					<div class="dropdown-menu dropdown-menu-right">
+						{{-- <a href="{{url('profile')}}" class="dropdown-item"><i class="icon-user"></i> Profile</a> --}}
 						<a href="{{url('logout')}}" class="dropdown-item"><i class="icon-switch2"></i> Logout</a>
 					</div>
 				</li>

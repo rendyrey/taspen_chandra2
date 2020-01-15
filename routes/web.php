@@ -25,6 +25,9 @@ Route::get('logout','LoginController@logout')->name('logout');
 Route::get('/','LoginController@index');
 Route::post('generate_report','ReportController@generate');
 
+Route::get('profile','ProfileController@profile');
+Route::put('profile/update/{id}','ProfileController@update');
+
 Route::middleware(['pelaksana'])->group(function(){
     Route::prefix('pelaksana')->group(function(){
         Route::get('/dashboard','DashboardController@pelaksana');
