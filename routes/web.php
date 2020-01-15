@@ -27,6 +27,8 @@ Route::post('generate_report','ReportController@generate');
 
 Route::get('profile','ProfileController@profile');
 Route::put('profile/update/{id}','ProfileController@update');
+Route::get('profile/change-password/','ProfileController@change_password');
+Route::put('profile/change-password/update/{id}','ProfileController@change_password_update');
 
 Route::middleware(['pelaksana'])->group(function(){
     Route::prefix('pelaksana')->group(function(){

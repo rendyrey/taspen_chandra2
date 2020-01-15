@@ -8,6 +8,7 @@ use App\Employee;
 use App\User;
 use Auth;
 use DB;
+use Hash;
 
 class ProfileController extends Controller
 {
@@ -49,6 +50,32 @@ class ProfileController extends Controller
       }catch(\Exception $e){
         DB::rollback();
         return response()->json(['error'=>$e->getMessage()]);
+      }
+    }
+
+    public function change_password(){
+      $data['user'] = Auth::user();
+      $id = $data['user']->employee_id;
+      $data['page_menu'] = "Change Password";
+      $data['user_account'] = User::where('employee_id',$id)->first();
+      $data['id'] = $id;
+      return view('profile.change_password',$data);
+    }
+
+    public function change_password_update(Request $request,$id){
+      $user = User::where('employee_id',$id)->first();
+      $password_hashed = $user->password;
+      $password = $request->old_password;
+      if(Hash::check($password,$password_hashed)){
+        if($request->new_password == $request->new_password_confirmation){
+          $user->password = bcrypt($request->new_password);
+          $user->save();
+          return response()->json(['pesan'=>'Ganti password berhasil!','url'=>url('/')]);
+        }else{
+          return response()->json(['error'=>'Password baru tidak sama!']);
+        }
+      }else{
+        return response()->json(['error'=>'Password lama tidak benar!']);
       }
     }
 }
