@@ -190,7 +190,7 @@
                 <input type="file" name="file[]" v-bind:id="'form-input-styled'+indexDetail">
                 {{-- {{Form::file('file[]',['class'=>'form-input-styled'])}} --}}
                 {{-- <input type="file" class="form-input-styled" data-fouc> --}}
-                <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+                <!-- <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span> -->
               </div>
             </div>
             <hr>

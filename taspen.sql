@@ -11,7 +11,7 @@
  Target Server Version : 100406
  File Encoding         : 65001
 
- Date: 31/12/2019 10:28:30
+ Date: 16/01/2020 17:02:48
 */
 
 SET NAMES utf8mb4;
@@ -55,7 +55,7 @@ CREATE TABLE `log_login`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 104 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 130 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of log_login
@@ -86,7 +86,7 @@ INSERT INTO `log_login` VALUES (24, 'rendyreynaldy@gmail.com', '', '2019-11-27 0
 INSERT INTO `log_login` VALUES (25, 'rendyreynaldy@gmail.com', '', '2019-11-29 01:04:32', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0', '2019-11-29 01:07:18', '2019-12-02 05:41:25', '2019-12-02 05:41:25');
 INSERT INTO `log_login` VALUES (26, 'kepalaseksi@gmail.com', '', '2019-12-02 00:47:50', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-12-02 00:47:50', '2019-12-02 00:47:50', NULL);
 INSERT INTO `log_login` VALUES (27, 'kepalabidang@gmail.com', '', '2019-12-02 00:49:53', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-12-02 00:49:53', '2019-12-02 05:41:41', '2019-12-02 05:41:41');
-INSERT INTO `log_login` VALUES (28, 'rendyreynaldy@gmail.com', '', '2019-11-29 01:07:18', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-12-02 05:41:25', '2019-12-02 05:41:25', NULL);
+INSERT INTO `log_login` VALUES (28, 'rendyreynaldy@gmail.com', '', '2019-11-29 01:07:18', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-12-02 05:41:25', '2020-01-07 01:56:02', '2020-01-07 01:56:02');
 INSERT INTO `log_login` VALUES (29, 'kepalabidang@gmail.com', '', '2019-12-02 00:49:53', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-12-02 05:41:42', '2019-12-19 06:18:27', '2019-12-19 06:18:27');
 INSERT INTO `log_login` VALUES (30, 'admin@gmail.com', 'administrator', '2019-12-06 06:42:35', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-12-06 06:42:35', '2019-12-11 00:50:14', '2019-12-11 00:50:14');
 INSERT INTO `log_login` VALUES (31, 'admin@gmail.com', 'administrator', '2019-12-06 06:42:35', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-12-11 00:50:14', '2019-12-11 07:34:59', '2019-12-11 07:34:59');
@@ -146,7 +146,7 @@ INSERT INTO `log_login` VALUES (84, 'pelaksana@gmail.com', 'pelaksana', '2019-12
 INSERT INTO `log_login` VALUES (85, 'nindyasofi@gmail.com', 'pelaksana', '2019-12-20 08:31:15', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-26 00:48:28', '2019-12-26 03:06:39', '2019-12-26 03:06:39');
 INSERT INTO `log_login` VALUES (86, 'nindyasofi@gmail.com', 'pelaksana', '2019-12-26 00:48:28', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0', '2019-12-26 03:06:39', '2019-12-26 05:55:59', '2019-12-26 05:55:59');
 INSERT INTO `log_login` VALUES (87, 'nindyasofi@gmail.com', 'pelaksana', '2019-12-26 03:06:39', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-26 05:55:59', '2019-12-27 01:59:43', '2019-12-27 01:59:43');
-INSERT INTO `log_login` VALUES (88, 'chandrasetya@gmail.com', 'kepala-seksi', '2019-12-20 09:17:45', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-26 06:20:05', '2019-12-26 06:20:05', NULL);
+INSERT INTO `log_login` VALUES (88, 'chandrasetya@gmail.com', 'kepala-seksi', '2019-12-20 09:17:45', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-26 06:20:05', '2020-01-14 01:06:30', '2020-01-14 01:06:30');
 INSERT INTO `log_login` VALUES (89, 'kepalacabang@gmail.com', 'kepala-cabang', '2019-12-20 09:20:37', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-26 06:20:48', '2019-12-26 06:20:48', NULL);
 INSERT INTO `log_login` VALUES (90, 'admin@gmail.com', 'administrator', '2019-12-20 07:33:24', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-26 06:22:40', '2019-12-27 01:14:26', '2019-12-27 01:14:26');
 INSERT INTO `log_login` VALUES (91, 'admin@gmail.com', 'administrator', '2019-12-26 06:22:40', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-27 01:14:26', '2019-12-27 01:21:34', '2019-12-27 01:21:34');
@@ -161,7 +161,33 @@ INSERT INTO `log_login` VALUES (99, 'admin@gmail.com', 'administrator', '2019-12
 INSERT INTO `log_login` VALUES (100, 'nindyasofi@gmail.com', 'pelaksana', '2019-12-27 01:59:43', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-31 02:02:03', '2019-12-31 02:22:30', '2019-12-31 02:22:30');
 INSERT INTO `log_login` VALUES (101, 'admin@gmail.com', 'administrator', '2019-12-31 02:29:09', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-31 02:29:09', '2019-12-31 02:29:11', '2019-12-31 02:29:11');
 INSERT INTO `log_login` VALUES (102, 'nindyasofi@gmail.com', 'pelaksana', '2019-12-31 02:45:43', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-31 02:45:43', '2019-12-31 02:55:26', '2019-12-31 02:55:26');
-INSERT INTO `log_login` VALUES (103, 'admin@gmail.com', 'administrator', '2019-12-31 03:27:53', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-31 03:27:53', '2019-12-31 03:27:53', NULL);
+INSERT INTO `log_login` VALUES (103, 'admin@gmail.com', 'administrator', '2019-12-31 03:27:53', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2019-12-31 03:27:53', '2020-01-02 03:21:52', '2020-01-02 03:21:52');
+INSERT INTO `log_login` VALUES (104, 'admin@gmail.com', 'administrator', '2019-12-31 03:27:53', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-02 03:21:52', '2020-01-02 03:34:38', '2020-01-02 03:34:38');
+INSERT INTO `log_login` VALUES (105, 'admin@gmail.com', 'administrator', '2020-01-02 03:21:52', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0', '2020-01-02 03:34:38', '2020-01-02 07:36:20', '2020-01-02 07:36:20');
+INSERT INTO `log_login` VALUES (106, 'admin@gmail.com', 'administrator', '2020-01-02 03:34:38', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-02 07:36:20', '2020-01-02 07:44:04', '2020-01-02 07:44:04');
+INSERT INTO `log_login` VALUES (107, 'admin@gmail.com', 'administrator', '2020-01-02 07:47:50', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0', '2020-01-02 07:47:50', '2020-01-02 07:48:14', '2020-01-02 07:48:14');
+INSERT INTO `log_login` VALUES (108, 'nindy', 'pelaksana', '2020-01-02 07:48:18', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0', '2020-01-02 07:48:18', '2020-01-02 08:27:51', '2020-01-02 08:27:51');
+INSERT INTO `log_login` VALUES (109, '1234', 'pelaksana', '2020-01-02 07:48:43', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0', '2020-01-02 07:48:43', '2020-01-02 07:48:43', NULL);
+INSERT INTO `log_login` VALUES (110, 'nindy', 'administrator', '2020-01-02 07:48:18', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-02 08:27:51', '2020-01-07 01:56:09', '2020-01-07 01:56:09');
+INSERT INTO `log_login` VALUES (111, 'rendy', 'administrator', '2020-01-02 08:29:22', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-02 08:29:22', '2020-01-07 01:15:49', '2020-01-07 01:15:49');
+INSERT INTO `log_login` VALUES (112, 'rendy', 'administrator', '2020-01-02 08:29:22', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-07 01:15:49', '2020-01-08 00:50:26', '2020-01-08 00:50:26');
+INSERT INTO `log_login` VALUES (113, 'nindy', 'pelaksana', '2020-01-02 08:27:51', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-07 01:56:09', '2020-01-08 01:10:30', '2020-01-08 01:10:30');
+INSERT INTO `log_login` VALUES (114, 'rendy', 'administrator', '2020-01-07 01:15:49', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-08 00:50:26', '2020-01-08 07:05:21', '2020-01-08 07:05:21');
+INSERT INTO `log_login` VALUES (115, 'nindy', 'pelaksana', '2020-01-07 01:56:09', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-08 01:10:30', '2020-01-10 00:39:19', '2020-01-10 00:39:19');
+INSERT INTO `log_login` VALUES (116, 'rendy', 'administrator', '2020-01-08 00:50:26', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36', '2020-01-08 07:05:21', '2020-01-10 08:20:55', '2020-01-10 08:20:55');
+INSERT INTO `log_login` VALUES (117, 'nindy', 'pelaksana', '2020-01-08 01:10:30', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-10 00:39:19', '2020-01-10 06:02:51', '2020-01-10 06:02:51');
+INSERT INTO `log_login` VALUES (118, 'nindy', 'pelaksana', '2020-01-10 00:39:19', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-10 06:02:51', '2020-01-14 00:53:57', '2020-01-14 00:53:57');
+INSERT INTO `log_login` VALUES (119, 'rendy', 'administrator', '2020-01-08 07:05:21', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-10 08:20:55', '2020-01-14 01:16:04', '2020-01-14 01:16:04');
+INSERT INTO `log_login` VALUES (120, 'nindy', 'pelaksana', '2020-01-10 06:02:51', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-14 00:53:57', '2020-01-14 01:06:37', '2020-01-14 01:06:37');
+INSERT INTO `log_login` VALUES (121, 'chandra', 'kepala-seksi', '2020-01-14 01:03:16', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-14 01:03:16', '2020-01-14 01:03:16', NULL);
+INSERT INTO `log_login` VALUES (122, 'nindy', 'pelaksana', '2020-01-14 00:53:57', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-14 01:06:37', '2020-01-15 01:25:23', '2020-01-15 01:25:23');
+INSERT INTO `log_login` VALUES (123, 'rendy', 'administrator', '2020-01-10 08:20:55', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-14 01:16:04', '2020-01-14 03:28:31', '2020-01-14 03:28:31');
+INSERT INTO `log_login` VALUES (124, 'rendy', 'administrator', '2020-01-14 01:16:04', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-14 03:28:31', '2020-01-14 04:59:05', '2020-01-14 04:59:05');
+INSERT INTO `log_login` VALUES (125, 'rendy', 'administrator', '2020-01-14 03:28:31', '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-14 04:59:05', '2020-01-15 00:47:30', '2020-01-15 00:47:30');
+INSERT INTO `log_login` VALUES (126, 'rendy', 'administrator', '2020-01-14 04:59:05', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-15 00:47:30', '2020-01-15 00:47:30', NULL);
+INSERT INTO `log_login` VALUES (127, 'nindy', 'pelaksana', '2020-01-14 01:06:37', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-15 01:25:23', '2020-01-15 06:09:22', '2020-01-15 06:09:22');
+INSERT INTO `log_login` VALUES (128, 'nindy', 'pelaksana', '2020-01-15 01:25:23', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-15 06:09:22', '2020-01-15 06:23:43', '2020-01-15 06:23:43');
+INSERT INTO `log_login` VALUES (129, 'nindy', 'pelaksana', '2020-01-15 06:09:22', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0', '2020-01-15 06:23:43', '2020-01-15 06:23:43', NULL);
 
 -- ----------------------------
 -- Table structure for migrations
@@ -196,11 +222,12 @@ CREATE TABLE `mst_bidang`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mst_bidang
 -- ----------------------------
+INSERT INTO `mst_bidang` VALUES (0, 'All', 1, '2020-01-14 08:23:40', NULL, NULL);
 INSERT INTO `mst_bidang` VALUES (1, 'Bidang Umum dan SDM', 1, '2019-11-25 11:14:54', '2019-12-17 13:22:00', NULL);
 INSERT INTO `mst_bidang` VALUES (6, 'Bidang Keuangan', 1, '2019-12-17 13:22:26', '2019-12-17 13:22:26', NULL);
 INSERT INTO `mst_bidang` VALUES (7, 'Bidang Layanan', 1, '2019-12-17 13:22:43', '2019-12-17 13:22:43', NULL);
@@ -217,11 +244,12 @@ CREATE TABLE `mst_cabang`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mst_cabang
 -- ----------------------------
+INSERT INTO `mst_cabang` VALUES (0, 'All', 1, '2020-01-14 08:45:29', NULL, NULL);
 INSERT INTO `mst_cabang` VALUES (1, 'Bandung', 1, '2019-11-26 11:15:06', '2019-12-12 09:26:47', NULL);
 
 -- ----------------------------
@@ -236,11 +264,13 @@ CREATE TABLE `mst_employee`  (
   `seksi_id` bigint(20) UNSIGNED NOT NULL,
   `bidang_id` bigint(20) UNSIGNED NOT NULL,
   `employee_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nik` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` tinyint(1) NOT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `mst_employee_nik_unique`(`nik`) USING BTREE,
   INDEX `mst_employee_kcu_id_foreign`(`kcu_id`) USING BTREE,
   INDEX `mst_employee_cabang_id_foreign`(`cabang_id`) USING BTREE,
   INDEX `mst_employee_seksi_id_foreign`(`seksi_id`) USING BTREE,
@@ -251,20 +281,18 @@ CREATE TABLE `mst_employee`  (
   CONSTRAINT `mst_employee_kcu_id_foreign` FOREIGN KEY (`kcu_id`) REFERENCES `mst_kcu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `mst_employee_position_id_foreign` FOREIGN KEY (`position_id`) REFERENCES `data_slot` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `mst_employee_seksi_id_foreign` FOREIGN KEY (`seksi_id`) REFERENCES `mst_seksi` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mst_employee
 -- ----------------------------
-INSERT INTO `mst_employee` VALUES (2, 2, 1, 1, 1, 1, 'Rendys', 1, NULL, '2019-12-13 00:53:01', NULL);
-INSERT INTO `mst_employee` VALUES (5, 1, 1, 1, 1, 1, 'Pelaksana', 1, '2019-12-11 08:20:17', '2019-12-11 08:20:17', NULL);
-INSERT INTO `mst_employee` VALUES (9, 5, 1, 1, 1, 1, 'Rimaxsxxxxxxx', 1, '2019-12-12 04:10:51', '2019-12-13 09:32:46', NULL);
-INSERT INTO `mst_employee` VALUES (10, 1, 1, 1, 4, 6, 'Nindya Sofiana', 1, '2019-12-17 13:28:56', '2019-12-17 13:28:56', NULL);
-INSERT INTO `mst_employee` VALUES (11, 2, 1, 1, 4, 6, 'Chandra Setya Wijaya', 1, '2019-12-17 13:34:41', '2019-12-17 13:34:41', NULL);
-INSERT INTO `mst_employee` VALUES (13, 3, 1, 1, 4, 6, 'Kepala Bidang', 1, '2019-12-19 06:15:11', '2019-12-19 06:15:11', NULL);
-INSERT INTO `mst_employee` VALUES (14, 4, 1, 1, 4, 6, 'Wakil Kepala Cabangsssss', 1, '2019-12-20 02:19:01', '2019-12-27 01:21:20', NULL);
-INSERT INTO `mst_employee` VALUES (15, 5, 1, 1, 4, 6, 'Kepala Cabang', 1, '2019-12-20 07:34:09', '2019-12-20 07:34:09', NULL);
-INSERT INTO `mst_employee` VALUES (16, 1, 1, 1, 1, 1, 'Karyawan A', 1, '2019-12-31 02:01:08', '2019-12-31 02:01:08', NULL);
+INSERT INTO `mst_employee` VALUES (5, 1, 1, 1, 1, 1, 'Pelaksana', '2', 1, '2019-12-11 08:20:17', '2020-01-08 07:44:37', NULL);
+INSERT INTO `mst_employee` VALUES (10, 1, 1, 1, 4, 6, 'Nindya Sofiana', '3', 1, '2019-12-17 13:28:56', '2020-01-15 07:17:52', NULL);
+INSERT INTO `mst_employee` VALUES (11, 2, 1, 1, 4, 6, 'Chandra Setya Wijaya', '4', 1, '2019-12-17 13:34:41', '2020-01-08 07:45:11', NULL);
+INSERT INTO `mst_employee` VALUES (13, 3, 1, 1, 4, 6, 'Kepala Bidang', '5', 1, '2019-12-19 06:15:11', '2019-12-19 06:15:11', NULL);
+INSERT INTO `mst_employee` VALUES (14, 4, 1, 1, 4, 6, 'Wakil Kepala Cabangsssss', '6', 1, '2019-12-20 02:19:01', '2019-12-27 01:21:20', NULL);
+INSERT INTO `mst_employee` VALUES (15, 5, 1, 1, 4, 6, 'Kepala Cabang', '7', 1, '2019-12-20 07:34:09', '2019-12-20 07:34:09', NULL);
+INSERT INTO `mst_employee` VALUES (21, 1, 1, 1, 1, 1, 'Rendy', '1', 1, '2020-01-02 08:28:45', '2020-01-02 08:28:45', NULL);
 
 -- ----------------------------
 -- Table structure for mst_global
@@ -311,11 +339,12 @@ CREATE TABLE `mst_kcu`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `cabang_id`(`cabang_id`) USING BTREE,
   CONSTRAINT `mst_kcu_ibfk_1` FOREIGN KEY (`cabang_id`) REFERENCES `mst_cabang` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mst_kcu
 -- ----------------------------
+INSERT INTO `mst_kcu` VALUES (0, 0, 'All', 1, '2020-01-14 08:45:22', NULL, NULL);
 INSERT INTO `mst_kcu` VALUES (1, 1, 'KCU Bandungs', 1, '2019-11-25 11:17:06', '2019-12-13 01:17:33', NULL);
 
 -- ----------------------------
@@ -333,11 +362,12 @@ CREATE TABLE `mst_seksi`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `mst_seksi_bidang_id_foreign`(`bidang_id`) USING BTREE,
   CONSTRAINT `mst_seksi_bidang_id_foreign` FOREIGN KEY (`bidang_id`) REFERENCES `mst_bidang` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mst_seksi
 -- ----------------------------
+INSERT INTO `mst_seksi` VALUES (0, 0, 'All', 1, NULL, NULL, NULL);
 INSERT INTO `mst_seksi` VALUES (1, 1, 'Seksi Umum', 1, '2019-11-25 11:17:31', '2019-12-17 13:21:16', NULL);
 INSERT INTO `mst_seksi` VALUES (3, 1, 'Seksi SDM', 1, '2019-12-17 13:23:31', '2019-12-17 13:23:31', NULL);
 INSERT INTO `mst_seksi` VALUES (4, 6, 'Seksi Kas dan Verifikasi', 1, '2019-12-17 13:24:19', '2019-12-17 13:24:19', NULL);
@@ -478,8 +508,10 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nik` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pelaksana',
   `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
@@ -487,22 +519,21 @@ CREATE TABLE `users`  (
   `active` tinyint(1) NOT NULL DEFAULT 1,
   `employee_id` bigint(20) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `users_email_unique`(`email`) USING BTREE,
+  UNIQUE INDEX `users_nik_unique`(`nik`) USING BTREE,
+  UNIQUE INDEX `users_username_unique`(`username`) USING BTREE,
   INDEX `employee`(`employee_id`) USING BTREE,
-  CONSTRAINT `employee` FOREIGN KEY (`employee_id`) REFERENCES `mst_employee` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+  CONSTRAINT `employee` FOREIGN KEY (`employee_id`) REFERENCES `mst_employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (6, 'Rendys', 'admin@gmail.com', '$2y$10$BDGDu1qvsdnNgF6xgsazt.qNP5YjieSnTBRaion0zKOQDZ0svhQgK', 'administrator', '6RiTb1oN3xsqePdfbkyZSLoHWz8mTIFEbIMShdudH9OGv95fuptj4RomSAVB', '2019-12-06 06:41:31', '2019-12-13 00:53:01', 1, 2);
-INSERT INTO `users` VALUES (7, 'Pelaksana', 'pelaksana@gmail.com', '$2y$10$OsoVtwNEWNPMrp.6xMQOm.lfnhSExPy4mSCvH4RoekklcwZ1xQDMO', 'pelaksana', NULL, '2019-12-11 08:20:17', '2019-12-19 00:23:44', 1, 5);
-INSERT INTO `users` VALUES (11, 'Rimaxsxxxxxxx', 'rima@gmail.com', '$2y$10$UtEn9Meq7nQs12HYV5xO3O.GOIcpfz2ZG2DidMA/r8uyh0myf7YfC', 'kepala-cabang', NULL, '2019-12-12 04:10:51', '2019-12-13 09:32:46', 1, 9);
-INSERT INTO `users` VALUES (12, 'Nindya Sofiana', 'nindyasofi@gmail.com', '$2y$10$uZRfostfUmi1P6NTzUoze.GiYZlJtOEEBPAwAPkF4APWtsf4R6jza', 'pelaksana', 'IYifMsplPHo9dQnH5cAIkMLrY72t9wYGb4igISu1f58Xo7idRIZnxEndQxtv', '2019-12-17 13:28:57', '2019-12-17 13:28:57', 1, 10);
-INSERT INTO `users` VALUES (13, 'Chandra Setya Wijaya', 'chandrasetya@gmail.com', '$2y$10$cUsRqsEglcqoMWtjtiPi2.WOyg8m.5DoXgSK2J63Vnt.cXJSYWU8.', 'kepala-seksi', NULL, '2019-12-17 13:34:41', '2019-12-17 13:34:41', 1, 11);
-INSERT INTO `users` VALUES (15, 'Kepala Bidang', 'kepalabidang@gmail.com', '$2y$10$JkrLVlT9EmXAN/3OY1NTzumSnTsNDdaAhVls6ESFtXUiy1mKeCN8C', 'kepala-bidang', NULL, '2019-12-19 06:15:11', '2019-12-19 06:15:11', 1, 13);
-INSERT INTO `users` VALUES (16, 'Wakil Kepala Cabangsssss', 'wakilkepalacabang@gmail.com', '$2y$10$G86QOvzxiaS1BYVNqHwpv.A6CG7yXwyBs3YgVtNCcZ.U5ryeMAs8.', 'wakil-kepala-cabang', NULL, '2019-12-20 02:19:01', '2019-12-27 01:21:20', 1, 14);
-INSERT INTO `users` VALUES (17, 'Kepala Cabang', 'kepalacabang@gmail.com', '$2y$10$Iko0J0WGCqT3tOaEAwPccOM2lopPjUCFQwzzeczTzJiRSpVNDVeaq', 'kepala-cabang', NULL, '2019-12-20 07:34:09', '2019-12-20 07:34:09', 1, 15);
-INSERT INTO `users` VALUES (18, 'Karyawan A', 'karyawana@gmail.com', '$2y$10$elaTe3v/SBeBLG40Q2p5rulghfnqUBwJtqx47oevltNL16d7PtieC', 'pelaksana', NULL, '2019-12-31 02:01:08', '2019-12-31 02:01:08', 1, 16);
+INSERT INTO `users` VALUES (7, 'Pelaksana', 'pelaksana@gmail.com', 'pelaksana', '$2y$10$SMuzOL6Z8vQUF/T2ckO9i.OlGNS21yDf7xFFrWRUO2zyvn5WVIxlq', '2', 'pelaksana', NULL, '2019-12-11 08:20:17', '2020-01-07 01:16:25', 1, 5);
+INSERT INTO `users` VALUES (12, 'Nindya Sofiana', 'nindyasofi@gmail.com', 'nindy', '$2y$10$6X6qgFEFQzApv9o6.wO.AuavboeGoe37RX2GxWHfG//NM2Vlw22py', '3', 'pelaksana', '0DHAcPlUM8cv989JeaJtELRdgrA0URJ1MmTstyxyRXynRFOMvTDpTd9MvlUw', '2019-12-17 13:28:57', '2020-01-15 07:18:45', 1, 10);
+INSERT INTO `users` VALUES (13, 'Chandra Setya Wijaya', 'chandrasetya@gmail.com', 'chandra', '$2y$10$QNFYYvyNX7q8E776s/YHr.zG4wHG3L6SvG7KjfxfeEiq9fBtborl2', '4', 'kepala-seksi', 'HLIzKTNiW3r0gCWRIXXTK5gUJYk93MZTOu2vHznw4G1yJ2IvbAglNcR3n42W', '2019-12-17 13:34:41', '2020-01-08 07:45:11', 1, 11);
+INSERT INTO `users` VALUES (15, 'Kepala Bidang', 'kepalabidang@gmail.com', 'kepalabidang', '$2y$10$9Q/dCOs0rMjGGvBHfn.t..QaPDcKvMMszbDCQr4FJGLi4SjYQKOQi', '5', 'kepala-bidang', NULL, '2019-12-19 06:15:11', '2020-01-07 01:16:09', 1, 13);
+INSERT INTO `users` VALUES (16, 'Wakil Kepala Cabangsssss', 'wakilkepalacabang@gmail.com', 'wakilkepalacabang', '$2y$10$cekOXfwGFeMvExZlGMt5cejyKtJ22QOKEBRM.0P8eu85/LhE7oIoK', '6', 'wakil-kepala-cabang', NULL, '2019-12-20 02:19:01', '2020-01-07 01:16:30', 1, 14);
+INSERT INTO `users` VALUES (17, 'Kepala Cabang', 'kepalacabang@gmail.com', 'kepalacabang', '$2y$10$pLkrDdYMgbIOY.7gygjMDeMJl9Bj8ON47.ZlaFPa83TKi2djjYJM.', '7', 'kepala-cabang', NULL, '2019-12-20 07:34:09', '2020-01-07 01:16:15', 1, 15);
+INSERT INTO `users` VALUES (23, 'Rendy', 'rendyreynaldy@gmail.com', 'rendy', '$2y$10$Ae0pDqtN8/rahJeJ3kskTuBoSSInrCQxqjnFereLTDWz3hlGe8n2u', '1', 'administrator', 'jO4h0YOhqVEoO8qmNJiltfwoo7TkrMHu5FYFjjMXsYztgZmceA3bHcuLaFqH', '2020-01-02 08:28:45', '2020-01-02 08:28:45', 1, 21);
 
 SET FOREIGN_KEY_CHECKS = 1;
