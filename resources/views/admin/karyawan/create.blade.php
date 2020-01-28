@@ -212,25 +212,81 @@
         allowClear:true
       });
 
+      // $("#seksi").select2({
+      //   language:{
+      //     noResults:function(){
+      //       return "Bidang belum dipilih / tidak ada seksi di bidang tersebut";
+      //     }
+      //   },
+      //   allowClear:true
+      // });
+
       $("#seksi").select2({
-        language:{
-          noResults:function(){
-            return "Bidang belum dipilih / tidak ada seksi di bidang tersebut";
+        minimumInputLength: 0,
+        language: {
+            inputTooShort: function () {
+                return 'Ketik minimal 1 huruf';
+            },
+            errorLoading: function () {
+                return 'Seksi tidak ditemukan';
+            },
+            noResults: function () {
+                return templateResult();
+            }
+        },
+        ajax: {
+            url: "{{url('administrator/seksi/get-by-bidang/')}}/"+$("#bidang").val(),
+            dataType: "json",
+            type: "GET",
+            data: function (params) {
+
+                var queryParameters = {
+                    query: params.term
+                };
+
+                return queryParameters;
+            },
+            processResults: function (data) {
+                return {
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.nama,
+                            id: item.id
+                        }
+                    }),
+                }
+
+            }
+        },
+        // ================= NEW ENTRY ============================
+        tags: true,
+        createTag: function (params) {
+          return {
+            id: params.term,
+            text: params.term,
+            newOption: true
           }
         },
-        allowClear:true
+        templateResult: function (data) {
+          var $result = $("<span></span>");
+          $result.text(data.text);
+          if (data.newOption) {
+            $result.append(" <em><font color='red'>(new)</font></em>");
+          }
+          return $result;
+        }
       });
 
-      $("#bidang").change(function(){
-        var bidang_id = $(this).val();
-        $.ajax({
-          url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
-          type:"GET",
-          success:function(result){
-            $("#seksi").html(result);
-          }
-        });
-      });
+      // $("#bidang").change(function(){
+      //   var bidang_id = $(this).val();
+      //   $.ajax({
+      //     url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
+      //     type:"GET",
+      //     success:function(result){
+      //       $("#seksi").html(result);
+      //     }
+      //   });
+      // });
 
       $("#position").change(function(){
         var position = $(this).find('option:selected').text().toLowerCase();
@@ -261,6 +317,8 @@
           $("#seksi").val(0).change();
         }else if(position == 'wakil kepala cabang'){
           $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").val(0).change();
+          $("#seksi").val(0).change();
           $("#bidang").prop('disabled',true);
           $("#seksi").prop('disabled',true);
           $("#cabang").prop('disabled',false);
