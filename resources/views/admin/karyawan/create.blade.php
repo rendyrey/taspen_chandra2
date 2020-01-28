@@ -221,16 +221,16 @@
         allowClear:true
       });
 
-      // $("#bidang").change(function(){
-      //   var bidang_id = $(this).val();
-      //   $.ajax({
-      //     url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
-      //     type:"GET",
-      //     success:function(result){
-      //       $("#seksi").html(result);
-      //     }
-      //   });
-      // });
+      $("#bidang").change(function(){
+        var bidang_id = $(this).val();
+        $.ajax({
+          url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
+          type:"GET",
+          success:function(result){
+            $("#seksi").html(result);
+          }
+        });
+      });
 
       $("#position").change(function(){
         var position = $(this).find('option:selected').text().toLowerCase();
