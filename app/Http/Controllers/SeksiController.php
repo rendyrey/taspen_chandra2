@@ -101,7 +101,7 @@ class SeksiController extends Controller
 
   public function get_by_bidang($id){
     try{
-      $seksi = Seksi::where('bidang_id',$id)->pluck('seksi','id');
+      $seksi = Seksi::where('bidang_id',$id)->orWhere('seksi','All')->pluck('seksi','id');
       $seksi->prepend('','');
       $option = '';
       foreach($seksi as $key=>$value){

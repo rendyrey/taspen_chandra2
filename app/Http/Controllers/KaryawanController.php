@@ -94,9 +94,9 @@ class KaryawanController extends Controller
       $employee->employee_name = $request->employee_name;
       $employee->nik = $request->nik;
       $employee->position_id = $request->position_id;
-      $employee->seksi_id = $request->seksi_id;
-      $employee->bidang_id = $request->bidang_id;
-      $employee->kcu_id = $request->kcu_id;
+      $employee->seksi_id = $request->seksi_id ? $request->seksi_id:0;
+      $employee->bidang_id = $request->bidang_id ? $request->bidang_id:0;
+      $employee->kcu_id = $request->kcu_id ? $request->kcu_id:0;
       $employee->cabang_id = $request->cabang_id;
       $employee->active = $request->active ? 1:0;
       $employee->save();
