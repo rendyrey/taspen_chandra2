@@ -295,6 +295,8 @@
           $("#seksi").val(0).change();
         }else if(position == 'wakil kepala cabang'){
           $("select").not($(this)).val([]).trigger('change');
+          $("#bidang").val(0).change();
+          $("#seksi").val(0).change();
           $("#bidang").prop('disabled',true);
           $("#seksi").prop('disabled',true);
           $("#cabang").prop('disabled',false);

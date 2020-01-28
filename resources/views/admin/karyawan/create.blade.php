@@ -221,16 +221,20 @@
         allowClear:true
       });
 
-      // $("#bidang").change(function(){
-      //   var bidang_id = $(this).val();
-      //   $.ajax({
-      //     url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
-      //     type:"GET",
-      //     success:function(result){
-      //       $("#seksi").html(result);
-      //     }
-      //   });
-      // });
+
+      //
+      $("#bidang").change(function(){
+        var bidang_id = $(this).val();
+        $.ajax({
+          url:"{{url('administrator/seksi/get-by-bidang/')}}/"+bidang_id,
+          type:"GET",
+          success:function(result){
+            $("#seksi").html(result);
+            $("#seksi option[value='0']").prop('disabled',true);
+            
+          }
+        });
+      });
 
       $("#position").change(function(){
         var position = $(this).find('option:selected').text().toLowerCase();
@@ -254,22 +258,24 @@
           $("#cabang").prop('disabled',false);
         }else if(position == 'kepala bidang'){
           $("select").not($(this)).val([]).trigger('change');
+          // $("#seksi").val(0).change();
           $("#bidang").prop('disabled',false);
           $("#seksi").prop('disabled',true);
           $("#kcu").prop('disabled',false);
           $("#cabang").prop('disabled',false);
-          $("#seksi").val(0).change();
         }else if(position == 'wakil kepala cabang'){
           $("select").not($(this)).val([]).trigger('change');
+          // $("#bidang").val(0).change();
+          // $("#seksi").val(0).change();
           $("#bidang").prop('disabled',true);
           $("#seksi").prop('disabled',true);
           $("#cabang").prop('disabled',false);
           $("#kcu").prop('disabled',false);
         }else if(position == 'kepala cabang'){
           $("select").not($(this)).val([]).change();
-          $("#bidang").val(0).change();
-          $("#seksi").val(0).change();
-          $("#kcu").val(0).change();
+          // $("#bidang").val(0).change();
+          // $("#seksi").val(0).change();
+          // $("#kcu").val(0).change();
           $("#bidang").prop('disabled',true);
           $("#seksi").prop('disabled',true);
           $("#kcu").prop('disabled',true);
