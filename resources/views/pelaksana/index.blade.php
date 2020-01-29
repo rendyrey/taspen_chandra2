@@ -49,7 +49,7 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Task Title</th>
+              {{-- <th>Task Title</th> --}}
               <th>Date</th>
               <th>Pelaksana</th>
               <th>Seksi</th>
@@ -64,7 +64,7 @@
             @foreach($task_header as $key=>$value)
               <tr>
                 <td>{{$key+1}}</td>
-                <td>{{$value->task_title}}</td>
+                {{-- <td>{{$value->task_title}}</td> --}}
                 <td>{{$value->date_task}}</td>
                 <td>{{$value->employee->employee_name}}</td>
                 <td>{{$value->employee->seksi->seksi}}</td>

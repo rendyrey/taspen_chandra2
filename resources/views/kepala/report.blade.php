@@ -46,7 +46,7 @@
         </div>
 
         <div class="card-body">
-          {{Form::open(['url'=>'pelaksana/report','method'=>'post','class'=>'form-validate-jquery','id'=>'form','v-on:submit.prevent="generate"'])}}
+          {{Form::open(['url'=>'generate_report','method'=>'post','class'=>'form-validate-jquery','id'=>'form'])}}
 
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Start Date</label>

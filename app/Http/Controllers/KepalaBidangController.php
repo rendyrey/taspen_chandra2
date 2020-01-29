@@ -10,6 +10,7 @@ use App\TaskHeader;
 use App\TaskDetail;
 use App\Position;
 use App\Sirkulasi;
+use App\Bidang;
 use App\Helper\SirkulasiHelper;
 use DB;
 
@@ -43,6 +44,7 @@ class KepalaBidangController extends Controller
     $data['last_sirkulasi'] = $sirkulasi;
     $slot_aktif = $sirkulasi->slot_id;
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
+    dd($slot_aktif);
     // check apakah kepala seksi berhak untuk edit atau tidak
     if($slot_aktif != $user->employee->position_id){
       return redirect('kepala-bidang/dashboard');
@@ -94,6 +96,10 @@ class KepalaBidangController extends Controller
     }
 
     public function report(){
-      return 'hi';
+      $data['page_menu'] = "Generate Report";
+      $data['user'] = Auth::user();
+      $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
+      $data['bidang']->prepend('','');
+      return view('kepala.report',$data);
     }
 }
