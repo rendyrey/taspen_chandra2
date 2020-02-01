@@ -50,9 +50,9 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Task Title</th>
+              {{-- <th>Task Title</th> --}}
               <th>Date</th>
-              <th>Pelaksana</th>
+              <th>Pelaksana </th>
               <th>Seksi</th>
               <th>Bidang</th>
               <th>KCU</th>
@@ -65,7 +65,7 @@
             @foreach($task_header as $key=>$value)
               <tr>
                 <td>{{$key+1}}</td>
-                <td>{{$value->task_title}}</td>
+                {{-- <td>{{$value->task_title}}</td> --}}
                 <td>{{$value->date_task}}</td>
                 <td>{{$value->employee->employee_name}}</td>
                 <td>{{$value->employee->seksi->seksi}}</td>
@@ -74,11 +74,12 @@
                 <td>{{$value->status_header($value->status_id)}}</td>
                 <td>{{$value->sirkulasi($value->id)->slot->slot}}</td>
                 <td>
-                  @if($value->status_header($value->status_id) == 'New' || $value->slot_aktif($value->id,$slot_aktif))
+                  @if($value->slot_aktif($value->id,$slot_aktif))
                     <a href="{{url($user->role.'/edit/'.$value->id)}}"><button class="btn btn-primary">Update</button></a>
                   @else
                     <a href="{{url($user->role.'/view/'.$value->id)}}"><button class="btn btn-primary">View</button></a>
                     @endif
+
                   </td>
                 </tr>
               @endforeach

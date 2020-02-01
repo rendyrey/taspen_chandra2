@@ -8,6 +8,7 @@
         <th>Start Time</th>
         <th>End Time</th>
         <th>Status</th>
+        <th>Progress</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
                 <td>{{date('H:i',strtotime($detail->end_time))}}</td>
                 @if($new)
                 <td rowspan="{{$value->task_detail->count()}}">{{$value->status_header($value->status_id)}}</td>
+                <td rowspan="{{$value->task_detail->count()}}">{{$value->sirkulasi($value->id)->slot->slot}}</td>
                 @endif
                 @php
                 $new = false;

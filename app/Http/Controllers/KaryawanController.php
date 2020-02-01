@@ -43,9 +43,9 @@ class KaryawanController extends Controller
     })
     ->addColumn('status',function($value){
       if($value->active){
-        return 'Yes';
+        return 'Active';
       }else{
-        return 'No';
+        return 'Not Active';
       }
     })
     ->addColumn('aksi',function($value){

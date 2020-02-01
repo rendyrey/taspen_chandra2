@@ -9,6 +9,7 @@ use App\TaskHeader;
 use App\TaskDetail;
 use App\Position;
 use App\Sirkulasi;
+use App\Bidang;
 use App\Helper\SirkulasiHelper;
 use DB;
 use Auth;
@@ -95,6 +96,10 @@ class WakilKepalaCabangController extends Controller
 
 
   public function report(){
-    return 'hi';
+    $data['page_menu'] = "Generate Report";
+    $data['user'] = Auth::user();
+    $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
+    $data['bidang']->prepend('','');
+    return view('kepala.report',$data);
   }
 }

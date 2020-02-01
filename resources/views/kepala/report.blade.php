@@ -46,7 +46,7 @@
         </div>
 
         <div class="card-body">
-          {{Form::open(['url'=>'pelaksana/report','method'=>'post','class'=>'form-validate-jquery','id'=>'form','v-on:submit.prevent="generate"'])}}
+          {{Form::open(['url'=>'generate_report','method'=>'post','class'=>'form-validate-jquery','id'=>'form'])}}
 
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Start Date</label>
@@ -70,13 +70,14 @@
               </div>
             </div>
           </div>
+          @if($user->role == 'kepala-cabang' || $user->role == 'wakil-kepala-cabang')
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Bidang</label>
             <div class="col-lg-9">
               {{Form::select('bidang_id',$bidang,null,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Bidang'])}}
-
             </div>
           </div>
+        @endif
 
           {{-- <hr> --}}
           <div class="form-group row">
