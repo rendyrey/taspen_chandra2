@@ -87,6 +87,12 @@
             </div>
           </div>
           <div class="form-group row">
+            <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami PMK</label>
+            <div class="col-lg-9">
+              {{Form::text('nip',$task_header->nip,['class'=>'form-control','readonly'])}}
+            </div>
+          </div>
+          <div class="form-group row">
             <label class="col-lg-3 col-form-label">Deskripsi</label>
             <div class="col-lg-9">
               {{Form::textarea('description_header','',['class'=>'form-control','v-bind:value="description_header"'])}}

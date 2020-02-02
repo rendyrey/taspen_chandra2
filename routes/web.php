@@ -48,7 +48,7 @@ Route::middleware(['pelaksana'])->group(function(){
 });
 
 Route::middleware(['kepala-seksi'])->group(function(){
-    Route::prefix('kepala-seksi')->group(function(){
+    Route::prefix('kepala-seksi-kepegawaian')->group(function(){
         Route::get('/dashboard','DashboardController@kepala_seksi');
         Route::get('/create','KepalaSeksiController@create');
         Route::post('/create','KepalaSeksiController@save');

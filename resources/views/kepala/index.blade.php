@@ -51,9 +51,9 @@
             <tr>
               <th>No</th>
               {{-- <th>Task Title</th> --}}
-              <th>Date</th>
+              <th>Tanggal PMK</th>
               <th>Pelaksana </th>
-              <th>Seksi</th>
+              <th>Nama Pegawai PMK</th>
               <th>Bidang</th>
               <th>KCU</th>
               <th>Status</th>
@@ -68,7 +68,7 @@
                 {{-- <td>{{$value->task_title}}</td> --}}
                 <td>{{$value->date_task}}</td>
                 <td>{{$value->employee->employee_name}}</td>
-                <td>{{$value->employee->seksi->seksi}}</td>
+                <td>{{$value->task_title}}</td>
                 <td>{{$value->employee->bidang->bidang}}</td>
                 <td>{{$value->employee->kcu->kcu}}</td>
                 <td>{{$value->status_header($value->status_id)}}</td>

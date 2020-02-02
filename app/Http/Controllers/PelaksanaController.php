@@ -98,7 +98,7 @@ class PelaksanaController extends Controller
       $task_header->task_title = $request->task_title;
       $task_header->nip = $request->nip;
       $task_header->description = $request->description_header;
-      $task_header->date_task = $request->date_task_submit;
+      $task_header->date_task = $request->date_task;
       $task_header->status_id = $request->status_id;
       $task_header->save();
       $jml_task_detail = count($request->description);
@@ -112,8 +112,8 @@ class PelaksanaController extends Controller
         $task_detail->detail_count = $i+1;
         $task_detail->description = $request->description[$i];
         $task_detail->task_type = $request->task_type[$i];
-        $task_detail->tanggal_pmk = $request->tanggal_pmk_submit[$i];
-        $task_detail->tanggal_lapor = $request->tanggal_lapor_submit[$i];
+        $task_detail->tanggal_pmk = $request->tanggal_pmk[$i];
+        $task_detail->tanggal_lapor = $request->tanggal_lapor[$i];
         $task_detail->start_time = $request->start_time[$i];
         $task_detail->end_time = $request->end_time[$i];
         $task_detail->progress = $request->progress[$i];

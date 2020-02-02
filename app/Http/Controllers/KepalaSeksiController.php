@@ -48,7 +48,7 @@ class KepalaSeksiController extends Controller
     $data['last_sirkulasi'] = $sirkulasi;
     // check apakah kepala seksi berhak untuk edit atau tidak
     if($slot_aktif != $user->employee->position_id){
-      return redirect('kepala-seksi/dashboard');
+      return redirect('kepala-seksi-kepegawaian/dashboard');
     }
     return view("kepala.edit",$data);
   }
@@ -87,7 +87,7 @@ class KepalaSeksiController extends Controller
       SirkulasiHelper::teruskan($id,$slot_id,$status,$user_last_update_id,$remark);
 
       DB::commit();
-      return ['pesan'=>$pesan,'url'=>url('kepala-seksi/dashboard')];
+      return ['pesan'=>$pesan,'url'=>url('kepala-seksi-kepegawaian/dashboard')];
     }catch(\Exception $e){
       DB::rollback();
       return ['error'=>$e->getMessage()];

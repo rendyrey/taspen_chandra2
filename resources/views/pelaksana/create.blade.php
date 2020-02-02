@@ -288,8 +288,8 @@
       weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
       weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
       clear: 'effacer',
-      formatSubmit: 'yyyy-mm-dd',
-      format: 'dddd, dd mmmm, yyyy'
+      // formatSubmit: 'yyyy-mm-dd',
+      format: 'yyyy-mm-dd'
     });
 
     $(".select-search").select2({
