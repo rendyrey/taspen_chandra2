@@ -43,7 +43,7 @@
 	<div class="navbar navbar-expand-md navbar-dark">
 		<div class="navbar-brand">
 			<a href="{{url('')}}" class="d-inline-block">
-				<img src="{{asset('assets/images/taspen3.png')}}" alt="">
+				<img src="{{asset('assets/images/taspen5.png')}}" alt="">
 			</a>
 		</div>
 		<div class="d-md-none">

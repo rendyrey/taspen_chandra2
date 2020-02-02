@@ -90,7 +90,7 @@
 									</div>
 								</div>
 								<hr>
-								<h5 class="mb-0">Aplikasi Simkerja Pekerja PT Taspen Persero</h5>
+								<h5 class="mb-0">Aplikasi Simkerja Pekerja PT Taspen (Persero)</h5>
 								<span class="d-block text-muted">Enter your credential below</span>
 							</div>
 

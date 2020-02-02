@@ -79,9 +79,15 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Nama Pekerjaan</label>
+            <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami PMK</label>
             <div class="col-lg-9">
               {{Form::text('task_title','',['class'=>'form-control'])}}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami PMK</label>
+            <div class="col-lg-9">
+              {{Form::text('nip','',['class'=>'form-control'])}}
             </div>
           </div>
           <div class="form-group row">
@@ -91,7 +97,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Tanggal Pekerjaan</label>
+            <label class="col-lg-3 col-form-label">Tanggal Kejadian</label>
             <div class="col-lg-9">
               <div class="input-group">
                 <span class="input-group-prepend">
@@ -108,7 +114,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Status Pekerjaan</label>
+            <label class="col-lg-3 col-form-label">Status Laporan</label>
             <div class="col-lg-9">
               {{Form::select('',$status_pekerjaan,1,['class'=>'form-control select-search','disabled'])}}
               <input type="hidden" name="status_id" value="1">
@@ -116,18 +122,18 @@
           </div>
           <hr>
 
-          <h5 class="card-title">Detail Pekerjaan</h5>
+          <h5 class="card-title">Detail Kejadian</h5>
           <div v-for="(detail, indexDetail) in detail_pekerjaan">
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Pekerjaan</label>
+              <label class="col-lg-3 col-form-label">Instansi/Pangkat</label>
               <div class="col-lg-9">
                 {{Form::text("description[]",'',['class'=>'form-control','required'])}}
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Jenis Pekerjaan</label>
+              <label class="col-lg-3 col-form-label">Status Keluarga</label>
               <div class="col-lg-9">
-                <select name="task_type[]" class="form-control" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Jenis Pekerjaan" required>
+                <select name="task_type[]" class="form-control" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Status Keluarga" required>
                   @foreach($jenis_pekerjaan as $key=>$value)
                     <option value="{{$key}}">{{$value}}</option>
                   @endforeach
@@ -135,7 +141,31 @@
               </div>
             </div>
 
-            <div class="form-group row align-items-center ">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label">Tanggal PMK</label>
+              <div class="col-lg-9">
+                <div class="input-group">
+                  <span class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-calendar5"></i></span>
+                  </span>
+                  {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date'])}}
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label">Tanggal Lapor</label>
+              <div class="col-lg-9">
+                <div class="input-group">
+                  <span class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-calendar5"></i></span>
+                  </span>
+                  {{Form::text('tanggal_lapor[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date'])}}
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="form-group row align-items-center ">
               <label class="col-lg-3 col-form-label">Waktu</label>
               <div class="col-lg-4">
                 <div class="input-group">
@@ -156,7 +186,7 @@
                   <input type="text" name="end_time[]" class="form-control" v-bind:id="'anytime-time-end'+indexDetail">
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- <div class="form-group row">
               <label class="col-lg-3 col-form-label">Status Detail Pekerjaan</label>
               <div class="col-lg-9">

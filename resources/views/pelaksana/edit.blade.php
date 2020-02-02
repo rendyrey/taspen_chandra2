@@ -81,7 +81,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Nama Pekerjaan</label>
+            <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami PMK</label>
             <div class="col-lg-9">
               {{Form::text('task_title','',['class'=>'form-control','v-bind:value="task_title"'])}}
             </div>
