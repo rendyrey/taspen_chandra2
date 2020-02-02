@@ -161,6 +161,7 @@ class PelaksanaController extends Controller
       $task_header->user_last_update_id = $user->id;
       $task_header->user_approval_id = $request->user_approval_id;
       $task_header->task_title = $request->task_title;
+      $task_header->nip = $request->nip;
       $task_header->description = $request->description_header;
       $task_header->date_task = $request->date_task;
       $task_header->status_id = $request->status_id;

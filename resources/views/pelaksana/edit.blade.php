@@ -89,7 +89,7 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami PMK</label>
             <div class="col-lg-9">
-              {{Form::text('nip',$task_header->nip,['class'=>'form-control','readonly'])}}
+              {{Form::text('nip','',['class'=>'form-control','v-bind:value="nip"'])}}
             </div>
           </div>
           <div class="form-group row">
@@ -99,7 +99,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Tanggal Pekerjaan</label>
+            <label class="col-lg-3 col-form-label">Tanggal Kejadian</label>
             <div class="col-lg-9">
               {{-- <div class="input-group">
                 <span class="input-group-prepend">
@@ -128,7 +128,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Status Pekerjaan</label>
+            <label class="col-lg-3 col-form-label">Status</label>
             <div class="col-lg-9">
               {{Form::select('',$status_pekerjaan,1,['class'=>'form-control select-search','disabled'])}}
               <input type="hidden" name="status_id" value="1">
@@ -136,16 +136,16 @@
           </div>
           <hr>
 
-          <h5 class="card-title">Detail Pekerjaan</h5>
+          <h5 class="card-title">Detail Kejadian</h5>
           <div v-for="(detail, indexDetail) in detail_pekerjaan">
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Pekerjaan</label>
+              <label class="col-lg-3 col-form-label">Instansi/Pangkat</label>
               <div class="col-lg-9">
                 {{Form::text("description[]",'',['class'=>'form-control','required','v-bind:value="detail.description"'])}}
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Jenis Pekerjaan</label>
+              <label class="col-lg-3 col-form-label">Status Keluarga</label>
               <div class="col-lg-9">
                 <select name="task_type[]" class="form-control" v-model="detail.task_type" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Jenis Pekerjaan" required>
                   @foreach($jenis_pekerjaan as $key=>$value)
@@ -155,7 +155,31 @@
               </div>
             </div>
 
-            <div class="form-group row align-items-center ">
+            <div class="form-group row">
+            <label class="col-lg-3 col-form-label">Tanggal PMK</label>
+            <div class="col-lg-9">
+              <div class="input-group">
+                <span class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-calendar5"></i></span>
+                </span>
+                {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="tanggal_pmk"'])}}
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label">Tanggal Lapor</label>
+            <div class="col-lg-9">
+              <div class="input-group">
+                <span class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-calendar5"></i></span>
+                </span>
+                {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="tanggal_pmk"'])}}
+              </div>
+            </div>
+          </div>
+
+            <!-- <div class="form-group row align-items-center ">
               <label class="col-lg-3 col-form-label">Waktu</label>
               <div class="col-lg-4">
                 <div class="input-group">
@@ -176,7 +200,7 @@
                   <input type="text" v-bind:value="detail.end_time" name="end_time[]" class="form-control" v-bind:id="'anytime-time-end'+indexDetail" required>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- <div class="form-group row">
               <label class="col-lg-3 col-form-label">Status Detail Pekerjaan</label>
               <div class="col-lg-9">
@@ -369,7 +393,8 @@
       description_header:'',
       date_task:'',
       user_approval_id:'',
-      status_id:''
+      status_id:'',
+      nip:''
     },
     mounted:function(){
       $.get("{{url('pelaksana/get-header/'.$id)}}",function(data){
@@ -378,6 +403,7 @@
         this.date_task = data.date_task;
         this.user_approval_id = data.user_approval_id;
         this.status_id = data.status_id;
+        this.nip = data.nip;
       }.bind(this));
 
       $.get("{{url('pelaksana/get-detail/'.$id)}}",function(data){
@@ -388,6 +414,8 @@
             status_id:i['status_id'],
             start_time:i['start_time'],
             end_time:i['end_time'],
+            tanggal_pmk:i['tanggal_pmk'],
+            tanggal_lapor:i['tanggal_lapor'],
             progress:i['progress'],
             remark:i['remark']
           });
