@@ -38,7 +38,7 @@
       <!-- Basic layout-->
       <div class="card">
         <div class="card-header header-elements-inline">
-          <h5 class="card-title">Form Data Pelaksana</h5>
+          <h5 class="card-title">Edit Data Kejadian PMK</h5>
           <div class="header-elements">
             <div class="list-icons">
               <a class="list-icons-item" data-action="collapse"></a>
@@ -422,7 +422,7 @@
           pelaksana.idx_detail++;
         });
       }.bind(this));
-    
+
     },
     methods:{
       tambah_detail:function(){
