@@ -58,7 +58,7 @@ class PelaksanaController extends Controller
     $slot_aktif = $sirkulasi->slot_id;
     // check apakah kepala cabang berhak untuk edit atau tidak
     if($slot_aktif != $user->employee->position_id){
-      return redirect('pelaksana/dashboard');
+      return redirect('pelaksana-kepegawaian/dashboard');
     }
     $data['user_approval'] = User::whereIn('employee_id',$employee_id)->pluck('name','id');
     // $data['user_approval']->prepend('','');
@@ -86,7 +86,6 @@ class PelaksanaController extends Controller
   }
 
   public function save(Request $request){
-    dd($request);
     // return ['error'=>$request];
     // return ['error'=>$request->status_id];
     DB::beginTransaction();
@@ -106,9 +105,7 @@ class PelaksanaController extends Controller
       $task_header->save();
       $jml_task_detail = count($request->description);
       for($i = 0;$i < $jml_task_detail; $i++){
-        if($request->end_time[$i]<$request->start_time[$i]){
-            return ['error'=>'End time tidak boleh lebih kecil dari start time'];
-        }
+
         $task_detail = new TaskDetail();
         $task_detail->task_header_id = $task_header->id;
         $task_detail->status_id = $request->detail_status_id[$i];
@@ -117,8 +114,6 @@ class PelaksanaController extends Controller
         $task_detail->status_keluarga = $request->status_keluarga[$i];
         $task_detail->tanggal_pmk = $request->tanggal_pmk[$i];
         $task_detail->tanggal_lapor = $request->tanggal_lapor[$i];
-        $task_detail->start_time = $request->start_time[$i];
-        $task_detail->end_time = $request->end_time[$i];
         $task_detail->progress = $request->progress[$i];
         $task_detail->remark = $request->remark[$i];
         if($request->hasFile('file.'.$i)){
@@ -171,9 +166,6 @@ class PelaksanaController extends Controller
       $jml_task_detail = count($request->description);
       TaskDetail::where('task_header_id',$id)->delete();
       for($i = 0;$i < $jml_task_detail; $i++){
-        if($request->end_time[$i]<$request->start_time[$i]){
-            return ['error'=>'End time tidak boleh lebih kecil dari start time'];
-        }
         $task_detail = new TaskDetail();
         $task_detail->task_header_id = $task_header->id;
         $task_detail->status_id = $request->detail_status_id[$i];
@@ -182,8 +174,6 @@ class PelaksanaController extends Controller
         $task_detail->status_keluarga = $request->status_keluarga[$i];
         $task_detail->tanggal_pmk = $request->tanggal_pmk[$i];
         $task_detail->tanggal_lapor = $request->tanggal_lapor[$i];
-        $task_detail->start_time = $request->start_time[$i];
-        $task_detail->end_time = $request->end_time[$i];
         $task_detail->progress = $request->progress[$i];
         $task_detail->remark = $request->remark[$i];
         if($request->hasFile('file.'.$i)){

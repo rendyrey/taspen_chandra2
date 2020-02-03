@@ -83,7 +83,7 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami PMK</label>
             <div class="col-lg-9">
-              {{Form::text('nama_pekerjaan',$task_header->task_title,['class'=>'form-control','readonly'])}}
+              {{Form::text('nama_pegawai_pmk',$task_header->nama_pegawai_pmk,['class'=>'form-control','readonly'])}}
             </div>
           </div>
           <div class="form-group row">

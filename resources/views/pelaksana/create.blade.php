@@ -45,7 +45,7 @@
         </div>
 
         <div class="card-body">
-          {{Form::open(['url'=>'pelaksana/create','files'=>true,'method'=>'post','class'=>'form-validate-jquery','id'=>'form'])}}
+          {{Form::open(['url'=>'pelaksana/create','files'=>true,'method'=>'post','v-on:submit.prevent="simpan"','class'=>'form-validate-jquery','id'=>'form'])}}
           <input type="hidden" name="employee_id" value={{$employee->id}}>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Nama Pegawai</label>
@@ -81,7 +81,7 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami PMK</label>
             <div class="col-lg-9">
-              {{Form::text('task_title','',['class'=>'form-control'])}}
+              {{Form::text('nama_pegawai_pmk','',['class'=>'form-control'])}}
             </div>
           </div>
           <div class="form-group row">
