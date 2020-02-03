@@ -30,8 +30,8 @@ Route::put('profile/update/{id}','ProfileController@update');
 Route::get('profile/change-password/','ProfileController@change_password');
 Route::put('profile/change-password/update/{id}','ProfileController@change_password_update');
 
-Route::middleware(['pelaksana'])->group(function(){
-    Route::prefix('pelaksana')->group(function(){
+Route::middleware(['pelaksana-kepegawaian'])->group(function(){
+    Route::prefix('pelaksana-kepegawaian')->group(function(){
         Route::get('/dashboard','DashboardController@pelaksana');
         Route::get('/create','PelaksanaController@create');
         Route::post('/create','PelaksanaController@save');
@@ -47,7 +47,7 @@ Route::middleware(['pelaksana'])->group(function(){
     });
 });
 
-Route::middleware(['kepala-seksi'])->group(function(){
+Route::middleware(['kepala-seksi-kepegawaian'])->group(function(){
     Route::prefix('kepala-seksi-kepegawaian')->group(function(){
         Route::get('/dashboard','DashboardController@kepala_seksi');
         Route::get('/create','KepalaSeksiController@create');
@@ -61,8 +61,8 @@ Route::middleware(['kepala-seksi'])->group(function(){
     });
 });
 
-Route::middleware(['kepala-bidang'])->group(function(){
-    Route::prefix('kepala-bidang')->group(function(){
+Route::middleware(['kepala-bidang-kepegawaian'])->group(function(){
+    Route::prefix('kepala-bidang-kepegawaian')->group(function(){
         Route::get('/dashboard','DashboardController@kepala_bidang');
         Route::get('/create','KepalaBidangController@create');
         Route::post('/create','KepalaBidangController@save');
@@ -75,8 +75,8 @@ Route::middleware(['kepala-bidang'])->group(function(){
     });
 });
 
-Route::middleware(['wakil-kepala-cabang'])->group(function(){
-    Route::prefix('wakil-kepala-cabang')->group(function(){
+Route::middleware(['wakil-kepala-satuan-kerja'])->group(function(){
+    Route::prefix('wakil-kepala-satuan-kerja')->group(function(){
         Route::get('/dashboard','DashboardController@wakil_kepala_cabang');
         Route::get('/create','WakilKepalaCabangController@create');
         Route::post('/create','WakilKepalaCabangController@save');
@@ -89,8 +89,8 @@ Route::middleware(['wakil-kepala-cabang'])->group(function(){
     });
 });
 
-Route::middleware(['kepala-cabang'])->group(function(){
-    Route::prefix('kepala-cabang')->group(function(){
+Route::middleware(['kepala-satuan-kerja'])->group(function(){
+    Route::prefix('kepala-satuan-kerja')->group(function(){
         Route::get('/dashboard','DashboardController@kepala_cabang');
         Route::get('/create','KepalaCabangController@create');
         Route::post('/create','KepalaCabangController@save');

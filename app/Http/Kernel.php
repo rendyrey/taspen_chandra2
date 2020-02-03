@@ -58,11 +58,11 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'kepala-bidang' => \App\Http\Middleware\KepalaBidang::class,
-        'kepala-cabang' => \App\Http\Middleware\KepalaCabang::class,
-        'kepala-seksi' => \App\Http\Middleware\KepalaSeksi::class,
-        'pelaksana' => \App\Http\Middleware\Pelaksana::class,
-        'wakil-kepala-cabang' => \App\Http\Middleware\WakilKepalaCabang::class,
+        'kepala-bidang-kepegawaian' => \App\Http\Middleware\KepalaBidangKepegawaian::class,
+        'kepala-satuan-kerja' => \App\Http\Middleware\KepalaSatuanKerja::class,
+        'kepala-seksi-kepegawaian' => \App\Http\Middleware\KepalaSeksiKepegawaian::class,
+        'pelaksana-kepegawaian' => \App\Http\Middleware\PelaksanaKepegawaian::class,
+        'wakil-kepala-satuan-kerja' => \App\Http\Middleware\WakilKepalaSatuanKerja::class,
         'administrator' => \App\Http\Middleware\Administrator::class,
     ];
 }

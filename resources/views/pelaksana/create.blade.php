@@ -133,8 +133,8 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label">Status Keluarga</label>
               <div class="col-lg-9">
-                <select name="task_type[]" class="form-control" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Status Keluarga" required>
-                  @foreach($jenis_pekerjaan as $key=>$value)
+                <select name="status_keluarga[]" class="form-control" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Status Keluarga" required>
+                  @foreach($status_keluarga as $key=>$value)
                     <option value="{{$key}}">{{$value}}</option>
                   @endforeach
                 </select>
@@ -363,7 +363,7 @@
         formV.validate();
         if(formV.valid()){
           $('#spinner').show();
-          axios.post('{{url('pelaksana/create/')}}',formData).then(function(response){
+          axios.post('{{url("$user->role/create/")}}',formData).then(function(response){
             $("#spinner").hide();
             var res = response.data;
             if(res.error){

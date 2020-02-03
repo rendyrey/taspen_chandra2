@@ -83,7 +83,7 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami PMK</label>
             <div class="col-lg-9">
-              {{Form::text('task_title','',['class'=>'form-control','v-bind:value="task_title"'])}}
+              {{Form::text('nama_pegawai_pmk','',['class'=>'form-control','v-bind:value="nama_pegawai_pmk"'])}}
             </div>
           </div>
           <div class="form-group row">
@@ -147,8 +147,8 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label">Status Keluarga</label>
               <div class="col-lg-9">
-                <select name="task_type[]" class="form-control select-search" v-model="detail.task_type" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Jenis Pekerjaan" required>
-                  @foreach($jenis_pekerjaan as $key=>$value)
+                <select name="status_keluarga[]" class="form-control select-search" v-model="detail.status_keluarga" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Status Keluarga" required>
+                  @foreach($status_keluarga as $key=>$value)
                     <option value="{{$key}}">{{$value}}</option>
                   @endforeach
                 </select>
@@ -389,7 +389,7 @@
       detail_pekerjaan:[
       ],
       idx_detail:0,
-      task_title:'',
+      nama_pegawai_pmk:'',
       description_header:'',
       date_task:'',
       user_approval_id:'',
@@ -397,8 +397,8 @@
       nip:''
     },
     mounted:function(){
-      $.get("{{url('pelaksana/get-header/'.$id)}}",function(data){
-        this.task_title = data.task_title;
+      $.get("{{url($user->role.'/get-header/'.$id)}}",function(data){
+        this.nama_pegawai_pmk = data.nama_pegawai_pmk;
         this.description_header = data.description;
         this.date_task = data.date_task;
         this.user_approval_id = data.user_approval_id;
@@ -406,11 +406,11 @@
         this.nip = data.nip;
       }.bind(this));
 
-      $.get("{{url('pelaksana/get-detail/'.$id)}}",function(data){
+      $.get("{{url($user->role.'/get-detail/'.$id)}}",function(data){
         data.forEach(function(i){
           pelaksana.detail_pekerjaan.push({
             description:i['description'],
-            task_type:i['task_type'],
+            status_keluarga:i['status_keluarga'],
             status_id:i['status_id'],
             start_time:i['start_time'],
             end_time:i['end_time'],
@@ -440,7 +440,7 @@
         formV.validate();
         if(formV.valid()){
           $('#spinner').show();
-          axios.post('{{url('pelaksana/update/'.$id)}}',formData).then(function(response){
+          axios.post('{{url("$user->role/update/$id")}}',formData).then(function(response){
             $("#spinner").hide();
             var res = response.data;
             if(res.error){

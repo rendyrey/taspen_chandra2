@@ -129,13 +129,13 @@
         <div class="form-group row">
           <label class="col-lg-3 col-form-label">Instansi/Pangkat</label>
           <div class="col-lg-9">
-            {{Form::text('pekerjaan[]',$value->description,['class'=>'form-control','readonly'])}}
+            {{Form::text('description[]',$value->description,['class'=>'form-control','readonly'])}}
           </div>
         </div>
         <div class="form-group row">
           <label class="col-lg-3 col-form-label">Status Keluarga</label>
           <div class="col-lg-9">
-            {{Form::text('jenis_pekerjaan[]',$value->task_type($value->task_type)->description,['class'=>'form-control','readonly'])}}
+            {{Form::text('status_keluarga[]',$value->status_keluarga($value->status_keluarga)->description,['class'=>'form-control','readonly'])}}
           </div>
         </div>
 

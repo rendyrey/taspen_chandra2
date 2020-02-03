@@ -25,8 +25,8 @@ class PelaksanaController extends Controller
     $seksi_id = Employee::where('id',$user->employee->id)->first()->seksi_id;
     $data['user_approval'] = User::leftJoin('mst_employee','users.employee_id','=','mst_employee.id')->where('mst_employee.position_id',2)->where('mst_employee.seksi_id',$seksi_id)->pluck('users.name','users.id');
 
-    $data['jenis_pekerjaan'] = Globals::where('active','1')->where('condition','JenisPekerjaan')->pluck('description','code');
-    $data['jenis_pekerjaan']->prepend('','');
+    $data['status_keluarga'] = Globals::where('active','1')->where('condition','StatusKeluarga')->pluck('description','code');
+    $data['status_keluarga']->prepend('','');
     $data['status_pekerjaan'] = Globals::where('active','1')->where('condition','StatusHeader')->pluck('description','code');
     $data['status_pekerjaan']->prepend('','');
     $data['status_detail'] = Globals::where('active','1')->where('condition','StatusDetail')->pluck('description','code');
@@ -62,8 +62,8 @@ class PelaksanaController extends Controller
     }
     $data['user_approval'] = User::whereIn('employee_id',$employee_id)->pluck('name','id');
     // $data['user_approval']->prepend('','');
-    $data['jenis_pekerjaan'] = Globals::where('active','1')->where('condition','JenisPekerjaan')->pluck('description','code');
-    $data['jenis_pekerjaan']->prepend('','');
+    $data['status_keluarga'] = Globals::where('active','1')->where('condition','StatusKeluarga')->pluck('description','code');
+    $data['status_keluarga']->prepend('','');
     $data['status_pekerjaan'] = Globals::where('active','1')->where('condition','StatusHeader')->pluck('description','code');
     $data['status_pekerjaan']->prepend('','');
     $data['status_detail'] = Globals::where('active','1')->where('condition','StatusDetail')->pluck('description','code');
@@ -114,7 +114,7 @@ class PelaksanaController extends Controller
         $task_detail->status_id = $request->detail_status_id[$i];
         $task_detail->detail_count = $i+1;
         $task_detail->description = $request->description[$i];
-        $task_detail->task_type = $request->task_type[$i];
+        $task_detail->status_keluarga = $request->status_keluarga[$i];
         $task_detail->tanggal_pmk = $request->tanggal_pmk[$i];
         $task_detail->tanggal_lapor = $request->tanggal_lapor[$i];
         $task_detail->start_time = $request->start_time[$i];
@@ -179,7 +179,7 @@ class PelaksanaController extends Controller
         $task_detail->status_id = $request->detail_status_id[$i];
         $task_detail->detail_count = $i+1;
         $task_detail->description = $request->description[$i];
-        $task_detail->task_type = $request->task_type[$i];
+        $task_detail->status_keluarga = $request->status_keluarga[$i];
         $task_detail->tanggal_pmk = $request->tanggal_pmk[$i];
         $task_detail->tanggal_lapor = $request->tanggal_lapor[$i];
         $task_detail->start_time = $request->start_time[$i];

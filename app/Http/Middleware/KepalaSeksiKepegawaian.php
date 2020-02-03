@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class KepalaCabang
+class KepalaSeksiKepegawaian
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class KepalaCabang
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check() && Auth::user()->role == 'kepala-cabang'){
+        if(Auth::check() && Auth::user()->role == 'kepala-seksi-kepegawaian'){
             return $next($request);
         }else if(!Auth::check()){
             return redirect("/")->with('message','Anda harus login terlebih dahulu')->with('panel','danger');
