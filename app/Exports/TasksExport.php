@@ -30,7 +30,7 @@ class TasksExport implements FromView, ShouldAutoSize, WithEvents
     return [
         AfterSheet::class    => function(AfterSheet $event) {
             // ... HERE YOU CAN DO ANY FORMATTING
-            $cellRange = 'A:H';
+            $cellRange = 'A:I';
             $styleArray = [
               'alignment' => [
                 'vertical' => Alignment::VERTICAL_CENTER
@@ -45,14 +45,18 @@ class TasksExport implements FromView, ShouldAutoSize, WithEvents
             ];
             $event->sheet->getDelegate()->getStyle($cellRange)->applyFromArray($styleArray);
             $event->sheet->getDelegate()->getStyle('A')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+            $event->sheet->getDelegate()->getStyle('B')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
             $event->sheet->getDelegate()->getStyle('C')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+            $event->sheet->getDelegate()->getStyle('D')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
             $event->sheet->getDelegate()->getStyle('E')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
             $event->sheet->getDelegate()->getStyle('F')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-            $event->sheet->getDelegate()->getStyle('G')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+            // $event->sheet->getDelegate()->getStyle('G')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
             $event->sheet->getDelegate()->getStyle('H')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+            $event->sheet->getDelegate()->getStyle('I')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
 
-            $event->sheet->getDelegate()->getStyle('D')->getAlignment()->setWrapText(true);
             $event->sheet->getDelegate()->getStyle('B')->getAlignment()->setWrapText(true);
+            $event->sheet->getDelegate()->getStyle('D')->getAlignment()->setWrapText(true);
+            $event->sheet->getDelegate()->getStyle('G')->getAlignment()->setWrapText(true);
         },
     ];
 }

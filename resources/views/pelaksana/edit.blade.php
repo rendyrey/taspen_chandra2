@@ -120,7 +120,7 @@
             <label class="col-lg-3 col-form-label">Approval</label>
             <div class="col-lg-9">
               {{-- {{Form::select('user_approval_id',$user_approval,'',['class'=>'form-control','v-model="user_approval_id"'])}} --}}
-              <select name="user_approval_id" class="form-control" v-model="user_approval_id">
+              <select name="user_approval_id" class="form-control select-search" data-placeholder="Pilih Approval">
                 @foreach($user_approval as $key=>$value)
                   <option value="{{$key}}">{{$value}}</option>
                 @endforeach
@@ -147,7 +147,7 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label">Status Keluarga</label>
               <div class="col-lg-9">
-                <select name="task_type[]" class="form-control" v-model="detail.task_type" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Jenis Pekerjaan" required>
+                <select name="task_type[]" class="form-control select-search" v-model="detail.task_type" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Jenis Pekerjaan" required>
                   @foreach($jenis_pekerjaan as $key=>$value)
                     <option value="{{$key}}">{{$value}}</option>
                   @endforeach
@@ -162,7 +162,7 @@
                 <span class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-calendar5"></i></span>
                 </span>
-                {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="tanggal_pmk"'])}}
+                {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="detail.tanggal_pmk"'])}}
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@
                 <span class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-calendar5"></i></span>
                 </span>
-                {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="tanggal_pmk"'])}}
+                {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="detail.tanggal_lapor"'])}}
               </div>
             </div>
           </div>
@@ -422,6 +422,7 @@
           pelaksana.idx_detail++;
         });
       }.bind(this));
+    
     },
     methods:{
       tambah_detail:function(){

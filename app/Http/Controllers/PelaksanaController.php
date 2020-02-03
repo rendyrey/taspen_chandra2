@@ -18,7 +18,7 @@ use Storage;
 class PelaksanaController extends Controller
 {
   public function create(){
-    $data['page_menu'] = "Tambah data pelaksana";
+    $data['page_menu'] = "Tambah data kejadian PMK";
     $data['user'] = Auth::user();
     $user = User::where('username',$data['user']->username)->first();
     $data['employee'] = $user->employee;
@@ -61,6 +61,7 @@ class PelaksanaController extends Controller
       return redirect('pelaksana/dashboard');
     }
     $data['user_approval'] = User::whereIn('employee_id',$employee_id)->pluck('name','id');
+    // $data['user_approval']->prepend('','');
     $data['jenis_pekerjaan'] = Globals::where('active','1')->where('condition','JenisPekerjaan')->pluck('description','code');
     $data['jenis_pekerjaan']->prepend('','');
     $data['status_pekerjaan'] = Globals::where('active','1')->where('condition','StatusHeader')->pluck('description','code');
