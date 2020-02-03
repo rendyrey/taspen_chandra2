@@ -148,7 +148,7 @@
               <span class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-calendar5"></i></span>
               </span>
-              {{Form::text('tanggal_pmk[]',$value->tanggal_pmk,['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','readonly'])}}
+              {{Form::text('tanggal_pmk[]',$value->tanggal_pmk,['class'=>'form-control','placeholder'=>'Click to pick a date','readonly'])}}
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@
               <span class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-calendar5"></i></span>
               </span>
-              {{Form::text('tanggal_lapor[]',$value->tanggal_lapor,['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','readonly'])}}
+              {{Form::text('tanggal_lapor[]',$value->tanggal_lapor,['class'=>'form-control','placeholder'=>'Click to pick a date','readonly'])}}
             </div>
           </div>
         </div>
