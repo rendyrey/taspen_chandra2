@@ -98,7 +98,7 @@ class PelaksanaController extends Controller
       $task_header->cabang_id = $employee->cabang->id;
       $task_header->user_last_update_id = $user->id;
       $task_header->user_approval_id = $request->user_approval_id;
-      $task_header->task_title = $request->task_title;
+      $task_header->nama_pegawai_pmk = $request->nama_pegawai_pmk;
       $task_header->nip = $request->nip;
       $task_header->description = $request->description_header;
       $task_header->date_task = $request->date_task;
@@ -144,7 +144,7 @@ class PelaksanaController extends Controller
       SirkulasiHelper::teruskan($task_header->id,$slot_id,$status,$user_last_update_id,$remark);
 
       DB::commit();
-      return ['pesan'=>'Berhasil simpan dan akan diteruskan ke Kepala Seksi','url'=>url('pelaksana/dashboard')];
+      return ['pesan'=>'Berhasil simpan dan akan diteruskan ke Kepala Seksi','url'=>url('pelaksana-kepegawaian/dashboard')];
     }catch(\Exception $e){
       DB::rollback();
       return ['error'=>$e->getMessage()];
@@ -162,7 +162,7 @@ class PelaksanaController extends Controller
       $task_header->cabang_id = $employee->cabang->id;
       $task_header->user_last_update_id = $user->id;
       $task_header->user_approval_id = $request->user_approval_id;
-      $task_header->task_title = $request->task_title;
+      $task_header->nama_pegawai_pmk = $request->nama_pegawai_pmk;
       $task_header->nip = $request->nip;
       $task_header->description = $request->description_header;
       $task_header->date_task = $request->date_task;
@@ -210,7 +210,7 @@ class PelaksanaController extends Controller
       SirkulasiHelper::teruskan($task_header->id,$slot_id,$status,$user_last_update_id,$remark);
 
       DB::commit();
-      return ['pesan'=>'Berhasil simpan dan akan diteruskan ke Kepala Seksi','url'=>url('pelaksana/dashboard')];
+      return ['pesan'=>'Berhasil simpan dan akan diteruskan ke Kepala Seksi','url'=>url('pelaksana-kepegawaian/dashboard')];
     }catch(\Exception $e){
       DB::rollback();
       return ['error'=>$e->getMessage()];

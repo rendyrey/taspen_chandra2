@@ -46,7 +46,7 @@ class WakilKepalaCabangController extends Controller
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
     // check apakah wakil kepala cabang berhak untuk edit atau tidak
     if($slot_aktif != $user->employee->position_id){
-      return redirect('wakil-kepala-cabang/dashboard');
+      return redirect('wakil-kepala-satuan-kerja/dashboard');
     }
     return view("kepala.edit",$data);
   }
@@ -82,7 +82,7 @@ class WakilKepalaCabangController extends Controller
       }
       SirkulasiHelper::teruskan($id,$slot_id,$status,$user_last_update_id,$remark);
       DB::commit();
-      return ['pesan'=>$pesan,'url'=>url('wakil-kepala-cabang/dashboard')];
+      return ['pesan'=>$pesan,'url'=>url('wakil-kepala-satuan-kerja/dashboard')];
     }catch(\Exception $e){
       DB::rollback();
       return ['error'=>$e->getMessage()];
