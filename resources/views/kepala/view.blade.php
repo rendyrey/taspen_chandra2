@@ -105,7 +105,7 @@
                 <span class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-calendar5"></i></span>
                 </span>
-                {{Form::text('tgl_pekerjaan',date('l, d F Y',strtotime($task_header->date_task)),['class'=>'form-control','placeholder'=>'Click to pick a date','readonly'])}}
+                {{Form::text('tgl_pekerjaan',$task_header->date_task,['class'=>'form-control','placeholder'=>'Click to pick a date','readonly'])}}
 
               </div>
             </div>
@@ -139,7 +139,7 @@
           </div>
         </div>
 
-        
+
 
         <div class="form-group row">
           <label class="col-lg-3 col-form-label">Tanggal PMK</label>
@@ -148,7 +148,7 @@
               <span class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-calendar5"></i></span>
               </span>
-              {{Form::text('tanggal_pmk[]',date('l, d F Y',strtotime($value->tanggal_pmk)),['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','readonly'])}}
+              {{Form::text('tanggal_pmk[]',$value->tanggal_pmk,['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','readonly'])}}
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@
               <span class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-calendar5"></i></span>
               </span>
-              {{Form::text('tanggal_lapor[]',date('l, d F Y',strtotime($value->tanggal_lapor)),['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','readonly'])}}
+              {{Form::text('tanggal_lapor[]',$value->tanggal_lapor,['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','readonly'])}}
             </div>
           </div>
         </div>
@@ -275,12 +275,12 @@
   <script>
   $(document).ready(function(){
     $('.pickadate').pickadate({
-      monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-      weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-      weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
+      // monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+      // weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+      // weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
       clear: 'effacer',
-      formatSubmit: 'yyyy-mm-dd',
-      format: 'dddd, dd mmmm, yyyy'
+      // formatSubmit: 'yyyy-mm-dd',
+      format: 'yyyy-mm-dd'
     });
 
     $('.select').select2({

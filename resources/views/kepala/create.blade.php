@@ -289,12 +289,12 @@
     <script>
     $(document).ready(function(){
       $('.pickadate').pickadate({
-        monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-        weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-        weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
+        // monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+        // weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+        // weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
         clear: 'effacer',
-        formatSubmit: 'yyyy-mm-dd',
-        format: 'dddd, dd mmmm, yyyy'
+        // formatSubmit: 'yyyy-mm-dd',
+        format: 'yyyy-mm-dd'
       });
 
       $('.select').select2({

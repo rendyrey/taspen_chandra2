@@ -43,7 +43,7 @@
 
         <div class="card-body">
           {{-- DataTables has the ability to read data from virtually any <code>JSON</code> data source that can be obtained by <code>Ajax</code>. This can be done, in its most simple form, by setting the <code>ajax</code> option to the address of the <code>JSON</code> data source. The example below shows DataTables loading data for a table from <code>arrays</code> as the data source (object parameters can also be used through the <code>columns.data</code> option). --}}
-          <a href="{{url($user->role.'/create')}}"><button class="btn btn-primary btn-sm">Add Data</button></a>
+          {{-- <a href="{{url($user->role.'/create')}}"><button class="btn btn-primary btn-sm">Add Data</button></a> --}}
         </div>
 
         <table class="table datatable-ajax">

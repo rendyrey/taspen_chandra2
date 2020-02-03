@@ -47,7 +47,7 @@ class ReportController extends Controller
         $employees = $employees->where('bidang_id',$request->bidang_id);
       }
       $employees = $employees->get();
-      return Excel::download(new TasksExport($request->start_date_submit,$request->end_date_submit,$request->bidang_id,$employee_id,$employees),
-       "Task $request->start_date_submit - $request->end_date_submit.xlsx");
+      return Excel::download(new TasksExport($request->start_date,$request->end_date,$request->bidang_id,$employee_id,$employees),
+       "Task $request->start_date - $request->end_date.xlsx");
     }
 }

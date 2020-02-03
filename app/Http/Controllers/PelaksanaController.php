@@ -85,6 +85,8 @@ class PelaksanaController extends Controller
   }
 
   public function save(Request $request){
+    dd($request);
+    // return ['error'=>$request];
     // return ['error'=>$request->status_id];
     DB::beginTransaction();
     try{
@@ -124,7 +126,6 @@ class PelaksanaController extends Controller
           $path = $file->storeAs('public/files/'.$task_header->id,$originalName);
           $task_detail->file = $path;
         }
-        // dd($request);
         $task_detail->save();
       }
 

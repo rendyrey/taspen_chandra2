@@ -45,7 +45,7 @@
         </div>
 
         <div class="card-body">
-          {{Form::open(['url'=>'pelaksana/create','files'=>true,'method'=>'post','class'=>'form-validate-jquery','id'=>'form','v-on:submit.prevent="simpan"'])}}
+          {{Form::open(['url'=>'pelaksana/create','files'=>true,'method'=>'post','class'=>'form-validate-jquery','id'=>'form'])}}
           <input type="hidden" name="employee_id" value={{$employee->id}}>
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Nama Pegawai</label>
@@ -284,9 +284,9 @@
     });
 
     $('.pickadate').pickadate({
-      monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-      weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-      weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
+      // monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+      // weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+      // weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
       clear: 'effacer',
       // formatSubmit: 'yyyy-mm-dd',
       format: 'yyyy-mm-dd'
