@@ -133,7 +133,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label class="col-lg-3 col-form-label">Status Pegawai</label>
+          <label class="col-lg-3 col-form-label">Status Keluarga</label>
           <div class="col-lg-9">
             {{Form::text('jenis_pekerjaan[]',$value->status_keluarga($value->status_keluarga)->description,['class'=>'form-control','readonly'])}}
           </div>
