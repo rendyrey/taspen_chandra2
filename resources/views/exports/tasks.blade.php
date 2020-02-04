@@ -25,7 +25,7 @@
                 <td rowspan="{{$value->task_detail->count()}}">{{$key+1}}</td>
                 <td rowspan="{{$value->task_detail->count()}}">{{date('Y/m/d',strtotime($value->date_task))}}</td>
                 <td rowspan="{{$value->task_detail->count()}}">{{$value->employee->employee_name}}</td>
-                <td rowspan="{{$value->task_detail->count()}}">{{$value->task_title}}</td>
+                <td rowspan="{{$value->task_detail->count()}}">{{$value->nama_pegawai_pmk}}</td>
                 <td rowspan="{{$value->task_detail->count()}}">{{$value->employee->bidang->bidang}}</td>
                 <td rowspan="{{$value->task_detail->count()}}">{{$value->employee->kcu->kcu}}</td>
                 {{-- <td rowspan="{{$value->task_detail->count()}}">{{$value->employee->description}}</td> --}}

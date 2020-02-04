@@ -28,18 +28,18 @@ class ReportController extends Controller
       $employee = Employee::findOrFail($employee_id);
       $role = $auth->role;
       $employees = Employee::select('id');
-      if($role == 'pelaksana'){
+      if($role == 'pelaksana-kepegawaian'){
         $employees = $employees->where('id',$employee_id);
-      }else if($role == 'kepala-seksi'){
+      }else if($role == 'kepala-seksi-kepegawaian'){
         $employees = $employees->where('seksi_id',$employee->seksi_id)
         ->where('bidang_id',$employee->bidang_id)
         ->where('kcu_id',$employee->kcu_id)
         ->where('cabang_id',$employee->cabang_id);
-      }else if($role == 'kepala-bidang'){
+      }else if($role == 'kepala-bidang-kepegawaian'){
         $employees = $employees->where('bidang_id',$employee->bidang_id);
-      }else if($role == 'wakil-kepala-cabang'){
+      }else if($role == 'wakil-kepala-satuan-kerja'){
         $employees->where('kcu_id',$employee->kcu_id);
-      }else if($role == 'kepala-cabang'){
+      }else if($role == 'kepala-satuan-kerja'){
         $employees = $employees->where('cabang_id',$employee->cabang_id);
       }
       // $employees = $employees->get();
@@ -48,6 +48,6 @@ class ReportController extends Controller
       }
       $employees = $employees->get();
       return Excel::download(new TasksExport($request->start_date,$request->end_date,$request->bidang_id,$employee_id,$employees),
-       "Task $request->start_date - $request->end_date.xlsx");
+       "Data_PMK $request->start_date - $request->end_date.xlsx");
     }
 }

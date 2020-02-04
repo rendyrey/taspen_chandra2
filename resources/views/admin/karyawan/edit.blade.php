@@ -214,14 +214,14 @@
     </script>
     <script>
     $(document).ready(function(){
-      $("select option[value='0']").prop('disabled',true);
+      $("select option[value='0']:selected").parent().prop('disabled',true);
       $('.pickadate').pickadate({
-        monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-        weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
-        weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
+        // monthsFull: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+        // weekdaysFull: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'],
+        // weekdaysShort: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Ming'],
         clear: 'effacer',
-        formatSubmit: 'yyyy-mm-dd',
-        format: 'dddd, dd mmmm, yyyy'
+        // formatSubmit: 'yyyy-mm-dd',
+        format: 'yyyy-mm-dd'
       });
 
       $('.select').select2({
@@ -273,27 +273,27 @@
         $("#kcu").prop('disabled',false);
         $("#cabang").prop('disabled',false);
 
-        if(position == 'pelaksana'){
+        if(position == 'pelaksana kepegawaian'){
           $("select").not($(this)).val([]).trigger('change');
           $("#bidang").prop('disabled',false);
           $("#seksi").prop('disabled',false);
           $("#kcu").prop('disabled',false);
           $("#cabang").prop('disabled',false);
           $("#bidang option[value='0']").hide();
-        }else if(position == 'kepala seksi'){
+        }else if(position == 'kepala seksi kepegawaian'){
           $("select").not($(this)).val([]).trigger('change');
           $("#bidang").prop('disabled',false);
           $("#seksi").prop('disabled',false);
           $("#kcu").prop('disabled',false);
           $("#cabang").prop('disabled',false);
-        }else if(position == 'kepala bidang'){
+        }else if(position == 'kepala bidang kepegawaian'){
           $("select").not($(this)).val([]).trigger('change');
           $("#bidang").prop('disabled',false);
           $("#seksi").prop('disabled',true);
           $("#kcu").prop('disabled',false);
           $("#cabang").prop('disabled',false);
           $("#seksi").val(0).change();
-        }else if(position == 'wakil kepala cabang'){
+        }else if(position == 'wakil kepala satuan kerja'){
           $("select").not($(this)).val([]).trigger('change');
           $("#bidang").val(0).change();
           $("#seksi").val(0).change();
@@ -301,7 +301,7 @@
           $("#seksi").prop('disabled',true);
           $("#cabang").prop('disabled',false);
           $("#kcu").prop('disabled',false);
-        }else if(position == 'kepala cabang'){
+        }else if(position == 'kepala satuan kerja'){
           $("select").not($(this)).val([]).change();
           $("#bidang").val(0).change();
           $("#seksi").val(0).change();

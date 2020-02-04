@@ -67,7 +67,7 @@
                 {{-- <td>{{$value->task_title}}</td> --}}
                 <td>{{$value->date_task}}</td>
                 <td>{{$value->employee->employee_name}}</td>
-                <td>{{$value->task_title}}</td>
+                <td>{{$value->nama_pegawai_pmk}}</td>
                 <td>{{$value->employee->bidang->bidang}}</td>
                 <td>{{$value->employee->kcu->kcu}}</td>
                 <td>{{$value->status_header($value->status_id)}}</td>

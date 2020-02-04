@@ -83,7 +83,7 @@
           <div class="form-group row">
             <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami Kejadian</label>
             <div class="col-lg-9">
-              {{Form::text('nama_pekerjaan',$task_header->task_title,['class'=>'form-control','readonly'])}}
+              {{Form::text('nama_pekerjaan',$task_header->nama_pegawai_pmk,['class'=>'form-control','readonly'])}}
             </div>
           </div>
           <div class="form-group row">
@@ -234,7 +234,7 @@
         <thead>
           <th>No</th>
           <th>Slot</th>
-          <th>Email</th>
+          <th>Username</th>
           <th>Status</th>
           <th>Keterangan</th>
         </thead>
@@ -243,7 +243,7 @@
             <tr>
               <td>{{$key+1}}</td>
               <td>{{$value->slot->slot}}</td>
-              <td>{{$value->user->email}}</td>
+              <td>{{$value->user->username}}</td>
               <td>{{$value->status}}</td>
               <td>{{$value->remark}}</td>
             </tr>
