@@ -126,5 +126,5 @@
       });
 
     });
-  </script>
-@endsection
+    </script>
+  @endsection

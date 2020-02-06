@@ -33,7 +33,7 @@ class SeksiController extends Controller
       $text .= "</form>";
       return $text;
     })->make(true);
-}
+  }
 
   public function create(){
     $data['page_menu'] = "Form data Seksi";

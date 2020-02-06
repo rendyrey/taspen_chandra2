@@ -164,108 +164,108 @@
         </div>
 
         <!-- <div class="form-group row align-items-center ">
-          <label class="col-lg-3 col-form-label">Waktu</label>
-          <div class="col-lg-4">
-            <div class="input-group">
-              <span class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-watch2"></i></span>
-              </span>
-              {{Form::text('start_time[]',date('H:i',strtotime($value->start_time)),['class'=>'form-control','readonly'])}}
-            </div>
-          </div>
-          <div class="col-lg-1 text-center">
-            To
-          </div>
-          <div class="col-lg-4">
-            <div class="input-group">
-              <span class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-watch2"></i></span>
-              </span>
-              {{Form::text('end_time[]',date('H:i',strtotime($value->end_time)),['class'=>'form-control','readonly'])}}
-            </div>
-          </div>
-        </div> -->
-
-        <div class="form-group row">
-          <label class="col-lg-3 col-form-label">Program</label>
-          <div class="col-lg-9">
-            {{Form::text('progress[]',$value->progress($value->progress)->description,['class'=>'form-control','readonly'])}}
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-lg-3 col-form-label">Keterangan</label>
-          <div class="col-lg-9">
-            {{Form::textarea('remark[]',$value->remark,['class'=>'form-control','readonly'])}}
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-lg-3 col-form-label">File:</label>
-          <div class="col-lg-9">
-            <a href="{{$value->file($value->file)}}" download class="btn btn-primary">Download File</a>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-lg-3 col-form-label"></label>
-          <div class="col-lg-9">
-            <div class="form-check">
-              <label class="form-check-label">
-                {{Form::checkbox('approve[]','Approve',true,['class'=>'form-check-input-styled-success approve','data-fouc','disabled'])}}
-                Approve
-              </label>
-            </div>
-          </div>
-        </div>
-        <hr>
-      @endforeach
-
-      <hr>
-      {{-- <div class="form-group row">
-        <label class="col-lg-3 col-form-label">Keterangan</label>
-        <div class="col-lg-9">
-          {{Form::textarea('keterangan','',['class'=>'form-control'])}}
-        </div>
-      </div> --}}
-
-      <!-- Sirkulasi -->
-      <div class="form-group row">
-        <table class="table datatable-ajax">
-        <thead>
-          <th>No</th>
-          <th>Penerima</th>
-          <th>Contact Person</th>
-          <th>Status</th>
-          <th>Keterangan</th>
-        </thead>
-        <tbody>
-          @foreach($sirkulasi as $key=>$value)
-            <tr>
-              <td>{{$key+1}}</td>
-              <td>{{$value->slot->slot}}</td>
-              <td>{{$value->user->employee->no_hp}}</td>
-              <td>{{$value->status}}</td>
-              <td>{{$value->remark}}</td>
-            </tr>
-          @endforeach
-        </tbody>
-        </table>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-lg-6">
-          <div class="text-center">
-            <a href="{{url($user->role.'/dashboard')}}" name="submit" class="btn btn-info">Kembali ke Dashboard</a>
-          </div>
-        </div>
-        {{-- <div class="col-lg-6">
-          <div class="text-center">
-            <button type="submit" name="submit" value="teruskan" id="teruskan" class="btn btn-success">Teruskan<i class="icon-checkmark3 ml-2"></i></button>
-          </div>
-        </div> --}}
-      </div>
-    {{-- </form> --}}
+        <label class="col-lg-3 col-form-label">Waktu</label>
+        <div class="col-lg-4">
+        <div class="input-group">
+        <span class="input-group-prepend">
+        <span class="input-group-text"><i class="icon-watch2"></i></span>
+      </span>
+      {{Form::text('start_time[]',date('H:i',strtotime($value->start_time)),['class'=>'form-control','readonly'])}}
+    </div>
   </div>
+  <div class="col-lg-1 text-center">
+  To
+</div>
+<div class="col-lg-4">
+<div class="input-group">
+<span class="input-group-prepend">
+<span class="input-group-text"><i class="icon-watch2"></i></span>
+</span>
+{{Form::text('end_time[]',date('H:i',strtotime($value->end_time)),['class'=>'form-control','readonly'])}}
+</div>
+</div>
+</div> -->
+
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">Program</label>
+  <div class="col-lg-9">
+    {{Form::text('progress[]',$value->progress($value->progress)->description,['class'=>'form-control','readonly'])}}
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">Keterangan</label>
+  <div class="col-lg-9">
+    {{Form::textarea('remark[]',$value->remark,['class'=>'form-control','readonly'])}}
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">File:</label>
+  <div class="col-lg-9">
+    <a href="{{$value->file($value->file)}}" download class="btn btn-primary">Download File</a>
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label"></label>
+  <div class="col-lg-9">
+    <div class="form-check">
+      <label class="form-check-label">
+        {{Form::checkbox('approve[]','Approve',true,['class'=>'form-check-input-styled-success approve','data-fouc','disabled'])}}
+        Approve
+      </label>
+    </div>
+  </div>
+</div>
+<hr>
+@endforeach
+
+<hr>
+{{-- <div class="form-group row">
+<label class="col-lg-3 col-form-label">Keterangan</label>
+<div class="col-lg-9">
+{{Form::textarea('keterangan','',['class'=>'form-control'])}}
+</div>
+</div> --}}
+
+<!-- Sirkulasi -->
+<div class="form-group row">
+  <table class="table datatable-ajax">
+    <thead>
+      <th>No</th>
+      <th>Penerima</th>
+      <th>Contact Person</th>
+      <th>Status</th>
+      <th>Keterangan</th>
+    </thead>
+    <tbody>
+      @foreach($sirkulasi as $key=>$value)
+        <tr>
+          <td>{{$key+1}}</td>
+          <td>{{$value->slot->slot}}</td>
+          <td>{{$value->user->employee->no_hp}}</td>
+          <td>{{$value->status}}</td>
+          <td>{{$value->remark}}</td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+
+<div class="form-group row">
+  <div class="col-lg-6">
+    <div class="text-center">
+      <a href="{{url($user->role.'/dashboard')}}" name="submit" class="btn btn-info">Kembali ke Dashboard</a>
+    </div>
+  </div>
+  {{-- <div class="col-lg-6">
+  <div class="text-center">
+  <button type="submit" name="submit" value="teruskan" id="teruskan" class="btn btn-success">Teruskan<i class="icon-checkmark3 ml-2"></i></button>
+</div>
+</div> --}}
+</div>
+{{-- </form> --}}
+</div>
 </div>
 <!-- /basic layout -->
 @endsection

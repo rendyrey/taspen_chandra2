@@ -166,86 +166,86 @@
             </div>
 
             <!-- <div class="form-group row align-items-center ">
-              <label class="col-lg-3 col-form-label">Waktu</label>
-              <div class="col-lg-4">
-                <div class="input-group">
-                  <span class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-watch2"></i></span>
-                  </span>
-                  <input type="text" name="start_time[]" class="form-control" v-bind:id="'anytime-time-start'+indexDetail">
-                </div>
-              </div>
-              <div class="col-lg-1 text-center">
-                To
-              </div>
-              <div class="col-lg-4">
-                <div class="input-group">
-                  <span class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-watch2"></i></span>
-                  </span>
-                  <input type="text" name="end_time[]" class="form-control" v-bind:id="'anytime-time-end'+indexDetail">
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Status Detail Pekerjaan</label>
-              <div class="col-lg-9">
-                <select name="detail_status_id[]" class="form-control" v-bind:id="'select_status'+indexDetail" data-placeholder="Pilih Status Detail Pekerjaan" required>
-                  @foreach($status_detail as $key=>$value)
-                    <option value="{{$key}}">{{$value}}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div> -->
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Program</label>
-              <div class="col-lg-9">
-                <select name="progress[]" class="form-control" v-bind:id="'select_progress'+indexDetail" required data-placeholder="Pilih Program">
-                  @foreach($progress_detail as $key=>$value)
-                    <option value="{{$key}}">{{$value}}</option>
-                  @endforeach
-
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Keterangan</label>
-              <div class="col-lg-9">
-                {{Form::textarea('remark[]','',['class'=>'form-control'])}}
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label">File:</label>
-              <div class="col-lg-9">
-                <input type="file" name="file[]" v-bind:id="'form-input-styled'+indexDetail">
-                {{-- {{Form::file('file[]',['class'=>'form-input-styled'])}} --}}
-                {{-- <input type="file" class="form-input-styled" data-fouc> --}}
-                <!-- <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span> -->
-              </div>
-            </div>
-            <hr>
-          </div>
-          <div class="form-group row">
-            <div class="col-lg-1 offset-lg-10 text-right">
-              <button type="button" class="btn btn-sm bg-danger-400 btn-float rounded-round" title="Kurangi detail pekerjaan" v-if="idx_detail != 0" v-on:click="kurang_detail(idx_detail)"><i class="fa fa-minus"></i></button>
-            </div>
-            <div class="col-lg-1">
-              <button id="tambah" v-bind:value="idx_detail" type="button" class="btn btn-sm bg-success-400 btn-float rounded-round" title="Tambah detail pekerjaan" v-on:click="tambah_detail()"><i class="fa fa-plus"></i></button>
-            </div>
-          </div>
-          {{-- <hr> --}}
-          <div class="form-group row">
-            <div class="col-lg-3 offset-lg-9 text-right">
-              <button type="submit" class="btn btn-primary">Submit form <i class="icon-paperplane ml-2"></i></button>
-            </div>
-          </div>
-          <div class="text-right">
-          </div>
-        </form>
+            <label class="col-lg-3 col-form-label">Waktu</label>
+            <div class="col-lg-4">
+            <div class="input-group">
+            <span class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-watch2"></i></span>
+          </span>
+          <input type="text" name="start_time[]" class="form-control" v-bind:id="'anytime-time-start'+indexDetail">
+        </div>
       </div>
+      <div class="col-lg-1 text-center">
+      To
     </div>
+    <div class="col-lg-4">
+    <div class="input-group">
+    <span class="input-group-prepend">
+    <span class="input-group-text"><i class="icon-watch2"></i></span>
+  </span>
+  <input type="text" name="end_time[]" class="form-control" v-bind:id="'anytime-time-end'+indexDetail">
+</div>
+</div>
+</div> -->
+<!-- <div class="form-group row">
+<label class="col-lg-3 col-form-label">Status Detail Pekerjaan</label>
+<div class="col-lg-9">
+<select name="detail_status_id[]" class="form-control" v-bind:id="'select_status'+indexDetail" data-placeholder="Pilih Status Detail Pekerjaan" required>
+@foreach($status_detail as $key=>$value)
+<option value="{{$key}}">{{$value}}</option>
+@endforeach
+</select>
+</div>
+</div> -->
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">Program</label>
+  <div class="col-lg-9">
+    <select name="progress[]" class="form-control" v-bind:id="'select_progress'+indexDetail" required data-placeholder="Pilih Program">
+      @foreach($progress_detail as $key=>$value)
+        <option value="{{$key}}">{{$value}}</option>
+      @endforeach
+
+    </select>
   </div>
-  <!-- /basic layout -->
+</div>
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">Keterangan</label>
+  <div class="col-lg-9">
+    {{Form::textarea('remark[]','',['class'=>'form-control'])}}
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">File:</label>
+  <div class="col-lg-9">
+    <input type="file" name="file[]" v-bind:id="'form-input-styled'+indexDetail">
+    {{-- {{Form::file('file[]',['class'=>'form-input-styled'])}} --}}
+    {{-- <input type="file" class="form-input-styled" data-fouc> --}}
+    <!-- <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span> -->
+  </div>
+</div>
+<hr>
+</div>
+<div class="form-group row">
+  <div class="col-lg-1 offset-lg-10 text-right">
+    <button type="button" class="btn btn-sm bg-danger-400 btn-float rounded-round" title="Kurangi detail pekerjaan" v-if="idx_detail != 0" v-on:click="kurang_detail(idx_detail)"><i class="fa fa-minus"></i></button>
+  </div>
+  <div class="col-lg-1">
+    <button id="tambah" v-bind:value="idx_detail" type="button" class="btn btn-sm bg-success-400 btn-float rounded-round" title="Tambah detail pekerjaan" v-on:click="tambah_detail()"><i class="fa fa-plus"></i></button>
+  </div>
+</div>
+{{-- <hr> --}}
+<div class="form-group row">
+  <div class="col-lg-3 offset-lg-9 text-right">
+    <button type="submit" class="btn btn-primary">Submit form <i class="icon-paperplane ml-2"></i></button>
+  </div>
+</div>
+<div class="text-right">
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- /basic layout -->
 @endsection
 @section('js_footer')
   <script>
@@ -384,7 +384,7 @@
                 confirmButtonClass: 'btn btn-primary',
                 cancelButtonClass: 'btn btn-light',
               }).then(function() {
-                  window.location = res.url;
+                window.location = res.url;
               });
             }
           });

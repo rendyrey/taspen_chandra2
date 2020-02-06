@@ -78,39 +78,39 @@
                     <a href="{{url($user->role.'/edit/'.$value->id)}}"><button class="btn btn-primary">Update</button></a>
                   @else
                     <a href="{{url($user->role.'/view/'.$value->id)}}"><button class="btn btn-primary">View</button></a>
-                    @endif
+                  @endif
 
-                  </td>
-                </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-        <!-- /ajax sourced data -->
+                </td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
       </div>
-      <!-- /content area -->
-    @endsection
-    @section('js_footer')
-      <script>
-      // AJAX sourced data
-      // Setting datatable defaults
-      $.extend( $.fn.dataTable.defaults, {
-        autoWidth: false,
-        dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-        language: {
-          search: '<span>Filter:</span> _INPUT_',
-          searchPlaceholder: 'Type to filter...',
-          lengthMenu: '<span>Show:</span> _MENU_',
-          paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
-        }
-      });
-      $('.datatable-ajax').dataTable({
-        columnDefs: [ {
-          targets  : 0,
-          orderable: false,
-          searchable:false
-        }],
-        ajax: ""
-      });
+      <!-- /ajax sourced data -->
+    </div>
+    <!-- /content area -->
+  @endsection
+  @section('js_footer')
+    <script>
+    // AJAX sourced data
+    // Setting datatable defaults
+    $.extend( $.fn.dataTable.defaults, {
+      autoWidth: false,
+      dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+      language: {
+        search: '<span>Filter:</span> _INPUT_',
+        searchPlaceholder: 'Type to filter...',
+        lengthMenu: '<span>Show:</span> _MENU_',
+        paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+      }
+    });
+    $('.datatable-ajax').dataTable({
+      columnDefs: [ {
+        targets  : 0,
+        orderable: false,
+        searchable:false
+      }],
+      ajax: ""
+    });
     </script>
   @endsection

@@ -116,7 +116,7 @@
                   confirmButtonClass: 'btn btn-primary',
                   cancelButtonClass: 'btn btn-light',
                 }).then(function() {
-                    window.location = res.url;
+                  window.location = res.url;
                 });
               }
             });

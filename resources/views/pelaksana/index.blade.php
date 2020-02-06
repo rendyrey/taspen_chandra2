@@ -77,7 +77,7 @@
                     <a href="{{url($user->role.'/edit/'.$value->id)}}"><button class="btn btn-primary">Update</button></a>
                   @else
                     <a href="{{url($user->role.'/view/'.$value->id)}}"><button class="btn btn-primary">View</button></a>
-                    @endif
+                  @endif
                 </td>
               </tr>
             @endforeach
@@ -110,5 +110,5 @@
       }],
       ajax: ""
     });
-  </script>
-@endsection
+    </script>
+  @endsection

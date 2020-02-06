@@ -28,32 +28,16 @@
 	<!-- Theme JS files -->
 	<script src="{{asset('limitless/js/app.js')}}"></script>
 	<script>
-			$(document).ready(function(){
-			  setTimeout('$(".alert").fadeOut()',4000);
-			});
-		  </script>
+	$(document).ready(function(){
+		setTimeout('$(".alert").fadeOut()',4000);
+	});
+	</script>
 	<!-- /theme JS files -->
 
 </head>
 
 <body>
 
-	<!-- Main navbar -->
-	{{-- <div class="navbar navbar-expand-md navbar-dark">
-		<div class="navbar-brand">
-			<a href="index.html" class="d-inline-block">
-				<img src="{{asset('limitless/global_assets/images/logo_light.png')}}" alt="">
-			</a>
-		</div>
-
-		<div class="d-md-none">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
-				<i class="icon-tree5"></i>
-			</button>
-		</div>
-
-	</div> --}}
-	<!-- /main navbar -->
 
 
 	<!-- Page content -->
@@ -70,13 +54,13 @@
 				<!-- Login form -->
 				<form class="login-form" action="{{route('login')}}" method="POST">
 
-						@if(Session::has('message'))
+					@if(Session::has('message'))
 						<div class="alert alert-{{Session::get('panel')}} border-0 alert-dismissible">
-						  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						  <span class="font-weight-semibold">{{Session::get('message')}}</span>
-						  {{-- Success alert preview. This alert is dismissable. --}}
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<span class="font-weight-semibold">{{Session::get('message')}}</span>
+							{{-- Success alert preview. This alert is dismissable. --}}
 						</div>
-					  @endif
+					@endif
 					{{csrf_field()}}
 					<div class="card mb-0">
 						<div class="card-body">

@@ -31,76 +31,76 @@ Route::get('profile/change-password/','ProfileController@change_password');
 Route::put('profile/change-password/update/{id}','ProfileController@change_password_update');
 
 Route::middleware(['pelaksana-kepegawaian'])->group(function(){
-    Route::prefix('pelaksana-kepegawaian')->group(function(){
-        Route::get('/dashboard','DashboardController@pelaksana');
-        Route::get('/create','PelaksanaController@create');
-        Route::post('/create','PelaksanaController@save');
-        Route::get('/edit/{id}','PelaksanaController@edit');
-        Route::get('/view/{id}','PelaksanaController@view');
-        Route::put('/update/{id}','PelaksanaController@update');
-        Route::delete('/delete/{id}','PelaksanaController@delete');
+  Route::prefix('pelaksana-kepegawaian')->group(function(){
+    Route::get('/dashboard','DashboardController@pelaksana');
+    Route::get('/create','PelaksanaController@create');
+    Route::post('/create','PelaksanaController@save');
+    Route::get('/edit/{id}','PelaksanaController@edit');
+    Route::get('/view/{id}','PelaksanaController@view');
+    Route::put('/update/{id}','PelaksanaController@update');
+    Route::delete('/delete/{id}','PelaksanaController@delete');
 
-        Route::get('/report','PelaksanaController@report');
+    Route::get('/report','PelaksanaController@report');
 
-        Route::get('get-header/{id}','PelaksanaController@getHeader');
-        Route::get('get-detail/{id}','PelaksanaController@getDetail');
-    });
+    Route::get('get-header/{id}','PelaksanaController@getHeader');
+    Route::get('get-detail/{id}','PelaksanaController@getDetail');
+  });
 });
 
 Route::middleware(['kepala-seksi-kepegawaian'])->group(function(){
-    Route::prefix('kepala-seksi-kepegawaian')->group(function(){
-        Route::get('/dashboard','DashboardController@kepala_seksi');
-        Route::get('/create','KepalaSeksiController@create');
-        Route::post('/create','KepalaSeksiController@save');
-        Route::get('/edit/{id}','KepalaSeksiController@edit');
-        Route::get('/view/{id}','KepalaSeksiController@view');
-        Route::put('/update/{id}','KepalaSeksiController@update');
-        Route::delete('/delete/{id}','KepalaSeksiController@delete');
+  Route::prefix('kepala-seksi-kepegawaian')->group(function(){
+    Route::get('/dashboard','DashboardController@kepala_seksi');
+    Route::get('/create','KepalaSeksiController@create');
+    Route::post('/create','KepalaSeksiController@save');
+    Route::get('/edit/{id}','KepalaSeksiController@edit');
+    Route::get('/view/{id}','KepalaSeksiController@view');
+    Route::put('/update/{id}','KepalaSeksiController@update');
+    Route::delete('/delete/{id}','KepalaSeksiController@delete');
 
-        Route::get('/report','KepalaSeksiController@report');
-    });
+    Route::get('/report','KepalaSeksiController@report');
+  });
 });
 
 Route::middleware(['kepala-bidang-kepegawaian'])->group(function(){
-    Route::prefix('kepala-bidang-kepegawaian')->group(function(){
-        Route::get('/dashboard','DashboardController@kepala_bidang');
-        Route::get('/create','KepalaBidangController@create');
-        Route::post('/create','KepalaBidangController@save');
-        Route::get('/edit/{id}','KepalaBidangController@edit');
-        Route::get('/view/{id}','KepalaBidangController@view');
-        Route::put('/update/{id}','KepalaBidangController@update');
-        Route::delete('/delete/{id}','KepalaBidangController@delete');
+  Route::prefix('kepala-bidang-kepegawaian')->group(function(){
+    Route::get('/dashboard','DashboardController@kepala_bidang');
+    Route::get('/create','KepalaBidangController@create');
+    Route::post('/create','KepalaBidangController@save');
+    Route::get('/edit/{id}','KepalaBidangController@edit');
+    Route::get('/view/{id}','KepalaBidangController@view');
+    Route::put('/update/{id}','KepalaBidangController@update');
+    Route::delete('/delete/{id}','KepalaBidangController@delete');
 
-        Route::get('/report','KepalaBidangController@report');
-    });
+    Route::get('/report','KepalaBidangController@report');
+  });
 });
 
 Route::middleware(['wakil-kepala-satuan-kerja'])->group(function(){
-    Route::prefix('wakil-kepala-satuan-kerja')->group(function(){
-        Route::get('/dashboard','DashboardController@wakil_kepala_cabang');
-        Route::get('/create','WakilKepalaCabangController@create');
-        Route::post('/create','WakilKepalaCabangController@save');
-        Route::get('/edit/{id}','WakilKepalaCabangController@edit');
-        Route::get('/view/{id}','WakilKepalaCabangController@view');
-        Route::put('/update/{id}','WakilKepalaCabangController@update');
-        Route::delete('/delete/{id}','WakilKepalaCabangController@delete');
+  Route::prefix('wakil-kepala-satuan-kerja')->group(function(){
+    Route::get('/dashboard','DashboardController@wakil_kepala_cabang');
+    Route::get('/create','WakilKepalaCabangController@create');
+    Route::post('/create','WakilKepalaCabangController@save');
+    Route::get('/edit/{id}','WakilKepalaCabangController@edit');
+    Route::get('/view/{id}','WakilKepalaCabangController@view');
+    Route::put('/update/{id}','WakilKepalaCabangController@update');
+    Route::delete('/delete/{id}','WakilKepalaCabangController@delete');
 
-        Route::get('/report','WakilKepalaCabangController@report');
-    });
+    Route::get('/report','WakilKepalaCabangController@report');
+  });
 });
 
 Route::middleware(['kepala-satuan-kerja'])->group(function(){
-    Route::prefix('kepala-satuan-kerja')->group(function(){
-        Route::get('/dashboard','DashboardController@kepala_cabang');
-        Route::get('/create','KepalaCabangController@create');
-        Route::post('/create','KepalaCabangController@save');
-        Route::get('/edit/{id}','KepalaCabangController@edit');
-        Route::get('/view/{id}','KepalaCabangController@view');
-        Route::put('/update/{id}','KepalaCabangController@update');
-        Route::delete('/delete/{id}','KepalaCabangController@delete');
+  Route::prefix('kepala-satuan-kerja')->group(function(){
+    Route::get('/dashboard','DashboardController@kepala_cabang');
+    Route::get('/create','KepalaCabangController@create');
+    Route::post('/create','KepalaCabangController@save');
+    Route::get('/edit/{id}','KepalaCabangController@edit');
+    Route::get('/view/{id}','KepalaCabangController@view');
+    Route::put('/update/{id}','KepalaCabangController@update');
+    Route::delete('/delete/{id}','KepalaCabangController@delete');
 
-        Route::get('/report','KepalaCabangController@report');
-    });
+    Route::get('/report','KepalaCabangController@report');
+  });
 });
 
 Route::middleware(['administrator'])->group(function(){

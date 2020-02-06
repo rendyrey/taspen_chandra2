@@ -102,189 +102,189 @@
             <label class="col-lg-3 col-form-label">Tanggal Kejadian</label>
             <div class="col-lg-9">
               {{-- <div class="input-group">
-                <span class="input-group-prepend">
-                  <span class="input-group-text"><i class="icon-calendar5"></i></span>
-                </span>
-                {{Form::text('date_task','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="date_task"'])}}
-                <input type="text" name="date_task" class="form-control pickadate" placeholder="Click to pick a date">
-              </div> --}}
-              <div class="input-group">
-										<span class="input-group-prepend">
-											<span class="input-group-text"><i class="icon-calendar22"></i></span>
-										</span>
-										<input type="text" name="date_task" class="form-control daterange-single" v-bind:value="date_task">
-									</div>
-            </div>
+              <span class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-calendar5"></i></span>
+            </span>
+            {{Form::text('date_task','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="date_task"'])}}
+            <input type="text" name="date_task" class="form-control pickadate" placeholder="Click to pick a date">
+          </div> --}}
+          <div class="input-group">
+            <span class="input-group-prepend">
+              <span class="input-group-text"><i class="icon-calendar22"></i></span>
+            </span>
+            <input type="text" name="date_task" class="form-control daterange-single" v-bind:value="date_task">
           </div>
-          <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Approval</label>
-            <div class="col-lg-9">
-              {{-- {{Form::select('user_approval_id',$user_approval,'',['class'=>'form-control','v-model="user_approval_id"'])}} --}}
-              <select name="user_approval_id" class="form-control select-search" data-placeholder="Pilih Approval">
-                @foreach($user_approval as $key=>$value)
-                  <option value="{{$key}}">{{$value}}</option>
-                @endforeach
-              </select>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Status</label>
-            <div class="col-lg-9">
-              {{Form::select('',$status_pekerjaan,1,['class'=>'form-control select-search','disabled'])}}
-              <input type="hidden" name="status_id" value="1">
-            </div>
-          </div>
-          <hr>
-
-          <h5 class="card-title">Detail Kejadian</h5>
-          <div v-for="(detail, indexDetail) in detail_pekerjaan">
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Instansi/Pangkat</label>
-              <div class="col-lg-9">
-                {{Form::text("description[]",'',['class'=>'form-control','required','v-bind:value="detail.description"'])}}
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Status Keluarga</label>
-              <div class="col-lg-9">
-                <select name="status_keluarga[]" class="form-control select-search" v-model="detail.status_keluarga" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Status Keluarga" required>
-                  @foreach($status_keluarga as $key=>$value)
-                    <option value="{{$key}}">{{$value}}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Tanggal PMK</label>
-            <div class="col-lg-9">
-              <div class="input-group">
-                <span class="input-group-prepend">
-                  <span class="input-group-text"><i class="icon-calendar5"></i></span>
-                </span>
-                {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="detail.tanggal_pmk"'])}}
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Tanggal Lapor</label>
-            <div class="col-lg-9">
-              <div class="input-group">
-                <span class="input-group-prepend">
-                  <span class="input-group-text"><i class="icon-calendar5"></i></span>
-                </span>
-                {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="detail.tanggal_lapor"'])}}
-              </div>
-            </div>
-          </div>
-
-            <!-- <div class="form-group row align-items-center ">
-              <label class="col-lg-3 col-form-label">Waktu</label>
-              <div class="col-lg-4">
-                <div class="input-group">
-                  <span class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-watch2"></i></span>
-                  </span>
-                  <input type="text" v-bind:value="detail.start_time" name="start_time[]" class="form-control" v-bind:id="'anytime-time-start'+indexDetail" required>
-                </div>
-              </div>
-              <div class="col-lg-1 text-center">
-                To
-              </div>
-              <div class="col-lg-4">
-                <div class="input-group">
-                  <span class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-watch2"></i></span>
-                  </span>
-                  <input type="text" v-bind:value="detail.end_time" name="end_time[]" class="form-control" v-bind:id="'anytime-time-end'+indexDetail" required>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Status Detail Pekerjaan</label>
-              <div class="col-lg-9">
-                <select name="detail_status_id[]" class="form-control" v-bind:id="'select_status'+indexDetail" data-placeholder="Pilih Status Detail Pekerjaan" required>
-                  @foreach($status_detail as $key=>$value)
-                    <option value="{{$key}}">{{$value}}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div> -->
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Program</label>
-              <div class="col-lg-9">
-                <select name="progress[]" v-model="detail.progress" class="form-control" v-bind:id="'select_progress'+indexDetail" required data-placeholder="Pilih Program">
-                  @foreach($progress_detail as $key=>$value)
-                    <option value="{{$key}}">{{$value}}</option>
-                  @endforeach
-
-                </select>
-              </div>
-            </div>
-
-
-
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Keterangan</label>
-              <div class="col-lg-9">
-                {{Form::textarea('remark[]','',['class'=>'form-control','v-bind:value="detail.remark"'])}}
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label">File:</label>
-              <div class="col-lg-9">
-                <input type="file" name="file[]" v-bind:id="'form-input-styled'+indexDetail">
-                {{-- {{Form::file('file[]',['class'=>'form-input-styled'])}} --}}
-                {{-- <input type="file" class="form-input-styled" data-fouc> --}}
-                <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
-              </div>
-            </div>
-            <hr>
-          </div>
-          <div class="form-group row">
-            <div class="col-lg-1 offset-lg-10 text-right">
-              <button type="button" class="btn btn-sm bg-danger-400 btn-float rounded-round" title="Kurangi detail pekerjaan" v-if="idx_detail != 0" v-on:click="kurang_detail(idx_detail)"><i class="fa fa-minus"></i></button>
-            </div>
-            <div class="col-lg-1">
-              <button id="tambah" v-bind:value="idx_detail" type="button" class="btn btn-sm bg-success-400 btn-float rounded-round" title="Tambah detail pekerjaan" v-on:click="tambah_detail()"><i class="fa fa-plus"></i></button>
-            </div>
-          </div>
-          <!-- Sirkulasi -->
-         <div class="form-group row">
-           <table class="table datatable-ajax">
-           <thead>
-             <th>No</th>
-             <th>Penerima</th>
-             <th>Contact Person</th>
-             <th>Status</th>
-             <th>Keterangan</th>
-           </thead>
-           <tbody>
-             @foreach($sirkulasi as $key=>$value)
-               <tr>
-                 <td>{{$key+1}}</td>
-                 <td>{{$value->slot->slot}}</td>
-                 <td>{{$value->user->employee->no_hp}}</td>
-                 <td>{{$value->status}}</td>
-                 <td>{{$value->remark}}</td>
-               </tr>
-             @endforeach
-           </tbody>
-           </table>
-         </div>
-          <div class="form-group row">
-            <div class="col-lg-3 offset-lg-9 text-right">
-              <button type="submit" class="btn btn-primary">Submit form <i class="icon-paperplane ml-2"></i></button>
-            </div>
-          </div>
-          <div class="text-right">
-          </div>
-        </form>
+        </div>
       </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label">Approval</label>
+        <div class="col-lg-9">
+          {{-- {{Form::select('user_approval_id',$user_approval,'',['class'=>'form-control','v-model="user_approval_id"'])}} --}}
+          <select name="user_approval_id" class="form-control select-search" data-placeholder="Pilih Approval">
+            @foreach($user_approval as $key=>$value)
+              <option value="{{$key}}">{{$value}}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-lg-3 col-form-label">Status</label>
+        <div class="col-lg-9">
+          {{Form::select('',$status_pekerjaan,1,['class'=>'form-control select-search','disabled'])}}
+          <input type="hidden" name="status_id" value="1">
+        </div>
+      </div>
+      <hr>
+
+      <h5 class="card-title">Detail Kejadian</h5>
+      <div v-for="(detail, indexDetail) in detail_pekerjaan">
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label">Instansi/Pangkat</label>
+          <div class="col-lg-9">
+            {{Form::text("description[]",'',['class'=>'form-control','required','v-bind:value="detail.description"'])}}
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label">Status Keluarga</label>
+          <div class="col-lg-9">
+            <select name="status_keluarga[]" class="form-control select-search" v-model="detail.status_keluarga" v-bind:id="'select_pekerjaan'+indexDetail" data-placeholder="Pilih Status Keluarga" required>
+              @foreach($status_keluarga as $key=>$value)
+                <option value="{{$key}}">{{$value}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label">Tanggal PMK</label>
+          <div class="col-lg-9">
+            <div class="input-group">
+              <span class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-calendar5"></i></span>
+              </span>
+              {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="detail.tanggal_pmk"'])}}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-lg-3 col-form-label">Tanggal Lapor</label>
+          <div class="col-lg-9">
+            <div class="input-group">
+              <span class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-calendar5"></i></span>
+              </span>
+              {{Form::text('tanggal_pmk[]','',['class'=>'form-control pickadate','placeholder'=>'Click to pick a date','v-bind:value="detail.tanggal_lapor"'])}}
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group row align-items-center ">
+        <label class="col-lg-3 col-form-label">Waktu</label>
+        <div class="col-lg-4">
+        <div class="input-group">
+        <span class="input-group-prepend">
+        <span class="input-group-text"><i class="icon-watch2"></i></span>
+      </span>
+      <input type="text" v-bind:value="detail.start_time" name="start_time[]" class="form-control" v-bind:id="'anytime-time-start'+indexDetail" required>
     </div>
   </div>
-  <!-- /basic layout -->
+  <div class="col-lg-1 text-center">
+  To
+</div>
+<div class="col-lg-4">
+<div class="input-group">
+<span class="input-group-prepend">
+<span class="input-group-text"><i class="icon-watch2"></i></span>
+</span>
+<input type="text" v-bind:value="detail.end_time" name="end_time[]" class="form-control" v-bind:id="'anytime-time-end'+indexDetail" required>
+</div>
+</div>
+</div> -->
+<!-- <div class="form-group row">
+<label class="col-lg-3 col-form-label">Status Detail Pekerjaan</label>
+<div class="col-lg-9">
+<select name="detail_status_id[]" class="form-control" v-bind:id="'select_status'+indexDetail" data-placeholder="Pilih Status Detail Pekerjaan" required>
+@foreach($status_detail as $key=>$value)
+<option value="{{$key}}">{{$value}}</option>
+@endforeach
+</select>
+</div>
+</div> -->
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">Program</label>
+  <div class="col-lg-9">
+    <select name="progress[]" v-model="detail.progress" class="form-control" v-bind:id="'select_progress'+indexDetail" required data-placeholder="Pilih Program">
+      @foreach($progress_detail as $key=>$value)
+        <option value="{{$key}}">{{$value}}</option>
+      @endforeach
+
+    </select>
+  </div>
+</div>
+
+
+
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">Keterangan</label>
+  <div class="col-lg-9">
+    {{Form::textarea('remark[]','',['class'=>'form-control','v-bind:value="detail.remark"'])}}
+  </div>
+</div>
+<div class="form-group row">
+  <label class="col-lg-3 col-form-label">File:</label>
+  <div class="col-lg-9">
+    <input type="file" name="file[]" v-bind:id="'form-input-styled'+indexDetail">
+    {{-- {{Form::file('file[]',['class'=>'form-input-styled'])}} --}}
+    {{-- <input type="file" class="form-input-styled" data-fouc> --}}
+    <span class="form-text text-muted">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
+  </div>
+</div>
+<hr>
+</div>
+<div class="form-group row">
+  <div class="col-lg-1 offset-lg-10 text-right">
+    <button type="button" class="btn btn-sm bg-danger-400 btn-float rounded-round" title="Kurangi detail pekerjaan" v-if="idx_detail != 0" v-on:click="kurang_detail(idx_detail)"><i class="fa fa-minus"></i></button>
+  </div>
+  <div class="col-lg-1">
+    <button id="tambah" v-bind:value="idx_detail" type="button" class="btn btn-sm bg-success-400 btn-float rounded-round" title="Tambah detail pekerjaan" v-on:click="tambah_detail()"><i class="fa fa-plus"></i></button>
+  </div>
+</div>
+<!-- Sirkulasi -->
+<div class="form-group row">
+  <table class="table datatable-ajax">
+    <thead>
+      <th>No</th>
+      <th>Penerima</th>
+      <th>Contact Person</th>
+      <th>Status</th>
+      <th>Keterangan</th>
+    </thead>
+    <tbody>
+      @foreach($sirkulasi as $key=>$value)
+        <tr>
+          <td>{{$key+1}}</td>
+          <td>{{$value->slot->slot}}</td>
+          <td>{{$value->user->employee->no_hp}}</td>
+          <td>{{$value->status}}</td>
+          <td>{{$value->remark}}</td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+<div class="form-group row">
+  <div class="col-lg-3 offset-lg-9 text-right">
+    <button type="submit" class="btn btn-primary">Submit form <i class="icon-paperplane ml-2"></i></button>
+  </div>
+</div>
+<div class="text-right">
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- /basic layout -->
 @endsection
 @section('js_footer')
   <script>
@@ -332,10 +332,10 @@
     });
 
     $('.daterange-single').daterangepicker({
-        singleDatePicker: true,
-        locale: { format: "YYYY-MM-DD" },
-        // cancelLabel:"Clear",
-        // minDate:new Date()
+      singleDatePicker: true,
+      locale: { format: "YYYY-MM-DD" },
+      // cancelLabel:"Clear",
+      // minDate:new Date()
     });
 
     $(".select-search").select2({
@@ -461,7 +461,7 @@
                 confirmButtonClass: 'btn btn-primary',
                 cancelButtonClass: 'btn btn-light',
               }).then(function() {
-                  window.location = res.url;
+                window.location = res.url;
               });
             }
           });

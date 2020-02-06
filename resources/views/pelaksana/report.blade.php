@@ -71,26 +71,26 @@
             </div>
           </div>
           {{-- <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Bidang</label>
-            <div class="col-lg-9">
-              {{Form::select('bidang_id',$bidang,null,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Bidang'])}}
+          <label class="col-lg-3 col-form-label">Bidang</label>
+          <div class="col-lg-9">
+          {{Form::select('bidang_id',$bidang,null,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Bidang'])}}
 
-            </div>
-          </div> --}}
+        </div>
+      </div> --}}
 
-          {{-- <hr> --}}
-          <div class="form-group row">
-            <div class="col-lg-3 offset-lg-9 text-right">
-              {{Form::submit('Generate Report',['class'=>'btn btn-primary'])}}
-            </div>
-          </div>
-          <div class="text-right">
-          </div>
-        </form>
+      {{-- <hr> --}}
+      <div class="form-group row">
+        <div class="col-lg-3 offset-lg-9 text-right">
+          {{Form::submit('Generate Report',['class'=>'btn btn-primary'])}}
+        </div>
       </div>
-    </div>
+      <div class="text-right">
+      </div>
+    </form>
   </div>
-  <!-- /basic layout -->
+</div>
+</div>
+<!-- /basic layout -->
 @endsection
 @section('js_footer')
   <script>

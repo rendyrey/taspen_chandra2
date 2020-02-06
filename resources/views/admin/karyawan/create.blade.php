@@ -237,7 +237,7 @@
           success:function(result){
             $("#seksi").html(result);
             $("#seksi option[value='0']").prop('disabled',true);
-            
+
           }
         });
       });

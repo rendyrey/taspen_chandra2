@@ -91,15 +91,15 @@ class KepalaBidangController extends Controller
 
   }
 
-    public function delete($id){
+  public function delete($id){
 
-    }
+  }
 
-    public function report(){
-      $data['page_menu'] = "Generate Report";
-      $data['user'] = Auth::user();
-      $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
-      $data['bidang']->prepend('','');
-      return view('kepala.report',$data);
-    }
+  public function report(){
+    $data['page_menu'] = "Generate Report";
+    $data['user'] = Auth::user();
+    $data['bidang'] = Bidang::where('active','1')->pluck('bidang','id');
+    $data['bidang']->prepend('','');
+    return view('kepala.report',$data);
+  }
 }

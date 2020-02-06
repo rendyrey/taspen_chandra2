@@ -131,60 +131,60 @@
 						<!-- Main -->
 						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main Navigation</div> <i class="icon-menu" title="Main"></i></li>
 						<!-- <li class="nav-item">
-							<a href="{{url($user->role.'/dashboard')}}" class="nav-link">
-								<i class="icon-home4"></i>
-								<span>Dashboard</span>
-							</a>
-						</li> -->
-						<li class="nav-item">
-							<a href="{{url($user->role.'/karyawan')}}" class="nav-link">
-								<i class="icon-home4"></i>
-								<span>Karyawan</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="{{url('logout')}}" class="nav-link">
-								<i class="text text-danger icon-exit"></i>
-								<span class="text text-danger">Logout</span>
-							</a>
-						</li>
-						<!-- /main -->
-					</ul>
-				</div>
-				<!-- /main navigation -->
-
-			</div>
-			<!-- /sidebar content -->
-
+						<a href="{{url($user->role.'/dashboard')}}" class="nav-link">
+						<i class="icon-home4"></i>
+						<span>Dashboard</span>
+					</a>
+				</li> -->
+				<li class="nav-item">
+					<a href="{{url($user->role.'/karyawan')}}" class="nav-link">
+						<i class="icon-home4"></i>
+						<span>Karyawan</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{url('logout')}}" class="nav-link">
+						<i class="text text-danger icon-exit"></i>
+						<span class="text text-danger">Logout</span>
+					</a>
+				</li>
+				<!-- /main -->
+			</ul>
 		</div>
-		<!-- /main sidebar -->
+		<!-- /main navigation -->
 
-		<div class="content-wrapper">
-
-
-			@yield('content')
-
-		</div>
 	</div>
-	@yield('js_footer')
-	<script>
-	$(document).ready(function () {
-		$("#spinner").hide();
-		setTimeout('$(".alert").fadeOut()',5000);
-		const loc = window.location.href;
-		// console.log(loc);
-		$(".nav a[href='"+loc+"']").parent('li').addClass('active');
-		$(".nav a[href='"+loc+"']").closest('ul').parent('li').addClass('active');
-		$(".nav a[href='"+loc+"']").addClass('active');
-		$(".nav a[href='"+loc+"']").closest('ul').css('display','block');
-		$("a[href*=http]").attr("onclick","go_tohref()");
-	});
-	function go_tohref() {
-		console.log("hi");
-		$('#spinner').show();
-		// document.getElementById("PreLoaderBar").style.display = "block";
-	}
-	</script>
+	<!-- /sidebar content -->
+
+</div>
+<!-- /main sidebar -->
+
+<div class="content-wrapper">
+
+
+	@yield('content')
+
+</div>
+</div>
+@yield('js_footer')
+<script>
+$(document).ready(function () {
+	$("#spinner").hide();
+	setTimeout('$(".alert").fadeOut()',5000);
+	const loc = window.location.href;
+	// console.log(loc);
+	$(".nav a[href='"+loc+"']").parent('li').addClass('active');
+	$(".nav a[href='"+loc+"']").closest('ul').parent('li').addClass('active');
+	$(".nav a[href='"+loc+"']").addClass('active');
+	$(".nav a[href='"+loc+"']").closest('ul').css('display','block');
+	$("a[href*=http]").attr("onclick","go_tohref()");
+});
+function go_tohref() {
+	console.log("hi");
+	$('#spinner').show();
+	// document.getElementById("PreLoaderBar").style.display = "block";
+}
+</script>
 </div>
 <!-- /page content -->
 
