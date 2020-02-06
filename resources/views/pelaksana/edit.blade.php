@@ -81,19 +81,19 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami PMK</label>
+            <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami Kejadian</label>
             <div class="col-lg-9">
               {{Form::text('nama_pegawai_pmk','',['class'=>'form-control','v-bind:value="nama_pegawai_pmk"'])}}
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami PMK</label>
+            <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami Kejadian</label>
             <div class="col-lg-9">
               {{Form::text('nip','',['class'=>'form-control','v-bind:value="nip"'])}}
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Deskripsi</label>
+            <label class="col-lg-3 col-form-label">Kronologi Kejadian</label>
             <div class="col-lg-9">
               {{Form::textarea('description_header','',['class'=>'form-control','v-bind:value="description_header"'])}}
             </div>
@@ -212,9 +212,9 @@
               </div>
             </div> -->
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Progress</label>
+              <label class="col-lg-3 col-form-label">Program</label>
               <div class="col-lg-9">
-                <select name="progress[]" v-model="detail.progress" class="form-control" v-bind:id="'select_progress'+indexDetail" required data-placeholder="Pilih Progress">
+                <select name="progress[]" v-model="detail.progress" class="form-control" v-bind:id="'select_progress'+indexDetail" required data-placeholder="Pilih Program">
                   @foreach($progress_detail as $key=>$value)
                     <option value="{{$key}}">{{$value}}</option>
                   @endforeach
@@ -255,8 +255,8 @@
            <table class="table datatable-ajax">
            <thead>
              <th>No</th>
-             <th>Slot</th>
-             <th>Email</th>
+             <th>Penerima</th>
+             <th>Contact Person</th>
              <th>Status</th>
              <th>Keterangan</th>
            </thead>
@@ -265,7 +265,7 @@
                <tr>
                  <td>{{$key+1}}</td>
                  <td>{{$value->slot->slot}}</td>
-                 <td>{{$value->user->email}}</td>
+                 <td>{{$value->user->employee->no_hp}}</td>
                  <td>{{$value->status}}</td>
                  <td>{{$value->remark}}</td>
                </tr>

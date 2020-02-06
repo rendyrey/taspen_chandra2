@@ -31,7 +31,7 @@
       <!-- Ajax sourced data -->
       <div class="card">
         <div class="card-header header-elements-inline">
-          <h5 class="card-title">Data {{$login->employee->position->slot}}</h5>
+          <h5 class="card-title">Data Kejadian</h5>
           <div class="header-elements">
             <div class="list-icons">
               <a class="list-icons-item" data-action="collapse"></a>
@@ -51,9 +51,9 @@
             <tr>
               <th>No</th>
               {{-- <th>Task Title</th> --}}
-              <th>Tanggal PMK</th>
-              <th>Pelaksana </th>
-              <th>Nama Pegawai PMK</th>
+              <th>Tanggal Kejadian</th>
+              <th>Pelapor</th>
+              <th>Pegawai Mengalami Kejadian</th>
               <th>Bidang</th>
               <th>KCU</th>
               <th>Status</th>

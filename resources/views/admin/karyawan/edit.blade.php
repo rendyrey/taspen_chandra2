@@ -107,6 +107,12 @@
             </div>
           </div>
           <div class="form-group row">
+            <label class="col-lg-3 col-form-label">No HP</label>
+            <div class="col-lg-9">
+              {{Form::text('no_hp',$karyawan->no_hp,['class'=>'form-control','placeholder'=>'No HP','required'])}}
+            </div>
+          </div>
+          <div class="form-group row">
             <label class="col-lg-3 col-form-label"></label>
             <div class="col-lg-9">
               {{Form::button('Reset Password',['v-on:click="reset_password"','value'=>'Reset','class'=>'btn btn-danger'])}}

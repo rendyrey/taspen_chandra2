@@ -14,18 +14,6 @@ use App\Bidang;
 use Auth;
 use DB;
 
-// Seekor kera terpuruk terpenjara dalam gua
-// Di gunung tinggi sunyi tempat hukuman para dewa
-// Bertindak sesuka hati loncat ke sana kesini
-// Hiraukan semua masalah di muka bumi ini
-// Dengan sehelai bulu dan rambut dari tubuhnya
-// Dia merubah, menerpa, menerjang segala apa yang ada
-// Walau halangan rintangan semakin panjang membentang
-// Tak jadi masalah dan tak kan jadi beban pikiran
-// Berkelana setiap hari demi mendapat kitab suci
-// Dengan dukungan dari gurunya temukan jati diri
-// Semua kan dihadapi dengan gagah berani
-// Walau aral rintangan setiap saat datang tuk menguji
 
 class KaryawanController extends Controller
 {
@@ -104,6 +92,7 @@ class KaryawanController extends Controller
     try{
       $employee = new Employee();
       $employee->employee_name = $request->employee_name;
+      $employee->no_hp = $request->no_hp;
       $employee->nik = $request->nik;
       $employee->position_id = $request->position_id;
       $employee->seksi_id = $request->seksi_id ? $request->seksi_id:0;
@@ -167,6 +156,7 @@ class KaryawanController extends Controller
     try{
       $employee = Employee::findOrFail($id);
       $employee->employee_name = $request->employee_name;
+      $employee->no_hp = $request->no_hp;
       $employee->nik = $request->nik;
       $employee->position_id = $request->position_id;
       $employee->seksi_id = $request->seksi_id ? $request->seksi_id:0;

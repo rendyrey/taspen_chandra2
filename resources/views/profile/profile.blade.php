@@ -73,6 +73,12 @@
               {{Form::email('email',$user_account->email,['class'=>'form-control','placeholder'=>'E-mail'])}}
             </div>
           </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label">No HP</label>
+            <div class="col-lg-9">
+              {{Form::text('no_hp',$karyawan->no_hp,['class'=>'form-control','placeholder'=>'No HP','required'])}}
+            </div>
+          </div>
           <div class="text-right">
             <button type="submit" class="btn btn-primary">Change Profile <i class="icon-paperplane ml-2"></i></button>
           </div>

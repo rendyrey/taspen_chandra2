@@ -35,6 +35,7 @@ class ProfileController extends Controller
       try{
         $employee = Employee::findOrFail($id);
         $employee->employee_name = $request->employee_name;
+        $employee->no_hp = $request->no_hp;
         $employee->save();
 
         $user = User::where('employee_id',$id)->first();

@@ -79,19 +79,19 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami PMK</label>
+            <label class="col-lg-3 col-form-label">Nama Pegawai Mengalami Kejadian</label>
             <div class="col-lg-9">
               {{Form::text('nama_pegawai_pmk','',['class'=>'form-control'])}}
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami PMK</label>
+            <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami Kejadian</label>
             <div class="col-lg-9">
               {{Form::text('nip','',['class'=>'form-control'])}}
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Deskripsi</label>
+            <label class="col-lg-3 col-form-label">Kronologi Kejadian</label>
             <div class="col-lg-9">
               {{Form::textarea('description_header','',['class'=>'form-control'])}}
             </div>
@@ -198,9 +198,9 @@
               </div>
             </div> -->
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Progress</label>
+              <label class="col-lg-3 col-form-label">Program</label>
               <div class="col-lg-9">
-                <select name="progress[]" class="form-control" v-bind:id="'select_progress'+indexDetail" required data-placeholder="Pilih Progress">
+                <select name="progress[]" class="form-control" v-bind:id="'select_progress'+indexDetail" required data-placeholder="Pilih Program">
                   @foreach($progress_detail as $key=>$value)
                     <option value="{{$key}}">{{$value}}</option>
                   @endforeach

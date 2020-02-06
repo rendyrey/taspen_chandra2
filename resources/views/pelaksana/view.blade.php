@@ -39,7 +39,7 @@
       <!-- Basic layout-->
       <div class="card">
         <div class="card-header header-elements-inline">
-          <h5 class="card-title">Data Pelaksana</h5>
+          <h5 class="card-title">Data Kejadian</h5>
           <div class="header-elements">
             <div class="list-icons">
               <a class="list-icons-item" data-action="collapse"></a>
@@ -87,13 +87,13 @@
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami PMK</label>
+            <label class="col-lg-3 col-form-label">NIP Pegawai Mengalami Kejadian</label>
             <div class="col-lg-9">
               {{Form::text('nip',$task_header->nip,['class'=>'form-control','readonly'])}}
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Deskripsi</label>
+            <label class="col-lg-3 col-form-label">Kronologi Kejadian</label>
             <div class="col-lg-9">
               {{Form::textarea('Deskripsi',$task_header->description,['class'=>'form-control','readonly'])}}
             </div>
@@ -187,7 +187,7 @@
         </div> -->
 
         <div class="form-group row">
-          <label class="col-lg-3 col-form-label">Progress</label>
+          <label class="col-lg-3 col-form-label">Program</label>
           <div class="col-lg-9">
             {{Form::text('progress[]',$value->progress($value->progress)->description,['class'=>'form-control','readonly'])}}
           </div>
@@ -233,8 +233,8 @@
         <table class="table datatable-ajax">
         <thead>
           <th>No</th>
-          <th>Slot</th>
-          <th>Username</th>
+          <th>Penerima</th>
+          <th>Contact Person</th>
           <th>Status</th>
           <th>Keterangan</th>
         </thead>
@@ -243,7 +243,7 @@
             <tr>
               <td>{{$key+1}}</td>
               <td>{{$value->slot->slot}}</td>
-              <td>{{$value->user->username}}</td>
+              <td>{{$value->user->employee->no_hp}}</td>
               <td>{{$value->status}}</td>
               <td>{{$value->remark}}</td>
             </tr>

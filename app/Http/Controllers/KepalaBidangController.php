@@ -44,6 +44,7 @@ class KepalaBidangController extends Controller
     $data['last_sirkulasi'] = $sirkulasi;
     $slot_aktif = $sirkulasi->slot_id;
     $data['sirkulasi'] = Sirkulasi::where('task_header_id',$id)->get();
+    // dd($slot_aktif);
     // check apakah kepala seksi berhak untuk edit atau tidak
     if($slot_aktif != $user->employee->position_id){
       return redirect('kepala-bidang-kepegawaian/dashboard');

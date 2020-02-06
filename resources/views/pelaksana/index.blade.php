@@ -30,7 +30,7 @@
       <!-- Ajax sourced data -->
       <div class="card">
         <div class="card-header header-elements-inline">
-          <h5 class="card-title">Data Kejadian - Pelaksana</h5>
+          <h5 class="card-title">Data Kejadian - Pelapor</h5>
           <div class="header-elements">
             <div class="list-icons">
               <a class="list-icons-item" data-action="collapse"></a>
@@ -51,8 +51,8 @@
               <th>No</th>
               {{-- <th>Task Title</th> --}}
               <th>Tanggal Kejadian</th>
-              <th>Pelaksana</th>
-              <th>Name Pegawai PMK</th>
+              <th>Pelapor</th>
+              <th>Pegawai Mengalami Kejadian</th>
               <th>Bidang</th>
               <th>KCU</th>
               <th>Status</th>
