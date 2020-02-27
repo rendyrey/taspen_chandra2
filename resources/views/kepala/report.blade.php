@@ -72,7 +72,7 @@
           </div>
           @if($user->role == 'kepala-satuan-kerja' || $user->role == 'wakil-kepala-satuan-kerja')
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label">Bidang XXX</label>
+              <label class="col-lg-3 col-form-label">Bidang</label>
               <div class="col-lg-9">
                 {{Form::select('bidang_id',$bidang,null,['class'=>'form-control select-search data-fouc','data-placeholder'=>'Pilih Bidang'])}}
               </div>
