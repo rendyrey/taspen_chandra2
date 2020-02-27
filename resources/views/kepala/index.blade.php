@@ -51,14 +51,14 @@
             <tr>
               <th>No</th>
               {{-- <th>Task Title</th> --}}
-              <th>Tanggal Kejadiansss</th>
+              <th>Tanggal Kejadian</th>
               <th>Pelaporsss</th>
-              <th>Pegawai Mengalami Kejadiansss</th>
-              <th>Bidangsss</th>
-              <th>KCUsss</th>
-              <th>Statussss</th>
-              <th>Progresssss</th>
-              <th>Actionsss</th>
+              <th>Pegawai Mengalami Kematian</th>
+              <th>Bidang</th>
+              <th>KCU</th>
+              <th>Statu</th>
+              <th>Progre</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
