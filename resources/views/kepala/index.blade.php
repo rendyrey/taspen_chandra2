@@ -53,7 +53,7 @@
               {{-- <th>Task Title</th> --}}
               <th>Tanggal Kejadian</th>
               <th>Pelaporsss</th>
-              <th>Pegawai Mengalami Kejadian</th>
+              <th>Pegawai Mengalami Kematian</th>
               <th>Bidang</th>
               <th>KCU</th>
               <th>Statu</th>
