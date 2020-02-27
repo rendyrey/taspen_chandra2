@@ -48,6 +48,7 @@
           <thead>
             <tr>
               <th>No</th>
+              
               <th>Nama</th>
               <th>Posisi</th>
               <th>Cabang</th>
