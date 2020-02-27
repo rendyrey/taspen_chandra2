@@ -50,12 +50,19 @@
               <th>No</th>
               
               <th>Nama</th>
+              
               <th>Posisi</th>
+              
               <th>Cabang</th>
+              
               <th>KCU</th>
+              
               <th>Seksi</th>
+              
               <th>Bidang</th>
+              
               <th>Status</th>
+              
               <th>Action</th>
             </tr>
           </thead>
